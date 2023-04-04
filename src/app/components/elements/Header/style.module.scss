@@ -1,0 +1,28 @@
+.Header a {
+    color: white;
+}
+
+.vstuIcon {
+    max-width: 150px;
+}
+
+.box {
+    justify-content: center;
+}
+.Link {
+    width: min-content;
+    height: min-content;
+    display: block;
+}
+.Header a.active {
+    background: black;
+}
+.Header a.active button {
+    color: black;
+}
+
+@media screen and (max-width: 900px) {
+    .vstuIcon {
+        display: none;
+    }
+}
