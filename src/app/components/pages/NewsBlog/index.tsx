@@ -4,7 +4,7 @@ import { memo, useEffect, useState } from 'react'
 import { INewsCardItem } from '../../../types/NewsCardItem'
 import { Grid } from '../../elements/blocks/Grid'
 import { NewsCardItem } from '../../elements/blocks/NewsCardItem'
-import { NewsCardSkeleton } from '../../elements/blocks/NewsCardSkeleton'
+import { NewsCardSkeleton } from '../../../UI/NewsCardSekelton'
 import { SearchFilter } from '../../elements/blocks/SearchFilter'
 import style from './NewsBlog.module.scss'
 
