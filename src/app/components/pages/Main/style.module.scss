@@ -1,1 +1,58 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap');
+$color-w: white;
+.Main {
+    overflow: hidden;
+    z-index: 1;
+    position: relative;
+}
+
+.VideoFilter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.VideoFilter {
+    div {
+        display: flex;
+        flex-direction: column;
+        text-transform: uppercase;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-family: Montserrat;
+
+        h1 {
+            font-size: 62px;
+            display: inline-block;
+            max-width: max-content;
+            background: rgb(4, 12, 59);
+            color: $color-w;
+        }
+
+        h4 {
+            margin: 50px 0;
+            font-size: 40px;
+            color: $color-w;
+        }
+
+        .Faculty {
+            color: $color-w;
+            font-size: 30px;
+        }
+
+        .Info {
+            font-size: 24px;
+            color: $color-w;
+            margin: 50px 0;
+            text-transform: none;
+            font-weight: 300;
+        }
+    }
+}

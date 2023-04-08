@@ -16,6 +16,7 @@ import uuid from 'react-uuid'
 
 import vstu from '../../../assets/images/VSTU.png'
 import { useToggleActiveMUI } from '../../../hooks/useToggleActiveMUI'
+import { HeightHelperHeight } from '../../../utils/HeightHelper'
 import { pageList } from './pageList'
 import style from './style.module.scss'
 import './style.scss'
@@ -23,8 +24,16 @@ import './style.scss'
 export const Header = () => {
     const [isActive, handleOpenNavMenu, handleCloseNavMenu] = useToggleActiveMUI()
 
+    const ref = useRef<HTMLElement>(null)
+
+    useEffect(() => {
+        if (ref.current) {
+            HeightHelperHeight.setHeight(ref.current.offsetHeight)
+        }
+    }, [ref])
+
     return (
-        <section className="Header">
+        <section ref={ref} className="Header">
             <AppBar
                 sx={{ background: 'rgba(16, 6, 159, 1)' }}
                 className={style.Header}
