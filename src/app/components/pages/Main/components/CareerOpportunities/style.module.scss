@@ -1,0 +1,74 @@
+@import '@variables';
+
+.Career {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-gap: 40px 50px;
+    font-family: Montserrat;
+    @include mr-t-b;
+    @include pd-t-b;
+
+    h2 {
+        text-align: center;
+        @include font-42;
+        margin-bottom: 40px;
+    }
+
+    h4 {
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+
+    h2,
+    button {
+        grid-column: 1/4;
+    }
+
+    > div {
+        line-height: 1.5;
+        li,
+        p {
+            font-size: 18px;
+            position: relative;
+        }
+    }
+    li::before {
+        content: '';
+        display: inline-block;
+        width: 10px;
+        height: 1px;
+        background: black;
+        margin-right: 5px;
+        margin-bottom: 4px;
+    }
+
+    .btn {
+        display: flex;
+        background: $main-blue;
+        max-width: 1000px;
+        width: 100%;
+        justify-self: center;
+        height: 80px;
+        border-radius: 30px;
+        font-size: 26px;
+        font-weight: bold;
+        color: $color-w;
+        border: none;
+        text-transform: uppercase;
+        grid-column: 1/4;
+        align-items: center;
+        justify-content: center;
+        margin-top: 40px;
+        a {
+            color: $color-w;
+        }
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .Career {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}

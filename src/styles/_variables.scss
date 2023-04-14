@@ -1,2 +1,41 @@
 $color-w: white;
-$background:yellow;
+$main-blue: rgba(16, 6, 159, 1);
+$header-link-color: white;
+$border: 1px solid black;
+
+$mr-pd: 50px;
+
+@mixin border {
+    border-bottom: $border;
+    border-top: $border;
+}
+
+@mixin mr-t-b {
+    margin-top: $mr-pd;
+    margin-bottom: $mr-pd;
+}
+
+@mixin pd-t-b {
+    padding-top: $mr-pd;
+    padding-bottom: $mr-pd;
+}
+
+@mixin font-20 {
+    font-size: 20px;
+    font-family: Montserrat;
+}
+
+@mixin font-30 {
+    font-size: 30px;
+    font-family: Montserrat;
+}
+
+@mixin font-42 {
+    font-size: 42px;
+    font-family: Montserrat;
+}
+
+@mixin font-64 {
+    font-size: 64px;
+    font-family: Montserrat;
+}

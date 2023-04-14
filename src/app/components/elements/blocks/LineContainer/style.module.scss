@@ -1,0 +1,8 @@
+$border-line-style: 2px solid black;
+
+.LineContainer {
+    margin: 20px 0;
+    border-bottom: $border-line-style;
+    border-top: $border-line-style;
+    padding: 40px 0;
+}

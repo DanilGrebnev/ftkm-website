@@ -1,5 +1,13 @@
-.Header a {
-    color: white;
+@import '@variables';
+
+.Header {
+    background: $main-blue !important;
+}
+
+.Header {
+    a {
+        color: $header-link-color;
+    }
 }
 
 .vstuIcon {
@@ -9,16 +17,9 @@
 .box {
     justify-content: center;
 }
+
 .Link {
-    width: min-content;
-    height: min-content;
     display: block;
-}
-.Header a.active {
-    background: black;
-}
-.Header a.active button {
-    color: black;
 }
 
 @media screen and (max-width: 900px) {

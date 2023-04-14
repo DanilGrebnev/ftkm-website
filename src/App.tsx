@@ -1,9 +1,9 @@
+import { Header } from '@components/elements/Header'
+import { Main } from '@components/pages/Main'
+import { NewsBlog } from '@components/pages/NewsBlog'
 import { Route, Routes } from 'react-router-dom'
 
 import './App.scss'
-import { Header } from './app/components/elements/Header'
-import { Main } from './app/components/pages/Main'
-import { NewsBlog } from './app/components/pages/NewsBlog'
 
 const App = () => {
     return (

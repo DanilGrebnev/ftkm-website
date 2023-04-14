@@ -1,19 +1,29 @@
+/*
+Высчитывает высоту блока с видео, 
+отнимая высоту header от высотка рабочей области экрана пользователя
+*/
 class HeightHelper {
-    private height: number
+    private _height: number
 
     constructor() {
-        this.height = 0
+        this._height = 0
     }
 
-    public setHeight(componentHeight: number): void {
-        if (componentHeight) {
-            this.height = window.innerHeight - componentHeight
+    public set height(number: number) {
+        try {
+            if (Number.isFinite(number)) {
+                this._height = window.innerHeight - number
+            } else {
+                throw new Error('Ошибка. Свойство Heigth может быть только числом')
+            }
+        } catch (err) {
+            console.error(err)
         }
     }
 
-    public getHeight(): number {
-        return this.height
+    public get height(): number {
+        return this._height
     }
 }
 
-export const HeightHelperHeight = new HeightHelper()
+export const HeightCalcHelper = new HeightHelper()

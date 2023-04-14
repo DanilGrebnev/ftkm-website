@@ -1,0 +1,47 @@
+@import '@variables';
+
+.LineContainer {
+    @include mr-t-b;
+}
+
+.CardList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    font-family: Montserrat;
+    gap: 20px;
+
+    a {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        max-width: fit-content;
+        img {
+            height: 75px;
+            width: 82px;
+        }
+    }
+    p {
+        line-height: 1;
+        font-size: 20px;
+        max-width: 200px;
+    }
+    a:nth-child(4) {
+        p {
+            font-size: 16px;
+            span {
+                display: inline-block;
+                margin-top: 10px;
+                font-weight: bold;
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1306px) {
+    .CardList {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+        justify-items: center;
+    }
+}

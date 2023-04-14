@@ -1,0 +1,51 @@
+@import '@variables';
+
+.Admission {
+    @include border;
+    @include mr-t-b;
+    @include pd-t-b;
+
+    line-height: 1.5;
+
+    h2 {
+        @include font-42;
+        margin-bottom: 100px;
+        text-align: center;
+        grid-column: 1/4;
+    }
+
+    .circle {
+        @include font-64;
+        background: $main-blue;
+        color: $color-w;
+        width: 150px;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        font-weight: bold;
+    }
+
+    .circle ~ p {
+        @include font-30;
+        font-weight: 600;
+        margin-top: 40px;
+    }
+
+    .circle ~ span {
+        @include font-20;
+        margin-top: 50px;
+    }
+}
+
+.Admission > div {
+    max-width: 320px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-items: center;
+    justify-self: center;
+}

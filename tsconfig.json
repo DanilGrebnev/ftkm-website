@@ -1,6 +1,5 @@
 {
     "compilerOptions": {
-        
         "target": "es5",
         "lib": ["dom", "dom.iterable", "esnext"],
         "allowJs": true,
@@ -8,7 +7,6 @@
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
         "strict": true,
-        
         "forceConsistentCasingInFileNames": true,
         "noFallthroughCasesInSwitch": true,
         "module": "esnext",
@@ -16,7 +14,18 @@
         "resolveJsonModule": true,
         "isolatedModules": true,
         "noEmit": true,
-        "jsx": "react-jsx"
+        "jsx": "react-jsx",
+        "baseUrl": "./src",
+        "paths": {
+            "@variables/*": ["./styles/_variables.scss"],
+            "@utils/*": ["./app/utils/*"],
+            "@components/*": ["./app/components/*"],
+            "@types/*": ["./app/types/*"],
+            "@images/*": ["./app/assets/images/*"],
+            "@hooks/*": ["./app/hooks/*"],
+            "@video/*": ["./app.assets/videos/*"]
+        }
     },
-    "include": ["src/**/*"]
+
+    "include": ["src/**/*", "alias.config.js"]
 }

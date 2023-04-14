@@ -1,22 +1,18 @@
+import { setPropsStyle } from '@utils/SetPropsStyleHelper'
 import React from 'react'
 
-import style from './style.module.scss'
-
-interface IGridProps {
-    style?: {
-        [stylName: string]: string
-    }
-    children?: JSX.Element[] | JSX.Element
-
-    onClick?: (e: React.MouseEvent<HTMLElement>, ...params: any) => void
-
-    className?: string
-}
+import { IGridProps } from '../../../../types/Grid'
+import styleSCSS from './style.module.scss'
 
 export const Grid = React.memo((props: IGridProps) => {
+    const { children, style, className } = props
+
     return (
-        <div {...props}>
-            <>{props.children}</>
-        </div>
+        <section
+            className={`Grid ${className} ${styleSCSS.Grid}`}
+            style={{ ...style, ...setPropsStyle(props) }}
+        >
+            <>{children}</>
+        </section>
     )
 })

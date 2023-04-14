@@ -1,3 +1,5 @@
+import { useToggleActiveMUI } from '@hooks/useToggleActiveMUI'
+import vstu from '@images/VSTU.png'
 import MenuIcon from '@mui/icons-material/Menu'
 import {
     AppBar,
@@ -10,13 +12,11 @@ import {
     Toolbar,
     Typography,
 } from '@mui/material'
+import { HeightCalcHelper } from '@utils/HeightHelper'
 import { useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 import uuid from 'react-uuid'
 
-import vstu from '../../../assets/images/VSTU.png'
-import { useToggleActiveMUI } from '../../../hooks/useToggleActiveMUI'
-import { HeightHelperHeight } from '../../../utils/HeightHelper'
 import { pageList } from './pageList'
 import style from './style.module.scss'
 import './style.scss'
@@ -28,17 +28,13 @@ export const Header = () => {
 
     useEffect(() => {
         if (ref.current) {
-            HeightHelperHeight.setHeight(ref.current.offsetHeight)
+            HeightCalcHelper.height = ref.current.offsetHeight
         }
     }, [ref])
 
     return (
         <section ref={ref} className="Header">
-            <AppBar
-                sx={{ background: 'rgba(16, 6, 159, 1)' }}
-                className={style.Header}
-                position="sticky"
-            >
+            <AppBar className={style.Header} position="sticky">
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
                         <img className={style.vstuIcon} alt="vstu" src={vstu} />

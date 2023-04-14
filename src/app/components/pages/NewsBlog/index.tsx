@@ -1,11 +1,11 @@
+import { Grid } from '@components/elements/blocks/Grid'
+import { NewsCardItem } from '@components/elements/blocks/NewsCardItem'
+import { SearchFilter } from '@components/elements/blocks/SearchFilter'
 import { Container } from '@mui/material'
 import { memo, useEffect, useState } from 'react'
 
-import { INewsCardItem } from '../../../types/NewsCardItem'
-import { Grid } from '../../elements/blocks/Grid'
-import { NewsCardItem } from '../../elements/blocks/NewsCardItem'
 import { NewsCardSkeleton } from '../../../UI/NewsCardSekelton'
-import { SearchFilter } from '../../elements/blocks/SearchFilter'
+import { INewsCardItem } from '../../../types/NewsCardItem'
 import style from './NewsBlog.module.scss'
 
 const NewsBlog = memo(() => {
