@@ -1,0 +1,24 @@
+@import '@variables';
+
+.EquipmentGallery {
+    grid-template-columns: repeat(3, auto);
+    column-gap: 50px;
+    justify-content: center;
+
+    img {
+        display: block;
+
+        height: 360px;
+        border: 1px solid black;
+        margin-bottom: 20px;
+    }
+
+    p {
+        @include font-18;
+        font-weight: bold;
+    }
+}
+
+.EquipmentGallery > div {
+    width: 360px;
+}

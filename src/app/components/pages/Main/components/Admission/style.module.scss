@@ -16,8 +16,9 @@
 
     .circle {
         @include font-64;
-        background: $main-blue;
+
         color: $color-w;
+        background: $main-blue;
         width: 150px;
         height: 150px;
         display: flex;
@@ -35,7 +36,7 @@
 
     .circle ~ span {
         @include font-20;
-        margin-top: 50px;
+        margin-top: 20px;
     }
 }
 

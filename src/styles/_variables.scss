@@ -2,8 +2,10 @@ $color-w: white;
 $main-blue: rgba(16, 6, 159, 1);
 $header-link-color: white;
 $border: 1px solid black;
-
+$footer-bg: #e0e0e0;
 $mr-pd: 50px;
+$pt: 20px;
+$pb: 20px;
 
 @mixin border {
     border-bottom: $border;
@@ -16,8 +18,18 @@ $mr-pd: 50px;
 }
 
 @mixin pd-t-b {
-    padding-top: $mr-pd;
-    padding-bottom: $mr-pd;
+    padding-top: $pt;
+    padding-bottom: $pb;
+}
+
+@mixin font-12 {
+    font-size: 12px;
+    font-family: Montserrat;
+}
+
+@mixin font-18 {
+    font-size: 18px;
+    font-family: Montserrat;
 }
 
 @mixin font-20 {

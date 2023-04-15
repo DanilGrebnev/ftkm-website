@@ -16,7 +16,7 @@ export const Admission = () => {
             </div>
             <div>
                 <div className={s.circle}>118</div>
-                <p>проходной бал</p>
+                <p>Проходной бал</p>
                 <span>на 2023 год</span>
             </div>
             <div>
