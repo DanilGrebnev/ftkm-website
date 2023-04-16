@@ -1,4 +1,4 @@
-import { Grid } from '@components/elements/blocks/Grid'
+import { Grid } from '@components/containers/Grid'
 import Button from '@mui/material/Button'
 
 import style from './style.module.scss'

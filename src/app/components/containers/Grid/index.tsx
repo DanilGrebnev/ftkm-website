@@ -1,7 +1,7 @@
 import { setPropsStyle } from '@utils/SetPropsStyleHelper'
 import React from 'react'
 
-import { IGridProps } from '../../../../types/Grid'
+import { IGridProps } from '../../../types/Grid'
 import styleSCSS from './style.module.scss'
 
 export const Grid = React.memo((props: IGridProps) => {

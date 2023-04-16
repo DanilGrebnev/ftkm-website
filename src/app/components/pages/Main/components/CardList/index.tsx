@@ -1,4 +1,4 @@
-import { LineContainer } from '@components/elements/blocks/LineContainer'
+import { LineContainer } from '@components/containers/LineContainer'
 
 import { CardItem } from './CardListItem'
 import style from './style.module.scss'

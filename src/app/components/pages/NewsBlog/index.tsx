@@ -1,6 +1,6 @@
-import { Grid } from '@components/elements/blocks/Grid'
-import { NewsCardItem } from '@components/elements/blocks/NewsCardItem'
-import { SearchFilter } from '@components/elements/blocks/SearchFilter'
+import { NewsCardItem } from '@components/Smart/NewsCardItem'
+import { Grid } from '@components/containers/Grid'
+import { SearchFilter } from '@components/Smart/SearchFilter'
 import { Container } from '@mui/material'
 import { memo, useEffect, useState } from 'react'
 

@@ -1,4 +1,4 @@
-import { Grid } from '@components/elements/blocks/Grid'
+import { Grid } from '@components/containers/Grid'
 import logo from '@images/Logo_vstu.png'
 
 import style from './style.module.scss'

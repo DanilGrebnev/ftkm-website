@@ -1,13 +1,14 @@
 @import '@variables';
 
 .EquipmentGallery {
-    grid-template-columns: repeat(3, auto);
-    column-gap: 50px;
-    justify-content: center;
+    display: flex !important;
+    justify-content: space-between;
+    flex-wrap: wrap;
 
     img {
         display: block;
-
+        max-width: 360px;
+        width: 100%;
         height: 360px;
         border: 1px solid black;
         margin-bottom: 20px;
@@ -17,8 +18,4 @@
         @include font-18;
         font-weight: bold;
     }
-}
-
-.EquipmentGallery > div {
-    width: 360px;
 }

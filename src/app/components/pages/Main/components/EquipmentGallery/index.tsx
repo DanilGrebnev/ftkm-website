@@ -1,10 +1,10 @@
-import { Grid } from '@components/elements/blocks/Grid'
+import { Container } from '@mui/material'
 
 import style from './style.module.scss'
 
 export const EquipmentGallery = () => {
     return (
-        <Grid className={style.EquipmentGallery}>
+        <Container maxWidth="xl" className={style.EquipmentGallery}>
             <div>
                 <img alt="Оборудование" />
                 <p>Современное сварочное оборудование</p>
@@ -17,6 +17,6 @@ export const EquipmentGallery = () => {
                 <img alt="Исследовательсоке оборудование" />
                 <p>Уникальное исследовательское оборудование</p>
             </div>
-        </Grid>
+        </Container>
     )
 }

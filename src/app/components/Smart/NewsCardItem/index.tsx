@@ -5,7 +5,7 @@ import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
 import { memo } from 'react'
 
-import { INewsCardItem } from '../../../../types/NewsCardItem'
+import { INewsCardItem } from '../../../types/NewsCardItem'
 
 export const NewsCardItem = memo((props: INewsCardItem) => {
     return (
