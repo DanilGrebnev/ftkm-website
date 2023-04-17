@@ -1,5 +1,6 @@
 import { useToggleActiveMUI } from '@hooks/useToggleActiveMUI'
 import vstu from '@images/VSTU.png'
+import { HeightCalcHelper } from '@lib/HeightHelper'
 import MenuIcon from '@mui/icons-material/Menu'
 import {
     AppBar,
@@ -12,7 +13,6 @@ import {
     Toolbar,
     Typography,
 } from '@mui/material'
-import { HeightCalcHelper } from '@utils/HeightHelper'
 import { useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 import uuid from 'react-uuid'

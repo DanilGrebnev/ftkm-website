@@ -1,5 +1,5 @@
-import { HeightCalcHelper } from '@utils/HeightHelper'
 import bgVideo from '@video/metallurgy.mp4'
+import { HeightCalcHelper } from 'app/lib/HeightHelper'
 import { useEffect, useState } from 'react'
 
 import style from './style.module.scss'
