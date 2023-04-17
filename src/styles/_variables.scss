@@ -37,6 +37,11 @@ $pb: 20px;
     font-family: Montserrat;
 }
 
+@mixin font-26 {
+    font-size: 26px;
+    font-family: Montserrat;
+}
+
 @mixin font-30 {
     font-size: 30px;
     font-family: Montserrat;

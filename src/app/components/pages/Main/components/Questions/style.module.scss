@@ -1,0 +1,20 @@
+@import '@variables';
+
+.Questions {
+}
+.button {
+    border-radius: 30px !important;
+    border-color: black !important;
+    border-width: 2px !important;
+
+    a {
+        @include font-26;
+        color: black;
+    }
+}
+
+.LineContainer {
+    margin: 0 auto;
+    display: flex !important;
+    justify-content: center !important;
+}
