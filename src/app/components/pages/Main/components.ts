@@ -1,6 +1,3 @@
-import { InfoVideo } from './components/InfoVideo/index'
-import { Questions } from './components/Questions/index'
-
 export { Admission } from './components/Admission'
 export { CardList } from './components/CardList'
 export { CareerOpportunities } from './components/CareerOpportunities'
