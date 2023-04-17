@@ -1,4 +1,4 @@
-import { setPropsStyle } from '@utils/SetPropsStyleHelper'
+import { setPropsStyle } from 'app/lib/SetPropsStyleHelper'
 import React from 'react'
 
 import { IGridProps } from '../../../types/Grid'

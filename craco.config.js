@@ -9,7 +9,7 @@ module.exports = {
                 baseUrl: './src',
                 aliases: {
                     '@variables': 'styles/_variables.scss',
-                    '@utils': 'app/utils',
+                    '@lib': 'app/lib',
                     '@components': 'app/components',
                     '@types': 'app/types',
                     '@images': 'app/assets/images',
