@@ -8,12 +8,14 @@
 img {
     display: block;
 }
+
 a {
     color: black;
     cursor: pointer;
 }
 
 .App {
+    position: relative;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
