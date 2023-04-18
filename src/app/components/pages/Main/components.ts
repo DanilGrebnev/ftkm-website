@@ -1,3 +1,5 @@
+import { Partners } from './components/Partners/index'
+
 export { Admission } from './components/Admission'
 export { CardList } from './components/CardList'
 export { CareerOpportunities } from './components/CareerOpportunities'
@@ -7,4 +9,6 @@ export { TextAndVideo2 } from './components/TextAndVideo2'
 export { EquipmentGallery } from './components/EquipmentGallery'
 export { Footer } from './components/Footer'
 export { InfoVideo } from './components/InfoVideo'
-export { Jobs } from './components/Questions'
+export { JobsFuture } from './components/JobsFuture'
+export { Partners } from './components/Partners'
+export { Questions } from './components/Questions'

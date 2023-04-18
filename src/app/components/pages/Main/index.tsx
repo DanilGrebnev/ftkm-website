@@ -6,7 +6,9 @@ import {
     Footer,
     Hero,
     InfoVideo,
-    Jobs,
+    JobsFuture,
+    Partners,
+    Questions,
     TextAndVideo1,
     TextAndVideo2,
 } from './components'
@@ -23,7 +25,9 @@ export const Main = () => {
             <Admission />
             <EquipmentGallery />
             <InfoVideo />
-            <Jobs />
+            <JobsFuture />
+            <Partners />
+            <Questions />
             <Footer />
         </section>
     )

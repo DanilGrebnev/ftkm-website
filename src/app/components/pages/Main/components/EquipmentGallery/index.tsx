@@ -9,7 +9,7 @@ export const EquipmentGallery = () => {
     return (
         <Container maxWidth="xl" className={style.EquipmentGallery}>
             <div>
-                <img loading="lazy" src={image1} alt="Оборудование" />
+                <img className="open" loading="lazy" src={image1} alt="Оборудование" />
                 <p>Современное сварочное оборудование</p>
             </div>
             <div>

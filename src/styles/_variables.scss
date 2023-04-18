@@ -34,25 +34,27 @@ $pb: 20px;
 
 @mixin font-20 {
     font-size: 20px;
-    font-family: Montserrat;
+}
+
+@mixin font-24 {
+    font-size: 24px;
+    text-align: center;
+    font-weight: 500;
 }
 
 @mixin font-26 {
     font-size: 26px;
-    font-family: Montserrat;
 }
 
 @mixin font-30 {
     font-size: 30px;
-    font-family: Montserrat;
 }
 
 @mixin font-42 {
     font-size: 42px;
-    font-family: Montserrat;
+    text-align: center;
 }
 
 @mixin font-64 {
     font-size: 64px;
-    font-family: Montserrat;
 }

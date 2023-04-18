@@ -1,23 +1,20 @@
-import { createContext, useContext, useState } from 'react'
+import { useState } from 'react'
 
 interface IImageModal {
     isActive: boolean
     src: string
 }
 
-const ModalContext = createContext({ isActive: false, src: '' })
-
 export const useToggleModal = () => {
-    const context = useContext(ModalContext)
+    const [state, setState] = useState<IImageModal>({ isActive: false, src: '' })
 
-    // const openModal = (src: string) => {
-    //     setState(prev => (prev = { src, isActive: true }))
-    //     console.log('Функция сработала')
-    // }
+    const openModal = (src: string) => {
+        setState({ src, isActive: true })
+    }
 
-    // const closeModal = () => {
-    //     setState({ ...state, isActive: false })
-    // }
+    const closeModal = () => {
+        setState({ ...state, isActive: false })
+    }
 
-    return context
+    return { state, openModal, closeModal }
 }
