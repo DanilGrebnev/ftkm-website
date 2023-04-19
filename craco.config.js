@@ -14,7 +14,7 @@ module.exports = {
                     '@types': 'app/types',
                     '@images': 'app/assets/images',
                     '@hooks': 'app/hooks',
-                    '@video': 'app/assets/videos',
+                    '@videos': 'app/assets/videos',
                     '@UI': 'app/UI',
                 },
             },

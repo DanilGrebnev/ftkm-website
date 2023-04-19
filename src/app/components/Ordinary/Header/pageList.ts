@@ -1,10 +1,10 @@
 export const pageList = [
     { text: 'Главная', to: '/' },
-    { text: 'Кадры', to: '/Personnel' },
+    { text: 'Кадры', to: '/personnel' },
     { text: 'Наука', to: '/science' },
-    { text: 'Сотруднику', to: '/Employee' },
-    { text: 'Студенту', to: '/Employee' },
-    { text: 'Абитурьенту', to: '/Enrollee' },
-    { text: 'Контакты', to: '/Enrollee' },
+    { text: 'Сотруднику', to: '/employee' },
+    { text: 'Студенту', to: '/students' },
+    { text: 'Абитурьенту', to: '/enrollee' },
     { text: 'Новости', to: '/news' },
+    { text: 'Контакты', to: '/contacts' },
 ]

@@ -1,4 +1,4 @@
-import bgVideo from '@video/metallurgy.mp4'
+import bgVideo from '@videos/metallurgy.mp4'
 import { HeightCalcHelper } from 'app/lib/HeightHelper'
 import { useEffect, useState } from 'react'
 

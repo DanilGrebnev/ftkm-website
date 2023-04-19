@@ -6,7 +6,10 @@
 
 .Header {
     a {
-        color: $header-link-color;
+        .Btn {
+            color: $header-link-color;
+            cursor: pointer;
+        }
     }
 }
 
@@ -16,10 +19,6 @@
 
 .box {
     justify-content: center;
-}
-
-.Link {
-    display: block;
 }
 
 @media screen and (max-width: 900px) {

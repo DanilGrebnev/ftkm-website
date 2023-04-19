@@ -17,9 +17,9 @@ import { useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 import uuid from 'react-uuid'
 
+import { muiStyles } from './mui-styles'
 import { pageList } from './pageList'
 import style from './style.module.scss'
-import './style.scss'
 
 export const Header = () => {
     const [isActive, handleOpenNavMenu, handleCloseNavMenu] = useToggleActiveMUI()
@@ -38,12 +38,7 @@ export const Header = () => {
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
                         <img className={style.vstuIcon} alt="vstu" src={vstu} />
-                        <Box
-                            flexGrow="1"
-                            sx={{
-                                display: { xs: 'flex', md: 'none' },
-                            }}
-                        >
+                        <Box className="Box1" flexGrow="1" sx={muiStyles.Box1}>
                             <IconButton
                                 size="large"
                                 aria-label="account of current user"
@@ -59,26 +54,15 @@ export const Header = () => {
                                 anchorEl={isActive}
                                 onClose={handleCloseNavMenu}
                                 open={Boolean(isActive)}
-                                anchorOrigin={{
-                                    vertical: 'bottom',
-                                    horizontal: 'left',
-                                }}
+                                anchorOrigin={muiStyles.Menu.anchorOrigin}
                                 keepMounted
-                                transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'left',
-                                }}
-                                sx={{
-                                    display: { xs: 'block', md: 'none' },
-                                }}
+                                transformOrigin={muiStyles.Menu.transformOrigin}
+                                sx={muiStyles.Menu.sx}
                             >
+                                {/* Бургер меню */}
                                 {pageList.map(({ text, to }) => (
                                     <MenuItem key={uuid()} onClick={handleCloseNavMenu}>
-                                        <NavLink to={to}>
-                                            <Typography color="black" textAlign="center">
-                                                {text}
-                                            </Typography>
-                                        </NavLink>
+                                        <NavLink to={to}>{text}</NavLink>
                                     </MenuItem>
                                 ))}
                             </Menu>
@@ -89,39 +73,25 @@ export const Header = () => {
                          */}
 
                         <Typography
+                            className="Typography1"
                             variant="h5"
                             noWrap
                             component="a"
-                            sx={{
-                                mr: 2,
-                                display: { xs: 'flex', md: 'none' },
-                                flexGrow: 1,
-                                fontFamily: 'monospace',
-                                fontWeight: 700,
-                                letterSpacing: '.3rem',
-                                color: 'inherit',
-                                textDecoration: 'none',
-                            }}
+                            sx={muiStyles.Typography1.sx}
                         >
                             <img alt="vstuIcon" style={{ maxWidth: '150px' }} src={vstu} />
                         </Typography>
-                        <Box
-                            sx={{
-                                flexGrow: 1,
-                                display: { xs: 'none', md: 'flex' },
-                                justifyContent: { xs: 'center' },
-                            }}
-                        >
+                        <Box className="Box2" sx={muiStyles.Box2.sx}>
                             {pageList.map(({ text, to }) => {
+                                const onClick = (e: any) => {
+                                    console.log(e.target)
+                                }
                                 return (
                                     <NavLink key={uuid()} to={to}>
                                         <Button
-                                            onClick={handleCloseNavMenu}
-                                            sx={{
-                                                my: 2,
-                                                color: 'white',
-                                                display: 'block',
-                                            }}
+                                            onClick={onClick}
+                                            className={style.Btn}
+                                            variant="text"
                                         >
                                             {text}
                                         </Button>
