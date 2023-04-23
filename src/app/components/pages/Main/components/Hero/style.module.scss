@@ -26,8 +26,9 @@
     color: $color-w;
 
     span {
-        font-size: 62px;
+        @include font-64;
         background: rgb(4, 12, 59);
+        line-height: 1;
     }
 
     h4 {

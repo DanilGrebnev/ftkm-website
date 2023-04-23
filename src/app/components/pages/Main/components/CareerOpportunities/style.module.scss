@@ -65,8 +65,10 @@
     p {
         font-size: 18px;
         position: relative;
+        line-height: 1.8;
     }
 }
+
 @media screen and (max-width: 920px) {
     .Career {
         display: flex;

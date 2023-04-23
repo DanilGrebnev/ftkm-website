@@ -2,15 +2,16 @@ import {
     Admission,
     CardList,
     CareerOpportunities,
+    DepartmentSpecialists,
     EquipmentGallery,
     Footer,
     Hero,
-    InfoVideo,
     JobsFuture,
     Partners,
     Questions,
     TextAndVideo1,
     TextAndVideo2,
+    UniversityInfo,
 } from './components'
 import style from './style.module.scss'
 
@@ -24,9 +25,10 @@ export const Main = () => {
             <CareerOpportunities />
             <Admission />
             <EquipmentGallery />
-            <InfoVideo />
+            <UniversityInfo />
             <JobsFuture />
             <Partners />
+            <DepartmentSpecialists />
             <Questions />
             <Footer />
         </section>
