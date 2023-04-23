@@ -36,7 +36,7 @@ export const Header = () => {
         <section ref={ref} className="Header">
             <AppBar className={style.Header} position="sticky">
                 <Container maxWidth="xl">
-                    <Toolbar disableGutters>
+                    <Toolbar className={style.toolbar} disableGutters>
                         <img className={style.vstuIcon} alt="vstu" src={vstu} />
                         <Box className="Box1" flexGrow="1" sx={muiStyles.Box1}>
                             <IconButton
@@ -68,9 +68,7 @@ export const Header = () => {
                             </Menu>
                         </Box>
 
-                        {/**
-                         * ! При адаптации показывает лого посредине экрана
-                         */}
+                        {/* При адаптации показывает лого посредине экрана */}
 
                         <Typography
                             className="Typography1"
@@ -81,7 +79,7 @@ export const Header = () => {
                         >
                             <img alt="vstuIcon" style={{ maxWidth: '150px' }} src={vstu} />
                         </Typography>
-                        <Box className="Box2" sx={muiStyles.Box2.sx}>
+                        <Box className={`Box2 ${style.Box2}`} sx={muiStyles.Box2.sx}>
                             {pageList.map(({ text, to }) => {
                                 const onClick = (e: any) => {
                                     console.log(e.target)

@@ -6,7 +6,7 @@ import style from './style.module.scss'
 export const TextAndVideo2 = () => {
     return (
         <Grid className={`Text-and-video-2 ${style.TextAndVideo2}`}>
-            <h1>Все профессии хороши, но "Металлург" - звучит гордо.</h1>
+            <h1>Все профессии хороши, но "Металлург" - звучит гордо</h1>
             <video
                 style={{ background: 'black' }}
                 width="100%"

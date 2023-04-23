@@ -13,9 +13,23 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-align: center;
+    gap: 20px;
+    // flex-wrap: wrap;
     img {
-        max-width: 200px;
+        max-width: 250px;
+        min-width: 150px;
         width: 100%;
-        height: min-content;
+        // height: min-content;
+        object-fit: contain;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .imgWrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        justify-items: center;
     }
 }
