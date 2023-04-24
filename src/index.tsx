@@ -23,7 +23,7 @@ if (container) {
                 <Routes>
                     <Route path="/*" element={<App />} />
                     <Route path="login" element={<Login />} />
-                    <Route path="CMS" element={<CMS />} />
+                    <Route path="CMS/*" element={<CMS />} />
                     <Route path="*" element={<div>Not found</div>} />
                 </Routes>
             </Provider>

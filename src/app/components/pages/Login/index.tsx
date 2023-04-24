@@ -9,7 +9,13 @@ export const Login = () => {
             <div className={s.InputContainer}>
                 <h1>Content Management System</h1>
                 <TextField className={s.TextField} label="Лоигн" variant="outlined" />
-                <TextField className={s.TextField} label="Пароль" variant="outlined" />
+                <TextField
+                    className={s.TextField}
+                    id="outlined-password-input"
+                    label="Пароль"
+                    type="password"
+                    autoComplete="current-password"
+                />
                 <div className={s.BtnGroup}>
                     <Button variant="contained" className={s.btn}>
                         Войти

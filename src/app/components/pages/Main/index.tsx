@@ -6,7 +6,6 @@ import {
     EquipmentGallery,
     Footer,
     Hero,
-    JobsFuture,
     Partners,
     Questions,
     TextAndVideo1,
@@ -26,7 +25,6 @@ export const Main = () => {
             <Admission />
             <EquipmentGallery />
             <UniversityInfo />
-            <JobsFuture />
             <Partners />
             <DepartmentSpecialists />
             <Questions />

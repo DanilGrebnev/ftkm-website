@@ -1,17 +1,21 @@
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import { Accordion, AccordionDetails, AccordionSummary, TextField, Typography } from '@mui/material'
+import { Button, TextField } from '@mui/material'
 
 import style from './SearchField.module.scss'
+import { BasicSelect } from './Select'
 
 export const SearchFilter = () => {
     return (
-        <div className={style.SearchFilter}>
+        <div className={`SearchFilter ${style.SearchFilter}`}>
             <TextField
-                id="outlined-basic"
-                label="Поиск новостей"
-                variant="standard"
+                size="small"
+                placeholder="Введите заголовок статьи"
+                label="Поиск статей"
+                id="outlined"
+                variant="outlined"
                 fullWidth={true}
             />
+            <BasicSelect size="small" label="Год" />
+            <Button variant="contained">Поиск</Button>
         </div>
     )
 }

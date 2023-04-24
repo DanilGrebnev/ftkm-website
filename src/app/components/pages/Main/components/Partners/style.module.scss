@@ -1,11 +1,12 @@
 @import '@variables';
 .Partners {
+    @include mr-t-b;
     h2 {
         @include font-42;
     }
     h3 {
         @include font-24;
-        @include mr-t-b;
+        @include mr-sub;
     }
 }
 
@@ -15,7 +16,6 @@
     align-items: center;
     text-align: center;
     gap: 20px;
-    // flex-wrap: wrap;
     img {
         max-width: 250px;
         min-width: 150px;
