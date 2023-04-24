@@ -81,16 +81,9 @@ export const Header = () => {
                         </Typography>
                         <Box className={`Box2 ${style.Box2}`} sx={muiStyles.Box2.sx}>
                             {pageList.map(({ text, to }) => {
-                                const onClick = (e: any) => {
-                                    console.log(e.target)
-                                }
                                 return (
                                     <NavLink key={uuid()} to={to}>
-                                        <Button
-                                            onClick={onClick}
-                                            className={style.Btn}
-                                            variant="text"
-                                        >
+                                        <Button className={style.Btn} variant="text">
                                             {text}
                                         </Button>
                                     </NavLink>

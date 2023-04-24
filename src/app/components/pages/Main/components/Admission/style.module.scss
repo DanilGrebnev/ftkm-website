@@ -4,13 +4,13 @@
     @include border;
     @include mr-t-b;
     @include pd-t-b;
-
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
     line-height: 1.5;
 
     h2 {
         @include font-42;
         margin-bottom: 100px;
-        text-align: center;
         grid-column: 1/4;
     }
 
@@ -48,7 +48,7 @@
     align-items: center;
     text-align: center;
     justify-items: center;
-    justify-self: center;
+    // justify-self: center;
 }
 
 @media screen and (max-width: 920px) {

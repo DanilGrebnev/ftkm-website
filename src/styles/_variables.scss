@@ -13,13 +13,18 @@ $pb: 20px;
 }
 
 @mixin mr-t-b {
-    margin-top: $mr-pd;
-    margin-bottom: $mr-pd;
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 
 @mixin pd-t-b {
-    padding-top: $pt;
-    padding-bottom: $pb;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+@mixin mr-sub {
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 @mixin font-12 {

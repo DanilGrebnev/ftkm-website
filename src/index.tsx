@@ -1,3 +1,5 @@
+import { CMS } from '@components/pages/CMS'
+import { Login } from '@components/pages/Login'
 import '@fontsource/roboto/300.css'
 import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
@@ -18,7 +20,12 @@ if (container) {
     root.render(
         <BrowserRouter>
             <Provider store={store}>
-                <App />
+                <Routes>
+                    <Route path="/*" element={<App />} />
+                    <Route path="login" element={<Login />} />
+                    <Route path="CMS" element={<CMS />} />
+                    <Route path="*" element={<div>Not found</div>} />
+                </Routes>
             </Provider>
         </BrowserRouter>
     )
