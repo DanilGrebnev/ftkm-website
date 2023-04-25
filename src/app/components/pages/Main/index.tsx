@@ -24,7 +24,7 @@ export const Main = () => {
             <CareerOpportunities />
             <Admission />
             <EquipmentGallery />
-            <UniversityInfo />
+            {/* <UniversityInfo /> */}
             <Partners />
             <DepartmentSpecialists />
             <Questions />

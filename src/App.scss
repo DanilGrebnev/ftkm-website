@@ -1,3 +1,4 @@
+@import '@variables';
 * {
     margin: 0;
     padding: 0;
@@ -6,6 +7,20 @@
     list-style: none;
     font-family: 'Montserrat', sans-serif;
     line-height: 1.5;
+}
+/* Стилизация скроллбара */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #d4d4d4;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $mui-blue;
+    border-radius: 8px;
+    border: 2px solid #d4d4d4;
 }
 
 img {

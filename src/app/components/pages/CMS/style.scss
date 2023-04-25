@@ -1,0 +1,13 @@
+@import '@variables';
+::-webkit-scrollbar  {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $mui-blue;
+    border-radius: 8px;
+}
