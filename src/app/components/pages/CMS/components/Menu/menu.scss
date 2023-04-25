@@ -1,5 +1,10 @@
+@import '@variables';
+
 .CMS-Menu {
     a.active {
-        border-bottom: 2px solid green;
+        background: $mui-blue;
+        border-radius: 20px;
+        color: white;
+        padding: 5px;
     }
 }

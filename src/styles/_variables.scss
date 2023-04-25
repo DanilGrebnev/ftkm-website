@@ -6,6 +6,7 @@ $footer-bg: #e0e0e0;
 $mr-pd: 50px;
 $pt: 20px;
 $pb: 20px;
+$mui-blue: #1976d2;
 
 @mixin border {
     border-bottom: $border;
@@ -29,12 +30,10 @@ $pb: 20px;
 
 @mixin font-12 {
     font-size: 12px;
-    font-family: Montserrat;
 }
 
 @mixin font-18 {
     font-size: 18px;
-    font-family: Montserrat;
 }
 
 @mixin font-20 {
@@ -62,4 +61,15 @@ $pb: 20px;
 
 @mixin font-64 {
     font-size: 64px;
+}
+
+//--------------CMS-----------------
+@mixin cms-br {
+    border-radius: 20px;
+}
+
+@mixin box-sh {
+    -webkit-box-shadow: 0px 0px 13px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 0px 13px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 0px 13px 0px rgba(34, 60, 80, 0.2);
 }

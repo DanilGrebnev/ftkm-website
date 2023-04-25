@@ -1,7 +1,16 @@
+@import '@variables';
+
 .News {
-    padding: 0px 20px;
-    max-width: 100%;
-    height: 100%;
-    overflow: auto;
-    border-radius: 1em;
+}
+
+.newsContainer {
+    width: 100%;
+    display: grid;
+    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+    overflow-y: auto;
+    border-radius: 20px;
+    max-height: 800px;
 }

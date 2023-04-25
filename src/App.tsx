@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom'
 
 import './App.scss'
 
-const App = () => (
+export const App = () => (
     <div className="App">
         <Header />
         <Routes>
@@ -15,4 +15,4 @@ const App = () => (
     </div>
 )
 
-export default App
+
