@@ -1,4 +1,5 @@
 import { Container } from '@mui/material'
+import putinVideo from '@videos/metallurgy-putin.mp4'
 
 import style from './style.module.scss'
 
@@ -17,14 +18,7 @@ export const TextAndVideo1 = () => {
                 </strong>
                 - сказал Владимир Владимирович Путин о металлургии.
             </p>
-            <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/S0JNqJH_9r0"
-                title="Выступление Путина на АСИ"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-            ></iframe>
+            <video width="560" height="315" controls src={putinVideo} />
         </Container>
     )
 }
