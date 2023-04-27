@@ -1,6 +1,6 @@
 import { Container } from '@mui/material'
 
-import { LineContainerProps } from '../../../types/LineContainer'
+import { LineContainerProps } from '../../../interface/LineContainer'
 
 export const LineContainer = (props: LineContainerProps): JSX.Element => {
     const style = {

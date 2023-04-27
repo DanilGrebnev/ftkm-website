@@ -8,7 +8,6 @@ export const SearchFilter = () => {
         <div className={`SearchFilter ${style.SearchFilter}`}>
             <TextField
                 size="small"
-                placeholder="Введите заголовок статьи"
                 label="Поиск статей"
                 id="outlined"
                 variant="outlined"

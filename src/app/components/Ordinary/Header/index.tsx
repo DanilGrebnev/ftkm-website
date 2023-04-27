@@ -33,7 +33,7 @@ export const Header = () => {
     }, [ref])
 
     return (
-        <section ref={ref} className="Header">
+        <section ref={ref} className="Header" id="Header">
             <AppBar className={style.Header} position="sticky">
                 <Container maxWidth="xl">
                     <Toolbar className={style.toolbar} disableGutters>

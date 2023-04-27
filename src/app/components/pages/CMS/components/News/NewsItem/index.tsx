@@ -1,5 +1,6 @@
+import { DeleteToolTip } from '@UI/ToolTip/DeleteToolTip'
+import { EditToolTip } from '@UI/ToolTip/EditToolTip'
 import CalendarMonthSharpIcon from '@mui/icons-material/CalendarMonthSharp'
-import DeleteSharpIcon from '@mui/icons-material/DeleteSharp'
 import FolderSharpIcon from '@mui/icons-material/FolderSharp'
 import ModeEditOutlineSharpIcon from '@mui/icons-material/ModeEditOutlineSharp'
 
@@ -22,14 +23,8 @@ export const NewsItem = () => {
                 </div>
 
                 <div className={s.btnGroup}>
-                    <div>
-                        <ModeEditOutlineSharpIcon />
-                        <p>Редактировать</p>
-                    </div>
-                    <div>
-                        <DeleteSharpIcon sx={{ color: 'red' }} />
-                        <p>Удалить</p>
-                    </div>
+                    <EditToolTip />
+                    <DeleteToolTip />
                 </div>
             </div>
         </div>

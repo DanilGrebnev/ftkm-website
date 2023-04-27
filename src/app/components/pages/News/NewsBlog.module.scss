@@ -1,0 +1,26 @@
+.news-blog {
+    margin: 20px 0;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    padding: 0;
+}
+
+.NewsContainer {
+    position: relative;
+}
+
+.btnContainer {
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;
+}
+
+.loadingBlock {
+    height: 50px;
+}
+
+.loadingContainer {
+    display: flex;
+    justify-content: center;
+}

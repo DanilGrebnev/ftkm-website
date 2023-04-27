@@ -1,7 +1,7 @@
 import { LineContainer } from '@components/containers/LineContainer'
 import { Container } from '@mui/material'
 
-import { TStyle } from '../../types/Style'
+import { TStyle } from '../../interface/Style'
 import s from './style.module.scss'
 
 interface IButtonAndContainer<T = string> {

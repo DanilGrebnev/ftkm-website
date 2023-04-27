@@ -1,3 +1,4 @@
+export { NewsBlock } from './components/NewsBlock/index'
 export { Admission } from './components/Admission'
 export { CardList } from './components/CardList'
 export { CareerOpportunities } from './components/CareerOpportunities'

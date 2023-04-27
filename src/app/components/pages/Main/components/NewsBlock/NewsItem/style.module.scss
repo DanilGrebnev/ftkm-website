@@ -1,0 +1,33 @@
+@import '@variables';
+.container {
+    height: 310px;
+    // width: 285px;
+    // border: 1px solid red;
+    overflow: hidden;
+    display: grid;
+    row-gap: 5px;
+
+    img {
+        display: block;
+        width: 100%;
+        height: 183px;
+        background: yellow;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    p {
+        overflow: hidden;
+    }
+
+    .date {
+        display: flex;
+        align-items: center;
+    }
+
+    .body {
+        text-align: justify;
+        color: $mui-blue;
+        font-weight: 400;
+    }
+}

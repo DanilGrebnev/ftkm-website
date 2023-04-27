@@ -6,6 +6,7 @@ import {
     EquipmentGallery,
     Footer,
     Hero,
+    NewsBlock,
     Partners,
     Questions,
     TextAndVideo1,
@@ -27,6 +28,7 @@ export const Main = () => {
             {/* <UniversityInfo /> */}
             <Partners />
             <DepartmentSpecialists />
+            <NewsBlock />
             <Questions />
             <Footer />
         </section>
