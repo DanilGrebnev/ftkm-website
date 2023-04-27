@@ -1,4 +1,5 @@
 import { Grid } from '@components/containers/Grid'
+import iaguana from '@images/green-iguana.jpg'
 import { axios } from '@lib/axios'
 import { Button } from '@mui/material'
 import { useEffect, useState } from 'react'
@@ -24,7 +25,7 @@ export const NewsBlock = () => {
         <>
             <Grid className={s.newsBlock}>
                 {news.map(news => {
-                    return <NewsItem {...news} />
+                    return <NewsItem imgUrl={iaguana} {...news} />
                 })}
             </Grid>
             <div className={s.archiveBtn}>
