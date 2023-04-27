@@ -25,7 +25,6 @@ const newsSlice = createSlice({
     reducers: {
         clearState(state) {
             state.news = []
-            console.log('Стэйт очищен')
         },
     },
 

@@ -1,0 +1,24 @@
+@import '@variables';
+
+.news_container {
+    display: flex !important;
+    flex-direction: column;
+    gap: 20px;
+    @include pd-t-b;
+
+    img {
+        width: 500px;
+        height: 300px;
+        border: 1px solid black;
+    }
+
+    p {
+        @include font-24;
+        text-align: justify;
+    }
+    p::before {
+        content: '';
+        display: inline-block;
+        width: 50px;
+    }
+}

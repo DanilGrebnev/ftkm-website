@@ -21,7 +21,6 @@ export const LoadingButton: React.FC<ILoadingButton> = ({
             size={size}
             onClick={onClick}
             loading={loading}
-            loadingPosition="end"
             endIcon={
                 loading && <span style={{ width: '20px', height: '20px' }} />
             }

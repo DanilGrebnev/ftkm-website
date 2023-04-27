@@ -1,8 +1,7 @@
 @import '@variables';
 .container {
     height: 310px;
-    // width: 285px;
-    // border: 1px solid red;
+    width: 100%;
     overflow: hidden;
     display: grid;
     row-gap: 5px;

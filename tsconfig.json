@@ -24,7 +24,8 @@
             "@images/*": ["./app/assets/images/*"],
             "@hooks/*": ["./app/hooks/*"],
             "@videos/*": ["./app.assets/videos/*"],
-            "@UI/*": ["./app/UI/*"]
+            "@UI/*": ["./app/UI/*"],
+            "@redux/*": ["./app/redux/*"]
         }
     },
 

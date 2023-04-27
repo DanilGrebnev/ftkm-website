@@ -5,8 +5,7 @@ import { Grid } from '@components/containers/Grid'
 import { useAppDispatch } from '@hooks/useAppDispatch'
 import { useAppSelector } from '@hooks/useAppSelector'
 import { Container } from '@mui/material'
-import { fetchNews } from 'app/redux/slices/news'
-import { clearState } from 'app/redux/slices/news'
+import { clearState, fetchNews } from '@redux/slices/news'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -15,7 +14,7 @@ import s from './NewsBlog.module.scss'
 export const NewsBlog = () => {
     const dispatch = useAppDispatch()
 
-    const { documentsCount, error, news, loading } = useAppSelector(
+    const { news, documentsCount, loading, error } = useAppSelector(
         ({ news }) => news
     )
 
@@ -47,7 +46,7 @@ export const NewsBlog = () => {
             <SearchFilter />
             <Grid className={s['news-blog']}>
                 {news.map(news => (
-                    <Link key={news._id} to="123">
+                    <Link key={news._id} to={`${news._id}`}>
                         <NewsCardItem {...news} />
                     </Link>
                 ))}

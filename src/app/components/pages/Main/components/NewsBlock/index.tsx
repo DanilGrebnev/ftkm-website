@@ -25,7 +25,9 @@ export const NewsBlock = () => {
         <>
             <Grid className={s.newsBlock}>
                 {news.map(news => {
-                    return <NewsItem imgUrl={iaguana} {...news} />
+                    return (
+                        <NewsItem key={news._id} imgUrl={iaguana} {...news} />
+                    )
                 })}
             </Grid>
             <div className={s.archiveBtn}>

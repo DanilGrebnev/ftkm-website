@@ -6,8 +6,9 @@ export interface INewsItem<S = string, N = number> {
     createdDay: N
     createdMonth: N
     createdYear: N
-    updatedAt?: S
-    createdAt?: S
+    createdDate: N
+    updatedAt?: N
+    createdAt?: N
     imgUrl?: S
 }
 

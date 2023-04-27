@@ -16,6 +16,7 @@ module.exports = {
                     '@hooks': 'app/hooks',
                     '@videos': 'app/assets/videos',
                     '@UI': 'app/UI',
+                    '@redux':'app/redux'
                 },
             },
         },
