@@ -1,22 +1,28 @@
 @import '@variables';
+@mixin height() {
+    width: 100%;
+}
+
 .container {
     height: 310px;
     width: 100%;
     overflow: hidden;
-    display: grid;
-    row-gap: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-radius: 1em;
+    padding-bottom: 15px;
+
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 0px 12px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 0px 12px 0px rgba(34, 60, 80, 0.2);
 
     img {
         display: block;
         width: 100%;
-        height: 183px;
-        background: yellow;
+        aspect-ratio: 16 / 9;
         object-fit: cover;
         object-position: center;
-    }
-
-    p {
-        overflow: hidden;
     }
 
     .date {
@@ -28,5 +34,12 @@
         text-align: justify;
         color: $mui-blue;
         font-weight: 400;
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .date,
+    .body {
+        padding: 0 10px;
     }
 }

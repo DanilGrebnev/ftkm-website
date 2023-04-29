@@ -25,6 +25,7 @@
             "@hooks/*": ["./app/hooks/*"],
             "@videos/*": ["./app.assets/videos/*"],
             "@UI/*": ["./app/UI/*"],
+            "@Ordinary/*": ["./app/Ordinary/*"],
             "@redux/*": ["./app/redux/*"]
         }
     },

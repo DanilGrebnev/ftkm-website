@@ -1,5 +1,6 @@
 import { DeleteToolTip } from '@UI/ToolTip/DeleteToolTip'
 import { EditToolTip } from '@UI/ToolTip/EditToolTip'
+import { ImgComponent } from '@components/Ordinary/CardMedia'
 import CalendarMonthSharpIcon from '@mui/icons-material/CalendarMonthSharp'
 import FolderSharpIcon from '@mui/icons-material/FolderSharp'
 import { FC } from 'react'
@@ -17,7 +18,9 @@ export const NewsItem: FC<INewsItem> = ({
 }) => {
     return (
         <div className={s.newsItem}>
-            <img src={imgUrl} alt="Изображение статьи" />
+            {imgUrl && (
+                <ImgComponent src={'http://127.0.0.1:3001/' + imgUrl} alt="" />
+            )}
             <div className={s.itemInfo}>
                 <h1>{title}</h1>
                 <div className={s.date}>
