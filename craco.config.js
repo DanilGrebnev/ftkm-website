@@ -18,6 +18,7 @@ module.exports = {
                     '@UI': 'app/UI',
                     '@Ordinary': 'app/Ordinary',
                     '@redux': 'app/redux',
+                    '@interfaces': 'app/interface',
                 },
             },
         },

@@ -1,7 +1,6 @@
+import { INewsItem } from '@interfaces/News'
 import { axios } from '@lib/axios'
 import { useState } from 'react'
-
-import { INewsItem } from '../interface/News'
 
 export const useFetchNews = () => {
     const [news, setNews] = useState<INewsItem>()

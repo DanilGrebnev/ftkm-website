@@ -2,14 +2,16 @@
 
 .newsItem {
     padding: 10px;
+    width: 100%;
+    height: 100%;
     @include box-sh;
     @include cms-br;
     overflow: hidden;
     gap: 20px;
     justify-self: center;
     align-self: center;
-    width: 100%;
     display: flex;
+    align-items: start;
 
     h1 {
         font-size: 20px;
@@ -20,7 +22,6 @@
     img {
         width: 170px;
         height: 170px;
-        border: 1px solid black;
         border-radius: 20px;
         object-fit: cover;
         object-position: center;
@@ -29,6 +30,9 @@
 
 .itemInfo {
     display: flex;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
     flex-direction: column;
     justify-content: space-between;
     gap: 10px;

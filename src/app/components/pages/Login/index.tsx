@@ -8,7 +8,11 @@ export const Login = () => {
         <div className={s.LoginContainer}>
             <div className={s.InputContainer}>
                 <h1>Content Management System</h1>
-                <TextField className={s.TextField} label="Лоигн" variant="outlined" />
+                <TextField
+                    className={s.TextField}
+                    label="Логин"
+                    variant="outlined"
+                />
                 <TextField
                     className={s.TextField}
                     id="outlined-password-input"

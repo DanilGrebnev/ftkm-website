@@ -1,10 +1,12 @@
 import { FC } from 'react'
+import { SyntheticEvent } from 'react'
 
 interface ICardMedia<S = string> {
     src: S
     alt: S
     className?: S
     style?: { [key: string]: string }
+    onError?: (errorEvent: SyntheticEvent<HTMLImageElement, Event>) => void
 }
 
 export const ImgComponent: FC<ICardMedia> = ({
@@ -12,6 +14,7 @@ export const ImgComponent: FC<ICardMedia> = ({
     alt,
     className,
     style,
+    onError,
 }) => {
     return (
         <img
@@ -20,6 +23,7 @@ export const ImgComponent: FC<ICardMedia> = ({
             alt={alt}
             className={className}
             style={style}
+            onError={onError}
         />
     )
 }

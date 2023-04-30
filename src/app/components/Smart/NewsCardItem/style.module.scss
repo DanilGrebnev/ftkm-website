@@ -1,44 +1,72 @@
 @import '@variables';
 
+$pb: 20px;
+
 .cardContainer {
-    height: 100%;
     overflow: hidden;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 10px !important;
+    padding-bottom: 20px;
+    position: relative;
+    box-sizing: border-box;
+
+    @include box-sh;
+    p {
+        margin-top: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 }
 
-.cardContent {
-    overflow: hidden;
-    padding: 15px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+/*Этот псевдоэлемент нужен чтобы сделать pb снизу*/
+.cardContainer:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: $pb;
+    background: white;
+    bottom: 0;
 }
 
 .img {
-    height: 200px;
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
+    aspect-ratio: 16 / 9;
 }
 
 .title {
     @include font-24;
     max-height: 100px;
-    font-weight: 500;
     text-align: justify;
+}
+
+.date,
+.body {
+    font-weight: 500;
 }
 
 .date {
     @include font-18;
-    color: $text-secondary !important;
+    color: $text-secondary;
 }
 
 .body {
-    min-height: 50px !important;
-    max-height: 200px;
-    height: max-content;
-    font-size: 20px !important;
-    overflow: hidden !important;
-    text-align: justify !important;
-    color: $text-secondary !important;
+    @include font-16;
+    text-align: justify;
+    color: $text-secondary;
+}
+.bgFilter {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    transition: 0.5s;
+    z-index: 1;
+}
+
+.bgFilter:hover {
+    background: rgba(0, 0, 0, 0.08);
 }

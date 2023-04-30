@@ -1,7 +1,6 @@
 export interface INewsItem<S = string, N = number> {
     _id: S
     title: S
-    description: S
     body: S
     createdDay: N
     createdMonth: N

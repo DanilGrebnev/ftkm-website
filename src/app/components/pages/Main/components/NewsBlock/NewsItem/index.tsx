@@ -1,3 +1,4 @@
+import { onErrorLoadImage } from '@lib/onErrorLoadImage'
 import { INewsItem } from 'app/interface/News'
 import React from 'react'
 import { Link } from 'react-router-dom'
@@ -11,13 +12,13 @@ export const NewsItem: React.FC<INewsItem> = ({
     imgUrl,
     createdDate,
 }) => {
-    console.log(imgUrl)
+    const img = 'http://127.0.0.1:3001/' + imgUrl
+
     return (
         <Link to={`news/${_id}`}>
             <div className={s.container}>
-                {imgUrl && (
-                    <img alt={title} src={'http://127.0.0.1:3001/' + imgUrl} />
-                )}
+                <img onError={onErrorLoadImage} alt={title} src={img} />
+
                 <div className={s.date}>{createdDate}</div>
                 <div className={s.body}>{body}</div>
             </div>

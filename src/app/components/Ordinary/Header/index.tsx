@@ -22,7 +22,8 @@ import { pageList } from './pageList'
 import style from './style.module.scss'
 
 export const Header = () => {
-    const [isActive, handleOpenNavMenu, handleCloseNavMenu] = useToggleActiveMUI()
+    const [isActive, handleOpenNavMenu, handleCloseNavMenu] =
+        useToggleActiveMUI()
 
     const ref = useRef<HTMLElement>(null)
 
@@ -61,7 +62,10 @@ export const Header = () => {
                             >
                                 {/* Бургер меню */}
                                 {pageList.map(({ text, to }) => (
-                                    <MenuItem key={uuid()} onClick={handleCloseNavMenu}>
+                                    <MenuItem
+                                        key={uuid()}
+                                        onClick={handleCloseNavMenu}
+                                    >
                                         <NavLink to={to}>{text}</NavLink>
                                     </MenuItem>
                                 ))}
@@ -77,13 +81,23 @@ export const Header = () => {
                             component="a"
                             sx={muiStyles.Typography1.sx}
                         >
-                            <img alt="vstuIcon" style={{ maxWidth: '150px' }} src={vstu} />
+                            <img
+                                alt="vstuIcon"
+                                style={{ maxWidth: '150px' }}
+                                src={vstu}
+                            />
                         </Typography>
-                        <Box className={`Box2 ${style.Box2}`} sx={muiStyles.Box2.sx}>
+                        <Box
+                            className={`Box2 ${style.Box2}`}
+                            sx={muiStyles.Box2.sx}
+                        >
                             {pageList.map(({ text, to }) => {
                                 return (
                                     <NavLink key={uuid()} to={to}>
-                                        <Button className={style.Btn} variant="text">
+                                        <Button
+                                            className={style.Btn}
+                                            variant="text"
+                                        >
                                             {text}
                                         </Button>
                                     </NavLink>

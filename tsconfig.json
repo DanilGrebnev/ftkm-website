@@ -26,7 +26,8 @@
             "@videos/*": ["./app.assets/videos/*"],
             "@UI/*": ["./app/UI/*"],
             "@Ordinary/*": ["./app/Ordinary/*"],
-            "@redux/*": ["./app/redux/*"]
+            "@redux/*": ["./app/redux/*"],
+            "@interfaces/*": ["./app/interface/*"]
         }
     },
 

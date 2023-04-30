@@ -4,7 +4,7 @@ export const pageList = [
     { text: 'Наука', to: '/science' },
     { text: 'Сотруднику', to: '/employee' },
     { text: 'Студенту', to: '/students' },
-    { text: 'Абитурьенту', to: '/enrollee' },
+    { text: 'Абитуриенту', to: '/enrollee' },
     { text: 'Новости', to: '/news' },
     { text: 'Контакты', to: '/contacts' },
 ]
