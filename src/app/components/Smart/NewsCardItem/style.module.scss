@@ -6,7 +6,7 @@ $pb: 20px;
     overflow: hidden;
     max-height: 500px;
     overflow: hidden;
-    border-radius: 10px !important;
+    @include br-rd;
     padding-bottom: 20px;
     position: relative;
     box-sizing: border-box;
@@ -32,7 +32,7 @@ $pb: 20px;
 
 .img {
     width: 100%;
-    object-fit: cover;
+    @include object-fit;
     object-position: center;
     aspect-ratio: 16 / 9;
 }

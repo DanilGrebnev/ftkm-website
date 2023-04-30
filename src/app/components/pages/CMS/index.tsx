@@ -15,6 +15,7 @@ export const CMS = () => {
                     <Routes>
                         <Route path="news" element={<News />} />
                         <Route path="news/:_id" element={<OneNewsEditor />} />
+                        <Route path="news/addNews" element={<OneNewsEditor />}/>
                     </Routes>
                 </section>
             </section>

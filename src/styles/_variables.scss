@@ -9,6 +9,14 @@ $pb: 20px;
 $mui-blue: #1976d2;
 $text-secondary: rgba(0, 0, 0, 0.6);
 
+@mixin object-fit {
+    object-fit: cover;
+}
+
+@mixin br-rd {
+    border-radius: 4px;
+}
+
 @mixin border {
     border-bottom: $border;
     border-top: $border;

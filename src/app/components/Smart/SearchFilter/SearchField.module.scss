@@ -1,7 +1,9 @@
 .SearchFilter {
-    margin-top: 20px;
+    max-width: 100%;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 150px 100px;
     gap: 20px;
     align-content: center;
+    align-items: center;
 }

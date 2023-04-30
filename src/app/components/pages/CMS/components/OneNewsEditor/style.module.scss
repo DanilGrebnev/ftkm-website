@@ -1,0 +1,34 @@
+.EditorContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+
+    input[type='file'] {
+        display: none;
+    }
+}
+
+.input {
+    max-width: 1000px;
+}
+
+.textarea {
+    max-width: 1000px;
+}
+
+.fileInfo {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.selectBtn {
+    padding: 5px;
+    border: 2px solid black;
+    width: max-content;
+}
+
+button {
+    width: max-content;
+}

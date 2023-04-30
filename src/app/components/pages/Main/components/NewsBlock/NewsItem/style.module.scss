@@ -1,7 +1,4 @@
 @import '@variables';
-@mixin height() {
-    width: 100%;
-}
 
 .container {
     height: 310px;
@@ -10,19 +7,17 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
-    border-radius: 1em;
+    @include br-rd;
     padding-bottom: 15px;
 
-    -webkit-box-shadow: 0px 0px 12px 0px rgba(34, 60, 80, 0.2);
-    -moz-box-shadow: 0px 0px 12px 0px rgba(34, 60, 80, 0.2);
-    box-shadow: 0px 0px 12px 0px rgba(34, 60, 80, 0.2);
+    @include box-sh;
 
     img {
         display: block;
         width: 100%;
         aspect-ratio: 16 / 9;
-        object-fit: cover;
-        object-position: center;
+        @include object-fit;
+        object-position: top;
     }
 
     .date {

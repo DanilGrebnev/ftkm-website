@@ -12,6 +12,7 @@
         height: 360px;
         margin-bottom: 20px;
         object-fit: cover;
+        @include br-rd;
     }
 
     p {

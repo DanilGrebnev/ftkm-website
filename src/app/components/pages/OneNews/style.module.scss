@@ -18,6 +18,8 @@
         width: 100%;
         display: block;
         aspect-ratio: 16 / 9;
+        @include object-fit;
+        @include br-rd;
     }
 
     p::before {
