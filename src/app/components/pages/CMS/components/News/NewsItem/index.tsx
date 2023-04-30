@@ -4,6 +4,7 @@ import { ImgComponent } from '@components/Ordinary/CardMedia'
 import { INewsItem } from '@interfaces/News'
 import CalendarMonthSharpIcon from '@mui/icons-material/CalendarMonthSharp'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import s from './style.module.scss'
 
@@ -33,7 +34,9 @@ export const NewsItem: React.FC<INewsItem> = ({
                 </div> */}
 
                 <div className={s.btnGroup}>
-                    <EditToolTip />
+                    <Link to={_id}>
+                        <EditToolTip />
+                    </Link>
                     <DeleteToolTip />
                 </div>
             </div>
