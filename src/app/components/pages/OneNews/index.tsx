@@ -22,9 +22,9 @@ export const OneNews: React.FC = () => {
 
     const element = (
         <>
-            {news?.imgUrl && (
+            {news?.imgName && (
                 <img
-                    src={`http://127.0.0.1:3001/${news?.imgUrl}`}
+                    src={`http://127.0.0.1:3001/${news?.imgName}`}
                     onError={onErrorLoadImage}
                     loading="lazy"
                     alt={news?.title}

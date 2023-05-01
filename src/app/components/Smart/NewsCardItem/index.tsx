@@ -6,13 +6,13 @@ import { INewsItem } from '../../../interface/News'
 import s from './style.module.scss'
 
 export const NewsCardItem: React.FC<INewsItem> = React.memo(
-    ({ title, body, createdDate, imgUrl, _id }) => {
-        const img = 'http://127.0.0.1:3001/' + imgUrl
+    ({ title, body, createdDate, imgName, _id }) => {
+        const img = 'http://127.0.0.1:3001/' + imgName
 
         return (
             <div className={s.cardContainer}>
                 <div className={s.bgFilter} />
-                {imgUrl && (
+                {imgName && (
                     <ImgComponent
                         onError={onErrorLoadImage}
                         className={s.img}

@@ -8,7 +8,7 @@ export interface INewsItem<S = string, N = number> {
     createdDate: N
     updatedAt?: N
     createdAt?: N
-    imgUrl?: S
+    imgName?: S
 }
 
 export interface INewsStore {

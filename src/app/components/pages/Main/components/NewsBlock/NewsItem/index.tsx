@@ -9,10 +9,10 @@ export const NewsItem: React.FC<INewsItem> = ({
     _id,
     body,
     title,
-    imgUrl,
+    imgName,
     createdDate,
 }) => {
-    const img = 'http://127.0.0.1:3001/' + imgUrl
+    const img = 'http://127.0.0.1:3001/' + imgName
 
     return (
         <Link to={`news/${_id}`}>
