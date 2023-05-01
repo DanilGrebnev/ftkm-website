@@ -2,7 +2,7 @@ import { axios } from '@lib/axios'
 import { clickToLabelElement } from '@lib/clickToLabelElement'
 import { selectFile } from '@lib/selectFile'
 import { Button, TextField } from '@mui/material'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 import s from './style.module.scss'
@@ -32,6 +32,29 @@ export const OneNewsEditor = () => {
         console.log(res)
     }
 
+    const getOneNews = async (_id: string) => {
+        const res = await axios.get('/news/' + _id)
+
+        setFile(res.data.imgUrl)
+
+        setTitle(res.data.title)
+
+        setBody(res.data.body)
+    }
+
+    const removeImg = async (fileName: string) => {
+        console.log(_id)
+        const res = await axios.put(`news/deleteImg/${_id}?fileName=${file}`)
+
+        console.log(res)
+    }
+
+    useEffect(() => {
+        if (!_id) return
+
+        getOneNews(_id)
+    }, [_id])
+
     return (
         <div className={s.EditorContainer}>
             <div>Изображение новости</div>
@@ -45,7 +68,7 @@ export const OneNewsEditor = () => {
                     </Button>
                 ) : (
                     <Button
-                        onClick={() => setFile(null)}
+                        onClick={() => (_id ? removeImg(file) : setFile(null))}
                         variant="outlined"
                         color="error"
                     >
@@ -87,7 +110,7 @@ export const OneNewsEditor = () => {
                 className={s.btnSubmit}
                 variant="contained"
             >
-                Отправить
+                {_id ? 'Изменить' : 'Отправить'}
             </Button>
         </div>
     )
