@@ -5,6 +5,7 @@ import { useAppSelector } from '@hooks/useAppSelector'
 import AddCircleIcon from '@mui/icons-material/AddCircle'
 import { Tooltip } from '@mui/material'
 import { clearState, fetchNews } from '@redux/slices/news'
+import { setSearchMode } from '@redux/slices/news'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -14,7 +15,7 @@ import s from './style.module.scss'
 export const News = () => {
     const limit = 20
 
-    const { documentsCount, error, news, loading } = useAppSelector(
+    const { documentsCount, error, news, searchMode, loading } = useAppSelector(
         ({ news }) => news
     )
 
@@ -22,16 +23,14 @@ export const News = () => {
 
     const [skip, setSkip] = useState(0)
 
-    const getNews = async (skip: number) => {
-        await dispatch(fetchNews({ skip, limit }))
+    const [filterStr, setSearchFilter] = useState('')
 
-        setSkip(p => p + limit)
+    const getNews = async (skip: number, limit: number, filterStr: string) => {
+        await dispatch(fetchNews({ skip, limit, filterStr }))
     }
 
     useEffect(() => {
-        dispatch(fetchNews({ skip, limit }))
-
-        setSkip(p => p + limit)
+        getNews(skip, limit, filterStr)
 
         return () => {
             dispatch(clearState())
@@ -39,12 +38,20 @@ export const News = () => {
         }
     }, [])
 
+    useEffect(() => {
+        if (!skip || newsEnding) return
+        getNews(skip, limit, filterStr)
+    }, [skip])
+
     const newsEnding = news.length >= documentsCount
 
     return (
         <section className={s.news}>
             <div className={s.searchContainer}>
-                <SearchFilter />
+                {/* <SearchFilter
+                    getNews={getNews}
+                    setSearchFilter={setSearchFilter}
+                /> */}
                 <Link to={'addNews'}>
                     <Tooltip
                         title="Добавить статью"
@@ -65,17 +72,15 @@ export const News = () => {
                 ))}
             </section>
             <div className={s.btnContainer}>
-                {
-                    <LoadingButton
-                        text={
-                            !newsEnding ? 'Загрузить ещё' : 'Новости кончались'
-                        }
-                        size="medium"
-                        disabled={loading || newsEnding ? true : false}
-                        loading={loading}
-                        onClick={() => getNews(skip)}
-                    />
-                }
+                <LoadingButton
+                    text="Загрузить ещё"
+                    size="medium"
+                    disabled={loading ? true : false}
+                    loading={loading}
+                    onClick={() => {
+                        setSkip(p => p + limit)
+                    }}
+                />
             </div>
         </section>
     )

@@ -13,11 +13,10 @@ export const NewsItem: React.FC<INewsItem> = ({
     createdDate,
 }) => {
     const img = 'http://127.0.0.1:3001/' + imgName
-
     return (
         <Link to={`news/${_id}`}>
             <div className={s.container}>
-                <img onError={onErrorLoadImage} alt={title} src={img} />
+                {imgName && <img alt={title} src={img} />}
 
                 <div className={s.date}>{createdDate}</div>
                 <div className={s.body}>{body}</div>

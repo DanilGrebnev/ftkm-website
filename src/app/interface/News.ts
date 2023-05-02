@@ -16,4 +16,5 @@ export interface INewsStore {
     error: true | false
     news: INewsItem[]
     documentsCount: number
+    searchMode: boolean
 }

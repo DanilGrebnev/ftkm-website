@@ -14,7 +14,7 @@ export const NewsCardItem: React.FC<INewsItem> = React.memo(
                 <div className={s.bgFilter} />
                 {imgName && (
                     <ImgComponent
-                        onError={onErrorLoadImage}
+                        // onError={onErrorLoadImage}
                         className={s.img}
                         src={img}
                         alt="Image"
