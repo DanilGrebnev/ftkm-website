@@ -120,9 +120,9 @@ export const Header = () => {
                                     </a>
                                 )
                             })}
-                            <NavLink to="/news">
+                            {/* <NavLink to="/news">
                                 <Button className={style.Btn}>Новости</Button>
-                            </NavLink>
+                            </NavLink> */}
                         </Box>
                     </Toolbar>
                 </Container>
