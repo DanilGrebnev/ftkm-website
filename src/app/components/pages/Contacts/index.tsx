@@ -1,8 +1,8 @@
+import { ButtonAndContainer } from '@UI/ButtonAndContainer'
 import { YandexMap } from '@UI/YandexMap/inedx'
 import { Container } from '@mui/material'
 
 import { Footer } from '../Main/components'
-import { Questions } from '../Main/components'
 import { Address } from './components/Address'
 import { ContactInformation } from './components/ContactInformation/inedx'
 import { WorkingMode } from './components/WorkingMode'
@@ -20,7 +20,12 @@ export const Contacts = () => {
                 </section>
                 <YandexMap />
             </Container>
-            <Questions />
+            <ButtonAndContainer
+                textUpperCase={true}
+                className="Questions"
+                href="https://welcome.vstu.ru/feedback/send-question/"
+                text="Есть вопрос? Задай его нам!"
+            />
             <Footer />
         </section>
     )

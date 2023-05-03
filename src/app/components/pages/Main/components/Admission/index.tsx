@@ -10,7 +10,8 @@ export const Admission = () => {
                 <div className={s.circle}>40</div>
                 <p>
                     Количество
-                    <br /> бюджетных мест
+                    <br />
+                    бюджетных мест
                 </p>
                 <span>на 2023 год</span>
             </div>
