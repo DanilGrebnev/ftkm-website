@@ -1,10 +1,6 @@
 export const pageList = [
-    { text: 'Главная', to: '/' },
-    { text: 'Кадры', to: '/personnel' },
-    { text: 'Наука', to: '/science' },
-    { text: 'Сотруднику', to: '/employee' },
-    { text: 'Студенту', to: '/students' },
-    { text: 'Абитуриенту', to: '/enrollee' },
-    { text: 'Новости', to: '/news' },
-    { text: 'Контакты', to: '/contacts' },
+    { text: 'Наука', href: '/science' },
+    { text: 'Студенту', href: '#Career-opportunities' },
+    { text: 'Абитуриенту', href: '#Admission' },
+    { text: 'Контакты', href: '/contacts' },
 ]

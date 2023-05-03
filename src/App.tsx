@@ -1,4 +1,5 @@
 import { Header } from '@components/Ordinary/Header'
+import { Contacts } from '@components/pages/Contacts'
 import { Main } from '@components/pages/Main'
 import { NewsBlog } from '@components/pages/News'
 import { OneNews } from '@components/pages/OneNews'
@@ -12,6 +13,7 @@ export const App = () => (
         <Routes>
             <Route path="/" element={<Main />} />
             <Route path="news" element={<NewsBlog />} />
+            <Route path="contacts" element={<Contacts />} />
             <Route path="news/:_id" element={<OneNews />} />
         </Routes>
     </div>

@@ -1,3 +1,12 @@
+export interface IGridPropsStyle<S = string> {
+    gridTemplateColumns?: S
+    gridTemplateRows?: S
+    columnGap?: S
+    rowGap?: S
+    grid?: S
+    gap?: S
+}
+
 export interface IGridProps extends IGridPropsStyle {
     children?: JSX.Element[] | JSX.Element
 
@@ -6,13 +15,6 @@ export interface IGridProps extends IGridPropsStyle {
     onClick?: (e: React.MouseEvent<HTMLElement>, ...params: any) => void
 
     className?: string
-}
 
-export interface IGridPropsStyle<S = string> {
-    gridTemplateColumns?: S
-    gridTemplateRows?: S
-    columnGap?: S
-    rowGap?: S
-    grid?: S
-    gap?: S
+    id?: string
 }

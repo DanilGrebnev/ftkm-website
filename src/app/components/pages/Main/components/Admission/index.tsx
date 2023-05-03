@@ -4,7 +4,7 @@ import s from './style.module.scss'
 
 export const Admission = () => {
     return (
-        <Grid className={`Admission ${s.Admission}`}>
+        <Grid id="Admission" className={`Admission ${s.Admission}`}>
             <h2>Поступление 2023</h2>
             <div>
                 <div className={s.circle}>40</div>
@@ -23,8 +23,8 @@ export const Admission = () => {
                 <div className={s.circle}>4</div>
                 <p>Года срок обучения</p>
                 <span>
-                    + возможность продолжить обучение по направлению в магистратуре, аспирантуре и
-                    докторантуре!
+                    + возможность продолжить обучение по направлению в
+                    магистратуре, аспирантуре и докторантуре!
                 </span>
             </div>
         </Grid>

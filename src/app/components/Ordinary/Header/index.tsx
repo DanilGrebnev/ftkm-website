@@ -61,14 +61,28 @@ export const Header = () => {
                                 sx={muiStyles.Menu.sx}
                             >
                                 {/* Бургер меню */}
-                                {pageList.map(({ text, to }) => (
-                                    <MenuItem
-                                        key={uuid()}
-                                        onClick={handleCloseNavMenu}
-                                    >
-                                        <NavLink to={to}>{text}</NavLink>
-                                    </MenuItem>
-                                ))}
+                                <NavLink to="/">
+                                    <Button className={style.Btn}>
+                                        Главная
+                                    </Button>
+                                </NavLink>
+                                {pageList.map(({ text, href }) => {
+                                    return (
+                                        <a key={uuid()} href={href}>
+                                            <Button
+                                                className={style.Btn}
+                                                variant="text"
+                                            >
+                                                {text}
+                                            </Button>
+                                        </a>
+                                    )
+                                })}
+                                <NavLink to="/news">
+                                    <Button className={style.Btn}>
+                                        Новости
+                                    </Button>
+                                </NavLink>
                             </Menu>
                         </Box>
 
@@ -91,18 +105,24 @@ export const Header = () => {
                             className={`Box2 ${style.Box2}`}
                             sx={muiStyles.Box2.sx}
                         >
-                            {pageList.map(({ text, to }) => {
+                            <NavLink to="/">
+                                <Button className={style.Btn}>Главная</Button>
+                            </NavLink>
+                            {pageList.map(({ text, href }) => {
                                 return (
-                                    <NavLink key={uuid()} to={to}>
+                                    <a key={uuid()} href={href}>
                                         <Button
                                             className={style.Btn}
                                             variant="text"
                                         >
                                             {text}
                                         </Button>
-                                    </NavLink>
+                                    </a>
                                 )
                             })}
+                            <NavLink to="/news">
+                                <Button className={style.Btn}>Новости</Button>
+                            </NavLink>
                         </Box>
                     </Toolbar>
                 </Container>

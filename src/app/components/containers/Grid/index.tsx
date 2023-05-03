@@ -9,6 +9,7 @@ export const Grid = React.memo((props: IGridProps) => {
 
     return (
         <section
+            id={props.id}
             className={`Grid ${className} ${styleSCSS.Grid}`}
             style={{ ...style, ...setPropsStyle(props) }}
         >
