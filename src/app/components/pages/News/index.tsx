@@ -43,7 +43,7 @@ export const NewsBlog = () => {
 
     return (
         <Container maxWidth="xl" id="News-Block" className={s.NewsContainer}>
-            <SearchFilter />
+            {/* <SearchFilter /> */}
             <Grid className={s['news-blog']}>
                 {news.map(news => (
                     <Link key={news._id} to={`${news._id}`}>

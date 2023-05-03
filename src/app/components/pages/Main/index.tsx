@@ -28,7 +28,7 @@ export const Main = () => {
             {/* <UniversityInfo /> */}
             <Partners />
             <DepartmentSpecialists />
-            <NewsBlock />
+            {/* <NewsBlock /> */}
             <Questions />
             <Footer />
         </section>
