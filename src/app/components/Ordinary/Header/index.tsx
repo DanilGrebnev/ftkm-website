@@ -68,7 +68,14 @@ export const Header = () => {
                                 </NavLink>
                                 {pageList.map(({ text, href }) => {
                                     return (
-                                        <a key={uuid()} href={href}>
+                                        <a
+                                            style={{
+                                                display: 'block',
+                                                color: 'black',
+                                            }}
+                                            key={uuid()}
+                                            href={href}
+                                        >
                                             <Button
                                                 className={style.Btn}
                                                 variant="text"
