@@ -7,10 +7,14 @@
 .Grid {
     grid-template-columns: repeat(2, auto);
     justify-content: center;
-    column-gap: 10px;
-    row-gap: 30px;
+    column-gap: adaptiveSize(10, 5);
+    row-gap: adaptiveSize(25, 13);
     @include pd-t-b;
-    margin-top: 50px;
+    margin-top: adaptiveSize(50, 25);
+
+    img {
+        width: adaptiveSize(82, 40);
+    }
 }
 
 .Grid p:nth-child(2) {
@@ -26,4 +30,5 @@
     justify-self: center;
     color: #525252;
     font-family: Montserrat;
+    @include font-16;
 }
