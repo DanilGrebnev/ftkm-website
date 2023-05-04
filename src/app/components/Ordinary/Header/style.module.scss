@@ -17,28 +17,6 @@
     max-width: 150px;
 }
 
-.menuAppbar {
-    a {
-        margin: 10px 10px;
-        display: block;
-        position: relative;
-    }
-
-    a::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        width: 0px;
-        height: 2px;
-        background: black;
-        transition: 0.5s;
-    }
-
-    a:hover::after {
-        display: block;
-        width: 100%;
-    }
-}
 
 .box {
     justify-content: center;
