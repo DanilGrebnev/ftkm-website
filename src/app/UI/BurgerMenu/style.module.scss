@@ -1,0 +1,47 @@
+@import '@variables';
+
+.BM_Container {
+    flex-grow: 1;
+    display: none;
+}
+
+.BM_Icon {
+    position: relative;
+    display: block;
+    width: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.MB_Icon_lines {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    span {
+        display: block;
+        height: 2px;
+        background: white;
+    }
+}
+
+.BM {
+    @include box-sh;
+    padding: 0 10px;
+    position: absolute;
+    top: 80px;
+    background: white;
+    border-radius: 4px;
+    color: $mui-blue;
+
+    * {
+        display: block;
+        margin: 10px 0;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .BM_Container {
+        display: block;
+    }
+}

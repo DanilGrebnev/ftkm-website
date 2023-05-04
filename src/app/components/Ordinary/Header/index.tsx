@@ -1,7 +1,6 @@
-import { useToggleActiveMUI } from '@hooks/useToggleActiveMUI'
+import { BurgerMenu } from '@UI/BurgerMenu'
 import vstu from '@images/VSTU.png'
 import { HeightCalcHelper } from '@lib/HeightHelper'
-import MenuIcon from '@mui/icons-material/Menu'
 import {
     AppBar,
     Box,
@@ -16,15 +15,13 @@ import {
 import { useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 import uuid from 'react-uuid'
+import { v4 as uuidv4 } from 'uuid'
 
 import { muiStyles } from './mui-styles'
 import { pageList } from './pageList'
 import style from './style.module.scss'
 
 export const Header = () => {
-    const [isActive, handleOpenNavMenu, handleCloseNavMenu] =
-        useToggleActiveMUI()
-
     const ref = useRef<HTMLElement>(null)
 
     useEffect(() => {
@@ -33,46 +30,27 @@ export const Header = () => {
         }
     }, [ref])
 
+    const BurgerMenuItems = () => (
+        <>
+            <NavLink to="/">Главная</NavLink>
+            {pageList.map(({ href, text }, i) => {
+                return (
+                    <a key={uuidv4()} href={href}>
+                        {text}
+                    </a>
+                )
+            })}
+            {/* <NavLink to="/news">Новости</NavLink> */}
+        </>
+    )
+
     return (
         <section ref={ref} className="Header" id="Header">
             <AppBar className={style.Header} position="sticky">
                 <Container maxWidth="xl">
                     <Toolbar className={style.toolbar} disableGutters>
                         <img className={style.vstuIcon} alt="vstu" src={vstu} />
-                        <Box className="Box1" flexGrow="1" sx={muiStyles.Box1}>
-                            <IconButton
-                                size="large"
-                                aria-label="account of current user"
-                                aria-controls="menu-appbar"
-                                aria-haspopup="true"
-                                color="inherit"
-                                onClick={handleOpenNavMenu}
-                            >
-                                <MenuIcon />
-                            </IconButton>
-                            <Menu
-                                className={style.menuAppbar}
-                                id="menu-appbar"
-                                anchorEl={isActive}
-                                onClose={handleCloseNavMenu}
-                                open={Boolean(isActive)}
-                                anchorOrigin={muiStyles.Menu.anchorOrigin}
-                                keepMounted
-                                transformOrigin={muiStyles.Menu.transformOrigin}
-                                sx={muiStyles.Menu.sx}
-                            >
-                                {/* Бургер меню */}
-                                <NavLink to="/">Главная</NavLink>
-                                {pageList.map(({ text, href }) => {
-                                    return (
-                                        <a key={uuid()} href={href}>
-                                            {text}
-                                        </a>
-                                    )
-                                })}
-                                <NavLink to="/news">Новости</NavLink>
-                            </Menu>
-                        </Box>
+                        <BurgerMenu element={<BurgerMenuItems />} />
 
                         {/* При адаптации показывает лого посредине экрана */}
 
