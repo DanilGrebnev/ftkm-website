@@ -51,6 +51,7 @@ export const Header = () => {
                                 <MenuIcon />
                             </IconButton>
                             <Menu
+                                className={style.menuAppbar}
                                 id="menu-appbar"
                                 anchorEl={isActive}
                                 onClose={handleCloseNavMenu}
@@ -61,35 +62,15 @@ export const Header = () => {
                                 sx={muiStyles.Menu.sx}
                             >
                                 {/* Бургер меню */}
-                                <NavLink to="/">
-                                    <Button className={style.Btn}>
-                                        Главная
-                                    </Button>
-                                </NavLink>
+                                <NavLink to="/">Главная</NavLink>
                                 {pageList.map(({ text, href }) => {
                                     return (
-                                        <a
-                                            style={{
-                                                display: 'block',
-                                                color: 'black',
-                                            }}
-                                            key={uuid()}
-                                            href={href}
-                                        >
-                                            <Button
-                                                className={style.Btn}
-                                                variant="text"
-                                            >
-                                                {text}
-                                            </Button>
+                                        <a key={uuid()} href={href}>
+                                            {text}
                                         </a>
                                     )
                                 })}
-                                <NavLink to="/news">
-                                    <Button className={style.Btn}>
-                                        Новости
-                                    </Button>
-                                </NavLink>
+                                <NavLink to="/news">Новости</NavLink>
                             </Menu>
                         </Box>
 
