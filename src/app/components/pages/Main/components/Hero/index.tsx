@@ -15,14 +15,17 @@ export const Hero = () => {
         <section className={`Hero ${style.Hero}`}>
             <div style={{ height: state }} className={style.VideoFilter}>
                 <div className={style.VideoFilterContent}>
-                    <span>
+                    <span className={style.title}>
                         машины и технолгия <br /> литейного производства
                     </span>
-                    <h4>22.03.02 Машиностроение</h4>
-                    <p className={style.Faculty}>факультет технологии конструкционных материалов</p>
+                    <h4>22.03.02 Металлургия</h4>
+                    <h4>16.03.01 Машиностроение</h4>
+                    <p className={style.Faculty}>
+                        факультет технологии конструкционных материалов
+                    </p>
                     <p className={style.Info}>
-                        Информация для абитурьентов и их родителей <br /> о кафедре и профиле
-                        обучения!
+                        Информация для абитурьентов и их родителей <br /> о
+                        кафедре и профиле обучения!
                     </p>
                 </div>
             </div>
