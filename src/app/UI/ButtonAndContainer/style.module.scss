@@ -1,6 +1,7 @@
 @import '@variables';
 
 .ButtonAndContainer {
+    // padding: adaptiveSize(50, 25) !important;
     @include mr-t-b;
 }
 
@@ -9,7 +10,7 @@
     border-radius: 30px !important;
     border-color: black !important;
     border-width: 2px !important;
-    padding: 20px 80px;
+    padding: adaptiveSize(20, 10) adaptiveSize(80, 40);
     background: white;
     font-weight: bold;
 

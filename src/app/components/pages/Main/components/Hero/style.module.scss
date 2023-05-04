@@ -28,23 +28,23 @@
     span {
         @include font-64;
         background: rgb(4, 12, 59);
-        line-height: 1;
+        line-height: normal;
     }
 
     h4 {
         margin: 50px 0;
-        font-size: 40px;
+        @include font-40;
     }
 
     .Faculty {
         color: $color-w;
-        font-size: 30px;
+        @include font-30;
         display: inline-block;
         border-bottom: 4px solid white;
     }
 
     .Info {
-        font-size: 24px;
+        @include font-24;
         margin: 50px 0;
         text-transform: none;
         font-weight: 300;

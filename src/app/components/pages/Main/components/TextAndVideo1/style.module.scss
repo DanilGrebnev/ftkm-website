@@ -2,7 +2,8 @@
 
 .TextAndVideo1 {
     font-family: Monserrat;
-    font-size: 32px;
+    @include font-32;
+    // font-size: 32px;
     gap: 50px;
 
     @include mr-t-b;

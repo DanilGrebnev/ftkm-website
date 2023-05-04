@@ -10,7 +10,7 @@
 
     h2 {
         @include font-42;
-        margin-bottom: 100px;
+        margin-bottom: adaptiveSize(100, 50);
         grid-column: 1/4;
     }
 
@@ -19,8 +19,8 @@
 
         color: $color-w;
         background: $main-blue;
-        width: 150px;
-        height: 150px;
+        width: adaptiveSize(150, 75);
+        height: adaptiveSize(150, 75);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -48,7 +48,6 @@
     align-items: center;
     text-align: center;
     justify-items: center;
-    // justify-self: center;
 }
 
 @media screen and (max-width: 920px) {
@@ -56,6 +55,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 30px;
+        gap: adaptiveSize(30, 15);
     }
 }
