@@ -8,4 +8,7 @@ $border-line-style: 2px solid black;
     padding: adaptiveSize(50, 25) 0;
     margin: adaptiveSize(40, 20) auto !important;
     max-width: 1524px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
