@@ -1,0 +1,14 @@
+@import '@variables';
+
+.History {
+    h2 {
+        @include custom-mr-t-b;
+        @include font-30;
+        font-weight: bold;
+        text-align: start;
+    }
+
+    p {
+        @include font-20;
+    }
+}
