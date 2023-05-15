@@ -3,7 +3,7 @@
 .TextAndVideo2 {
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
-    gap: 100px 50px;
+    gap: adaptiveSize(100, 50) adaptiveSize(50, 25);
 
     @include mr-t-b;
     @include pd-t-b;

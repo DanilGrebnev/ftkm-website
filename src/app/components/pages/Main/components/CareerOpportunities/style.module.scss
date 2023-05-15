@@ -3,7 +3,7 @@
 .Career {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, auto);
-    grid-gap: 40px 50px;
+    grid-gap: adaptiveSize(40, 20) adaptiveSize(50, 25);
     font-family: Montserrat;
     @include mr-t-b;
     @include pd-t-b;

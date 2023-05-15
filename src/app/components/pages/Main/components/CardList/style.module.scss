@@ -5,9 +5,10 @@
 }
 
 .CardList {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
+    justify-content: space-evenly;
     font-family: Montserrat;
+    flex-wrap: wrap;
     gap: 20px;
 
     a {
