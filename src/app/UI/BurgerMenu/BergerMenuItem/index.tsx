@@ -15,6 +15,8 @@ export const BurgerMenuItems = () => (
                 </a>
             )
         })}
+        <NavLink to="/moreInfo">Больше информации</NavLink>
+
         {/* <NavLink to="/news">Новости</NavLink> */}
     </>
 )
