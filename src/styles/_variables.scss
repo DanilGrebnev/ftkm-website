@@ -1,16 +1,30 @@
 $color-w: white;
+
 $main-blue: rgba(16, 6, 159, 1);
+
 $header-link-color: white;
+
 $border: 1px solid black;
+
 $footer-bg: #e0e0e0;
+
 $mr-pd: 50px;
+
 $pt: 20px;
+
 $pb: 20px;
+
 $mui-blue: #1976d2;
+
 $text-secondary: rgba(0, 0, 0, 0.6);
 
-$maxWidth: 1524;
+$maxWidth: 1920;
 
+/*
+функция принимает 2 параметра: 
+размер при разрешении 1920px
+и размер при 320px
+*/
 @function adaptiveSize($pcSize, $mobSize) {
     @return calc(
         #{$mobSize + px} + (#{$pcSize} - #{$mobSize}) * (100vw - 320px) / (#{$maxWidth} -
@@ -20,6 +34,10 @@ $maxWidth: 1524;
 
 @mixin adaptiv-font($pcSize, $mobSize) {
     font-size: adaptiveSize($pcSize, $mobSize);
+}
+
+@mixin custom-mr-t-b($pcSize: 50, $mobSize: $pcSize / 2) {
+    margin: adaptiveSize($pcSize, $mobSize) 0;
 }
 
 @mixin object-fit {
@@ -36,7 +54,15 @@ $maxWidth: 1524;
 }
 
 @mixin mr-t-b {
-    margin: adaptiveSize(100, 20) auto;
+    margin: adaptiveSize(100, 50) auto;
+}
+
+@mixin mr-t-b-20 {
+    margin: adaptiveSize(20, 10) auto;
+}
+
+@mixin mr-left-50 {
+    margin-left: adaptiveSize(50, 25);
 }
 
 @mixin pd-t-b {
