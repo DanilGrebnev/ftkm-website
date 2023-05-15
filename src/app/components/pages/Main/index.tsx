@@ -9,6 +9,7 @@ import {
     NewsBlock,
     Partners,
     Questions,
+    ScientificDirection,
     TextAndVideo1,
     TextAndVideo2,
     UniversityInfo,
@@ -29,6 +30,7 @@ export const Main = () => {
             <Partners />
             <DepartmentSpecialists />
             {/* <NewsBlock /> */}
+            <ScientificDirection />
             <Questions />
             <Footer />
         </section>

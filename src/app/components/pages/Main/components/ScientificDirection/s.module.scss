@@ -1,0 +1,23 @@
+@import '@variables';
+
+.ScientificDirection {
+    h2 {
+        @include mr-t-b;
+        @include font-42;
+    }
+
+    h3 {
+        @include font-24;
+        // @include mr-sub;
+        @include custom-mr-t-b(20);
+        text-align: start;
+    }
+
+    li {
+        @include font-18;
+        @include mr-left-50;
+
+        line-height: 2.5;
+        list-style: disc;
+    }
+}
