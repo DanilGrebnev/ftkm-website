@@ -31,10 +31,12 @@ export const App = () => (
                 path="/"
                 element={<Main />}
             />
+
             <Route
-                path="moreInfo"
+                path="moreInfo/*"
                 element={<MoreInfo />}
             />
+
             <Route
                 path="contacts"
                 element={<Contacts />}

@@ -1,5 +1,7 @@
 import React from 'react'
 
+import s from './s.module.scss'
+
 interface IElement {
     value: number
     elementValue: number
@@ -14,5 +16,12 @@ export const Element: React.FC<IElement> = ({
     const style =
         value === elementValue ? { display: 'block' } : { display: 'none' }
 
-    return <div style={style}>{children}</div>
+    return (
+        <div
+            className={s.element}
+            style={style}
+        >
+            {children}
+        </div>
+    )
 }

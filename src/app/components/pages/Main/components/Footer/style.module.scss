@@ -10,7 +10,6 @@
     column-gap: adaptiveSize(10, 5);
     row-gap: adaptiveSize(25, 13);
     @include pd-t-b;
-    margin-top: adaptiveSize(50, 25);
 
     img {
         width: adaptiveSize(82, 40);

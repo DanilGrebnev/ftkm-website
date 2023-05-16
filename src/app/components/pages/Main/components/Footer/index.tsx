@@ -7,7 +7,10 @@ export const Footer = () => {
     return (
         <div className={`Footer ${style.Footer}`}>
             <Grid className={style.Grid}>
-                <img alt="VSTU logo" src={logo} />
+                <img
+                    alt="VSTU logo"
+                    src={logo}
+                />
                 <p>Кафедра машины и технология литейного производства</p>
                 <p>© 2023 Кафедра "МиТЛП"</p>
             </Grid>

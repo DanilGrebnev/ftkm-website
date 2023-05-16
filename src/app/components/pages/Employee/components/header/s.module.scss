@@ -1,0 +1,29 @@
+@import '@variables';
+
+.header {
+    margin-bottom: adaptiveSize(50, 25);
+    display: flex;
+    gap: adaptiveSize(100, 50);
+
+    img {
+        width: adaptiveSize(150, 90);
+        height: adaptiveSize(200, 120);
+    }
+}
+
+.leftColumn,
+.rightColumn {
+    @include Roboto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 600px;
+    width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+    .header {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}
