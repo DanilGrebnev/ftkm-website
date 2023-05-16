@@ -35,20 +35,23 @@
         margin: adaptiveSize(50, 25) 0;
         @include font-40;
     }
+}
 
-    .Faculty {
-        color: $color-w;
-        @include font-30;
-        display: inline-block;
-        border-bottom: 4px solid white;
+.Faculty {
+    color: $color-w;
+    @include font-30;
+    display: inline-block;
+    p {
+        border-bottom: 2px solid white;
     }
+    padding: 0 10px;
+}
 
-    .Info {
-        @include font-24;
-        margin: 50px 0;
-        text-transform: none;
-        font-weight: 300;
-    }
+.Info {
+    @include font-24;
+    margin: 50px 0;
+    text-transform: none;
+    font-weight: 300;
 }
 
 .VideoIntro {

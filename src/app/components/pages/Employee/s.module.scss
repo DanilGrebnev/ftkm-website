@@ -9,6 +9,7 @@
 
     .biografy_text {
         @include font-20;
+        text-align: justify;
     }
 
     margin-bottom: adaptiveSize(100, 50);

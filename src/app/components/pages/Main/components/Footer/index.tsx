@@ -1,6 +1,5 @@
 import { Grid } from '@components/containers/Grid'
 import logo from '@images/Logo_vstu.png'
-import { Link } from 'react-router-dom'
 
 import style from './style.module.scss'
 
