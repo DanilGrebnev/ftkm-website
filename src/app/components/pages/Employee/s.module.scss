@@ -11,5 +11,5 @@
         @include font-20;
     }
 
-    margin-bottom: 50px;
+    margin-bottom: adaptiveSize(100, 50);
 }

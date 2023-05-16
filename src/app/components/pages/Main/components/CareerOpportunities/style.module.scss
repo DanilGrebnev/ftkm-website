@@ -4,7 +4,7 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, auto);
     grid-gap: adaptiveSize(40, 20) adaptiveSize(50, 25);
-    font-family: Montserrat;
+
     @include mr-t-b;
     @include pd-t-b;
 
@@ -35,6 +35,8 @@
     }
 
     .btn {
+        @include font-20;
+
         display: flex;
         background: $main-blue;
         max-width: 1000px;
@@ -43,7 +45,6 @@
         height: adaptiveSize(80, 40);
         margin-top: adaptiveSize(40, 20);
         border-radius: 30px;
-        @include font-20;
         font-weight: bold;
         color: $color-w;
         border: none;
@@ -57,6 +58,7 @@
         }
     }
 }
+
 .Career > div {
     line-height: 1.5;
     text-align: justify;

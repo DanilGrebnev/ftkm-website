@@ -39,7 +39,7 @@ export const CareerOpportunities = () => {
                     <li>
                         построить карьеру на машиностроительных и
                         металлургических предприятиях страны, в
-                        научно-исследовательских институтах,торговых
+                        научно-исследовательских институтах, торговых
                         организациях.
                     </li>
                     <li>
@@ -62,7 +62,10 @@ export const CareerOpportunities = () => {
                     аспирантуру для подготовки кандидатской диссертации.
                 </p>
             </div>
-            <Button className={style.btn} variant="contained">
+            <Button
+                className={style.btn}
+                variant="contained"
+            >
                 <a href="https://volgograd.hh.ru/vacancies/metallurg">
                     Узнай вакансии для твоей будущей специальности
                 </a>

@@ -14,9 +14,10 @@
 }
 
 .vstuIcon {
-    max-width: 150px;
+    img {
+        max-width: 150px;
+    }
 }
-
 
 .box {
     justify-content: center;
@@ -26,7 +27,7 @@
     .vstuIcon {
         display: none;
     }
-    
+
     .Box2 {
         display: none !important;
     }

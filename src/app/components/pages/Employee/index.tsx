@@ -1,5 +1,4 @@
 import { List } from '@components/Ordinary/List'
-import { Container } from '@mui/material'
 
 import { headDepartment } from '../MoreInfo/employee_data'
 import { Header } from './components/header'
@@ -38,7 +37,7 @@ export const Employee = () => {
                 четыре кандидата наук. Опубликовано 16 учебных пособий, в т.ч.
                 четыре с грифом УМО, 40 статей в научных журналах,
                 рекомендованных ВАК РФ, имеет 42 охранных документа на объекты
-                интеллектуальной деятельности. Женат, имеет сына и дочь.
+                интеллектуальной деятельности.
             </p>
         </section>
     )
