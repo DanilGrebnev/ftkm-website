@@ -30,6 +30,9 @@ export const HeaderMenuItems = () => {
                     </a>
                 )
             })}
+            <NavLink to="/contacts">
+                <Button className={style.Btn}>Контакты</Button>
+            </NavLink>
             <NavLink to="/moreInfo">
                 <Button className={style.Btn}>Больше информации</Button>
             </NavLink>

@@ -1,12 +1,27 @@
+import { withSuspense } from '@HOC/withSuspense'
 import { Header } from '@components/Ordinary/Header'
-import { Contacts } from '@components/pages/Contacts'
+import Contacts from '@components/pages/Contacts'
 import { Main } from '@components/pages/Main'
-import { MoreInfo } from '@components/pages/MoreInfo'
-import { NewsBlog } from '@components/pages/News'
-import { OneNews } from '@components/pages/OneNews'
+import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 
 import './App.scss'
+
+const MoreInfo = withSuspense(
+    React.lazy(() => import('@components/pages/MoreInfo'))
+)
+
+// const Contacts = withSuspense(
+//     React.lazy(() => import('@components/pages/Contacts'))
+// )
+
+// const NewsBlog = withSuspense(
+//     React.lazy(() => import('@components/pages/News'))
+// )
+
+// const OneNews = withSuspense(
+//     React.lazy(() => import('@components/pages/OneNews'))
+// )
 
 export const App = () => (
     <div className="App">
@@ -17,21 +32,21 @@ export const App = () => (
                 element={<Main />}
             />
             <Route
-                path="news"
-                element={<NewsBlog />}
+                path="moreInfo"
+                element={<MoreInfo />}
             />
             <Route
                 path="contacts"
                 element={<Contacts />}
             />
+            {/* <Route
+                path="news"
+                element={<NewsBlog />}
+            />
             <Route
                 path="news/:_id"
                 element={<OneNews />}
-            />
-            <Route
-                path="moreInfo"
-                element={<MoreInfo />}
-            />
+            /> */}
         </Routes>
     </div>
 )

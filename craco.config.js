@@ -19,6 +19,7 @@ module.exports = {
                     '@Ordinary': 'app/Ordinary',
                     '@redux': 'app/redux',
                     '@interfaces': 'app/interface',
+                    '@HOC': 'app/HOC',
                 },
             },
         },

@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 
 import s from './NewsBlog.module.scss'
 
-export const NewsBlog = () => {
+const NewsBlog = () => {
     const dispatch = useAppDispatch()
 
     const { news, documentsCount, loading, error } = useAppSelector(
@@ -42,11 +42,18 @@ export const NewsBlog = () => {
     const newsEnding = news.length >= documentsCount
 
     return (
-        <Container maxWidth="xl" id="News-Block" className={s.NewsContainer}>
+        <Container
+            maxWidth="xl"
+            id="News-Block"
+            className={s.NewsContainer}
+        >
             {/* <SearchFilter /> */}
             <Grid className={s['news-blog']}>
                 {news.map(news => (
-                    <Link key={news._id} to={`${news._id}`}>
+                    <Link
+                        key={news._id}
+                        to={`${news._id}`}
+                    >
                         <NewsCardItem {...news} />
                     </Link>
                 ))}
@@ -67,3 +74,5 @@ export const NewsBlog = () => {
         </Container>
     )
 }
+
+export default NewsBlog

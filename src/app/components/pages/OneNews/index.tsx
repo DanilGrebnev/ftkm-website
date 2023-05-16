@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom'
 
 import s from './style.module.scss'
 
-export const OneNews: React.FC = () => {
+const OneNews: React.FC = () => {
     const { _id } = useParams()
 
     const { error, loading, news, fetchNews } = useFetchNews()
@@ -48,3 +48,5 @@ export const OneNews: React.FC = () => {
         </Container>
     )
 }
+
+export default OneNews

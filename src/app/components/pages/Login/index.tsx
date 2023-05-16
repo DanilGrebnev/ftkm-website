@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import s from './style.module.scss'
 
-export const Login = () => {
+const Login = () => {
     return (
         <div className={s.LoginContainer}>
             <div className={s.InputContainer}>
@@ -21,11 +21,17 @@ export const Login = () => {
                     autoComplete="current-password"
                 />
                 <div className={s.BtnGroup}>
-                    <Button variant="contained" className={s.btn}>
+                    <Button
+                        variant="contained"
+                        className={s.btn}
+                    >
                         Войти
                     </Button>
                     <Link to="/">
-                        <Button variant="outlined" className={s.btn}>
+                        <Button
+                            variant="outlined"
+                            className={s.btn}
+                        >
                             На главную
                         </Button>
                     </Link>
@@ -34,3 +40,5 @@ export const Login = () => {
         </div>
     )
 }
+
+export default Login

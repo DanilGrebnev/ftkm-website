@@ -27,7 +27,8 @@
             "@UI/*": ["./app/UI/*"],
             "@Ordinary/*": ["./app/Ordinary/*"],
             "@redux/*": ["./app/redux/*"],
-            "@interfaces/*": ["./app/interface/*"]
+            "@interfaces/*": ["./app/interface/*"],
+            "@HOC/*": ["./app/HOC/*"]
         }
     },
 

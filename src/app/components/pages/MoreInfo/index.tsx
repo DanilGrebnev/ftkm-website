@@ -18,7 +18,7 @@ const a = [
     },
 ]
 
-export const MoreInfo = () => {
+const MoreInfo = () => {
     return (
         <Container
             id="MoreInfo"
@@ -31,3 +31,5 @@ export const MoreInfo = () => {
         </Container>
     )
 }
+
+export default MoreInfo

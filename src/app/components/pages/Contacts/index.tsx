@@ -8,10 +8,16 @@ import { ContactInformation } from './components/ContactInformation/inedx'
 import { WorkingMode } from './components/WorkingMode'
 import s from './style.module.scss'
 
-export const Contacts = () => {
+const Contacts = () => {
     return (
-        <section id="ContactsBlock" className={s.contactsBlock}>
-            <Container maxWidth="xl" className={s.container}>
+        <section
+            id="ContactsBlock"
+            className={s.contactsBlock}
+        >
+            <Container
+                maxWidth="xl"
+                className={s.container}
+            >
                 <h1>Контактная информация</h1>
                 <section className={s.content}>
                     <Address />
@@ -30,3 +36,5 @@ export const Contacts = () => {
         </section>
     )
 }
+
+export default Contacts
