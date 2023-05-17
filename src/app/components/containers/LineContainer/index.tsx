@@ -13,7 +13,9 @@ export const LineContainer = (props: LineContainerProps): JSX.Element => {
             className={props.className + ' ' + s.LineContainer}
             style={style}
         >
+            <span className={s.lineTop}></span>
             {<>{props.children}</>}
+            <span className={s.lineBot}></span>
         </section>
     )
 }

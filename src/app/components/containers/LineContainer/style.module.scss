@@ -3,12 +3,37 @@
 $border-line-style: 2px solid black;
 
 .LineContainer {
-    border-bottom: $border-line-style;
-    border-top: $border-line-style;
+    // border-bottom: $border-line-style;
+    // border-top: $border-line-style;
+    position: relative;
     padding: adaptiveSize(50, 25) 0;
     margin: adaptiveSize(40, 20) auto !important;
     max-width: 1524px;
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.lineTop,
+.lineBot {
+    position: absolute;
+    height: 3px;
+    background: $main-blue;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.lineTop {
+    top: 0;
+}
+
+.lineBot {
+    bottom: 0;
+}
+
+@media screen and (max-width: 1550px) {
+    .lineTop,
+    .lineBot {
+        width: 95%;
+    }
 }
