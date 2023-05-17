@@ -26,7 +26,9 @@ export const Footer: React.FC<IFooter> = ({ style }) => {
                             Машины и технология литейного производства
                         </q>
                     </p>
-                    <p>© {new Date().getFullYear()} Кафедра "МиТЛП"</p>
+                    <p>
+                        © {new Date().getFullYear()} Кафедра <q>МиТЛП</q>
+                    </p>
                 </Grid>
             </a>
         </div>
