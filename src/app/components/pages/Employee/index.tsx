@@ -1,6 +1,6 @@
 import { List } from '@components/Ordinary/List'
+import { data } from 'app/data/Kidalov.employee'
 
-import { headDepartment } from '../MoreInfo/employee_data'
 import { Header } from './components/header'
 import s from './s.module.scss'
 
@@ -8,7 +8,8 @@ export const Employee = () => {
     return (
         <section className={`Employee ${s.employee}`}>
             <Header />
-            {headDepartment.map(({ title, list }) => {
+
+            {data.map(({ title, list }) => {
                 return (
                     <List
                         list={list}
@@ -16,7 +17,9 @@ export const Employee = () => {
                     />
                 )
             })}
+
             <h3 className={s.biografy}>Биография</h3>
+
             <p className={s.biografy_text}>
                 В 1970г. окончил среднюю школу № 14 г.Волгограда и поступил в
                 ВПИ. В 1973-1975гг. служил в СА. В 1979г. окончил ВПИ по спец.

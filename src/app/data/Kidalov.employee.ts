@@ -1,4 +1,4 @@
-export const headDepartment = [
+export const data = [
     {
         title: `Научные направления:`,
         list: [

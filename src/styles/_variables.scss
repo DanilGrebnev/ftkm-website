@@ -1,3 +1,7 @@
+:root {
+    --maxWidth: 1920;
+}
+
 $color-w: white;
 
 $main-blue: rgba(16, 6, 159, 1);
@@ -18,7 +22,7 @@ $pb: 20px;
 
 $text-secondary: rgba(0, 0, 0, 0.6);
 
-$maxWidth: 1920;
+$maxWidth: var(--maxWidth);
 
 /*
 функция принимает 2 параметра: 
@@ -138,4 +142,22 @@ $maxWidth: 1920;
     -webkit-box-shadow: 0px 0px 13px 0px rgba(34, 60, 80, 0.2);
     -moz-box-shadow: 0px 0px 13px 0px rgba(34, 60, 80, 0.2);
     box-shadow: 0px 0px 13px 0px rgba(34, 60, 80, 0.2);
+}
+
+@media screen and (min-width: 2000px) {
+    :root {
+        --maxWidth: 2000;
+    }
+}
+
+@media screen and (min-width: 4000px) {
+    :root {
+        --maxWidth: 4000;
+    }
+}
+
+@media screen and (min-width: 8000px) {
+    :root {
+        --maxWidth: 8000;
+    }
 }
