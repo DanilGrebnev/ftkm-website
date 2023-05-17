@@ -19,7 +19,7 @@ export const Hero = () => {
             >
                 <div className={style.VideoFilterContent}>
                     <span className={style.title}>
-                        машины и технолгия <br /> литейного производства
+                        машины и технология <br /> литейного производства
                     </span>
                     <h4>22.03.02 Металлургия</h4>
                     <h4>16.03.01 Машиностроение</h4>

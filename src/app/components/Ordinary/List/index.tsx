@@ -11,8 +11,8 @@ export const List: React.FC<IProps> = ({ title, list }) => (
     <div className={s.list}>
         <h3>{title}</h3>
         <ul>
-            {list.map(el => (
-                <li>{el}</li>
+            {list.map((el, i) => (
+                <li key={i}>{el}</li>
             ))}
         </ul>
     </div>

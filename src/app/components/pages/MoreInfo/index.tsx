@@ -2,9 +2,10 @@ import { Tabs } from '@UI/Tabs'
 import { Container } from '@mui/material'
 
 import { Employee } from '../Employee'
-import { Footer } from '../Main/components'
+import { Employees } from './Employees'
 import { History } from './History'
-import { RoutesPage } from './RoutesPage'
+// import { RoutesPage } from './RoutesPage'
+import s from './s.module.scss'
 
 const a = [
     {
@@ -18,13 +19,16 @@ const a = [
     },
     {
         btnText: 'Сотрудники',
-        element: <RoutesPage />,
+        element: <Employees />,
     },
 ]
 
 const MoreInfo = () => {
     return (
-        <>
+        <section
+            id="MoreInfo"
+            className={s.MoreInfo}
+        >
             <Container
                 id="MoreInfo"
                 maxWidth="xl"
@@ -34,8 +38,7 @@ const MoreInfo = () => {
                     array={a}
                 />
             </Container>
-            <Footer />
-        </>
+        </section>
     )
 }
 

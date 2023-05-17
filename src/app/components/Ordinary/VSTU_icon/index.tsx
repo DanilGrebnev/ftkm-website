@@ -3,7 +3,7 @@ import React from 'react'
 
 interface IVSTUIcon {
     style?: React.CSSProperties
-    className?: any
+    className?: string | undefined
 }
 
 export const VSTUIcon: React.FC<IVSTUIcon> = ({ style, className }) => {

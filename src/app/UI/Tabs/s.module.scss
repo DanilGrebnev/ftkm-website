@@ -3,7 +3,10 @@
 .TabsButton {
     display: flex;
     position: relative;
-    margin-bottom: 20px;
+}
+
+.TabsItem {
+    padding-top: adaptiveSize(50, 20);
 }
 
 .TabsButton:after {

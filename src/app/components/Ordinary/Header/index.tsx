@@ -1,6 +1,5 @@
 import { BurgerMenu } from '@UI/BurgerMenu'
 import { BurgerMenuItems } from '@UI/BurgerMenu/BergerMenuItem'
-import vstu from '@images/VSTU.png'
 import { HeightCalcHelper } from '@lib/HeightHelper'
 import { AppBar, Container, Toolbar, Typography } from '@mui/material'
 import { useEffect, useRef } from 'react'
@@ -44,7 +43,6 @@ export const Header = () => {
                             className="Typography1"
                             variant="h5"
                             noWrap
-                            component="a"
                             sx={muiStyles.Typography1.sx}
                         >
                             <VSTUIcon style={{ maxWidth: '150px' }} />

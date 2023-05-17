@@ -2,8 +2,8 @@
 
 .History {
     h2 {
-        @include custom-mr-t-b;
         @include font-30;
+        margin-bottom: adaptiveSize(20, 10);
         font-weight: bold;
         text-align: start;
     }

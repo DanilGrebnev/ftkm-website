@@ -3,9 +3,14 @@ import { Grid } from '@components/containers/Grid'
 import s from './style.module.scss'
 
 export const Admission = () => {
+    const year = new Date().getFullYear()
+
     return (
-        <Grid id="Admission" className={`Admission ${s.Admission}`}>
-            <h2>Поступление 2023</h2>
+        <Grid
+            id="Admission"
+            className={`Admission ${s.Admission}`}
+        >
+            <h2>Поступление {year}</h2>
             <div>
                 <div className={s.circle}>40</div>
                 <p>
@@ -13,12 +18,12 @@ export const Admission = () => {
                     <br />
                     бюджетных мест
                 </p>
-                <span>на 2023 год</span>
+                <span>на {year} год</span>
             </div>
             <div>
                 <div className={s.circle}>118</div>
                 <p>Проходной бал</p>
-                <span>на 2023 год</span>
+                <span>на {year} год</span>
             </div>
             <div>
                 <div className={s.circle}>4</div>

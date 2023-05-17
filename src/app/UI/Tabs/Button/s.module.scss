@@ -3,7 +3,7 @@
 $color: rgb(144, 202, 249);
 
 .button {
-    font-size: adaptiveSize(20, 15);
+    font-size: adaptiveSize(20, 11);
     @include Roboto;
     color: black;
     cursor: pointer;
@@ -13,7 +13,7 @@ $color: rgb(144, 202, 249);
     display: block;
     max-width: max-content;
     padding: adaptiveSize(10, 5) adaptiveSize(20, 10);
-    transition: 1s;
+    transition: 0.3s;
 }
 
 .button.active {

@@ -1,0 +1,20 @@
+@import '@variables';
+
+.EmployeeItem {
+    a {
+        display: block;
+        line-height: 1.5;
+        @include font-20;
+        @include Roboto;
+        color: $mui-blue;
+    }
+
+    a:hover {
+        color: black;
+    }
+
+    p {
+        @include font-16;
+    }
+}
+

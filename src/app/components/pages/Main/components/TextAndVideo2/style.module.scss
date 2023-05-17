@@ -26,7 +26,7 @@
         content: '';
         display: inline-block;
         background: black;
-        width: 50px;
+        width: adaptiveSize(50, 10);
     }
 
     iframe,

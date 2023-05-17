@@ -37,7 +37,7 @@ export const Tabs: React.FC<ITabs> = ({ array, style, buttonStyle }) => {
                     )
                 })}
             </div>
-            <div className="Tabs_Item">
+            <div className={`Tabs_Item ${s.TabsItem}`}>
                 {array.map((el, i) => {
                     return (
                         <Element

@@ -9,11 +9,11 @@ export const Employee = () => {
         <section className={`Employee ${s.employee}`}>
             <Header />
 
-            {data.map(({ title, list }) => {
+            {data.map((props, i) => {
                 return (
                     <List
-                        list={list}
-                        title={title}
+                        key={i}
+                        {...props}
                     />
                 )
             })}

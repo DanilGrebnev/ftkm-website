@@ -1,13 +1,21 @@
 import { Grid } from '@components/containers/Grid'
 import logo from '@images/Logo_vstu.png'
+import React from 'react'
 
-import style from './style.module.scss'
+import s from './style.module.scss'
 
-export const Footer = () => {
+interface IFooter {
+    style?: React.CSSProperties
+}
+
+export const Footer: React.FC<IFooter> = ({ style }) => {
     return (
-        <div className={`Footer ${style.Footer}`}>
+        <div
+            style={style}
+            className={`Footer ${s.Footer}`}
+        >
             <a href="/">
-                <Grid className={style.Grid}>
+                <Grid className={s.Grid}>
                     <img
                         alt="VSTU logo"
                         src={logo}
@@ -18,7 +26,7 @@ export const Footer = () => {
                             Машины и технология литейного производства
                         </q>
                     </p>
-                    <p>© 2023 Кафедра "МиТЛП"</p>
+                    <p>© {new Date().getFullYear()} Кафедра "МиТЛП"</p>
                 </Grid>
             </a>
         </div>
