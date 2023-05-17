@@ -1,5 +1,5 @@
+import { BlueButton } from '@UI/BigButton'
 import { Grid } from '@components/containers/Grid'
-import Button from '@mui/material/Button'
 
 import style from './style.module.scss'
 
@@ -62,14 +62,8 @@ export const CareerOpportunities = () => {
                     аспирантуру для подготовки кандидатской диссертации.
                 </p>
             </div>
-            <Button
-                className={style.btn}
-                variant="contained"
-            >
-                <a href="https://volgograd.hh.ru/vacancies/metallurg">
-                    Узнай вакансии для твоей будущей специальности
-                </a>
-            </Button>
+
+            <BlueButton />
         </Grid>
     )
 }

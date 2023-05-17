@@ -1,0 +1,43 @@
+@import '@variables';
+
+.btn {
+    @include font-20;
+
+    display: flex;
+
+    justify-self: center;
+
+    text-align: center;
+
+    width: 100%;
+
+    background: $main-blue;
+
+    max-width: 1000px;
+
+    height: adaptiveSize(80, 40);
+
+    margin-top: adaptiveSize(40, 20);
+
+    border-radius: 30px;
+
+    font-weight: bold;
+
+    color: $color-w;
+
+    border: none;
+
+    text-transform: uppercase;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: $color-w;
+}
+
+@media screen and (max-width: 500px) {
+    .btn {
+        @include font-16;
+    }
+}
