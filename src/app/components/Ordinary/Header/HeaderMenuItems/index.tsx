@@ -1,3 +1,4 @@
+import { useReturnToCorrectLink } from '@hooks/useReturnToCorrectLink'
 import { Box, Button } from '@mui/material'
 import { NavLink } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
@@ -7,6 +8,8 @@ import { pageList } from '../pageList'
 import style from '../style.module.scss'
 
 export const HeaderMenuItems = () => {
+    const { goMainPage } = useReturnToCorrectLink()
+
     return (
         <Box
             className={`Box2 ${style.Box2}`}
@@ -22,6 +25,7 @@ export const HeaderMenuItems = () => {
                         href={href}
                     >
                         <Button
+                            onClick={() => goMainPage('/')}
                             className={style.Btn}
                             variant="text"
                         >

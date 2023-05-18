@@ -1,5 +1,6 @@
 import { ButtonAndContainer } from '@UI/ButtonAndContainer'
 import { YandexMap } from '@UI/YandexMap/inedx'
+import { useSetDocumentTitle } from '@hooks/useSetDocumentTitle'
 import { Container } from '@mui/material'
 
 import { Footer } from '../Main/components'
@@ -9,6 +10,8 @@ import { WorkingMode } from './components/WorkingMode'
 import s from './style.module.scss'
 
 const Contacts = () => {
+    useSetDocumentTitle('МиТЛП | Контакты')
+
     return (
         <section
             id="ContactsBlock"

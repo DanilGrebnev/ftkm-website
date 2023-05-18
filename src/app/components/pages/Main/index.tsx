@@ -1,3 +1,5 @@
+import { useSetDocumentTitle } from '@hooks/useSetDocumentTitle'
+
 import {
     Admission,
     CardList,
@@ -17,6 +19,10 @@ import {
 import style from './style.module.scss'
 
 export const Main = () => {
+    useSetDocumentTitle(
+        'Кафедра «Машины и технология литейного производства» | ВолгГТУ'
+    )
+
     return (
         <section className={`Main-page ${style.Main || ''}`}>
             <Hero />
