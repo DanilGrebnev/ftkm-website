@@ -10,7 +10,7 @@ interface IFooter {
 
 export const Footer: React.FC<IFooter> = ({ style }) => {
     return (
-        <div
+        <section
             style={style}
             className={`Footer ${s.Footer}`}
         >
@@ -31,6 +31,6 @@ export const Footer: React.FC<IFooter> = ({ style }) => {
                     </p>
                 </Grid>
             </a>
-        </div>
+        </section>
     )
 }

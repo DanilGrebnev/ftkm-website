@@ -5,6 +5,7 @@ import s from './style.module.scss'
 export const DepartmentSpecialists = () => {
     return (
         <Container
+            component="section"
             id="Cooperation"
             className={`DepartmentSpecialists ${s.container}`}
             maxWidth="xl"

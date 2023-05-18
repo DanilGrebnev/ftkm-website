@@ -10,13 +10,13 @@ export const useReturnToCorrectLink = () => {
 
     const navigate = useNavigate()
 
-    const goMainPage = (correctLink: string) => {
+    const goRightPage = (correctLink: string) => {
         if (location.pathname !== correctLink) {
             navigate(correctLink)
         }
     }
 
     return {
-        goMainPage,
+        goRightPage,
     }
 }

@@ -7,6 +7,7 @@ import s from './s.module.scss'
 export const ScientificDirection = () => {
     return (
         <Container
+            component="section"
             maxWidth="xl"
             id="ScientificDirection"
             className={s.ScientificDirection}
