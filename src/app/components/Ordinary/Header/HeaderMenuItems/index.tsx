@@ -41,7 +41,7 @@ export const HeaderMenuItems = () => {
                     <Button className={style.Btn}>Контакты</Button>
                 </NavLink>
 
-                <NavLink to="/moreInfo">
+                <NavLink to="/moreinfo">
                     <Button className={style.Btn}>Больше информации</Button>
                 </NavLink>
                 {/* <NavLink to="/news">

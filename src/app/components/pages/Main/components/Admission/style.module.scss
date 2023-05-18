@@ -1,9 +1,10 @@
 @import '@variables';
 
 .Admission {
-    @include border;
     @include mr-t-b;
     @include pd-t-b;
+
+    position: relative;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
     line-height: 1.5;
@@ -14,47 +15,23 @@
         grid-column: 1/4;
     }
 
-    .circle {
-        @include font-64;
-
-        color: $color-w;
-        background: $main-blue;
-        width: adaptiveSize(150, 75);
-        height: adaptiveSize(150, 75);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        font-weight: bold;
-    }
-
-    .circle ~ p {
-        @include font-30;
-        font-weight: 600;
-        margin-top: 40px;
-    }
-
-    .circle ~ span {
-        @include font-20;
-        margin-top: 20px;
-    }
-}
-
-.Admission > div {
-    max-width: 320px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-items: center;
-}
-
-@media screen and (max-width: 920px) {
-    .Admission {
+    @media screen and (max-width: 920px) {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: adaptiveSize(30, 15);
     }
+}
+
+.Admission:after,
+.Admission:before {
+    @include decor-lines;
+}
+
+.Admission:after {
+    top: 0;
+}
+
+.Admission:before {
+    bottom: 0;
 }

@@ -36,6 +36,17 @@ $maxWidth: var(--maxWidth);
     );
 }
 
+@mixin decor-lines($color: black) {
+    content: '';
+    position: absolute;
+    height: 3px;
+    background: $color;
+    width: 95%;
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 @mixin adaptiv-font($pcSize, $mobSize) {
     font-size: adaptiveSize($pcSize, $mobSize);
 }
@@ -130,19 +141,7 @@ $maxWidth: var(--maxWidth);
 }
 
 //--------------CMS-----------------
-@mixin cms-br {
-    border-radius: 20px;
-}
-
-@mixin Roboto {
-    font-family: 'Roboto', sans-serif;
-}
-
-@mixin box-sh {
-    -webkit-box-shadow: 0px 0px 13px 0px rgba(34, 60, 80, 0.2);
-    -moz-box-shadow: 0px 0px 13px 0px rgba(34, 60, 80, 0.2);
-    box-shadow: 0px 0px 13px 0px rgba(34, 60, 80, 0.2);
-}
+@import 'cms';
 
 @media screen and (min-width: 2000px) {
     :root {

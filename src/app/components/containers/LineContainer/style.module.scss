@@ -1,10 +1,6 @@
 @import '@variables';
 
-$border-line-style: 2px solid black;
-
 .LineContainer {
-    // border-bottom: $border-line-style;
-    // border-top: $border-line-style;
     position: relative;
     padding: adaptiveSize(50, 25) 0;
     margin: adaptiveSize(40, 20) auto !important;
@@ -14,26 +10,15 @@ $border-line-style: 2px solid black;
     justify-content: center;
 }
 
-.lineTop,
-.lineBot {
-    position: absolute;
-    height: 3px;
-    background: $main-blue;
-    width: 100%;
-    border-radius: 50%;
+.LineContainer:before,
+.LineContainer:after {
+    @include decor-lines($main-blue);
 }
 
-.lineTop {
+.LineContainer:before {
     top: 0;
 }
 
-.lineBot {
+.LineContainer:after {
     bottom: 0;
-}
-
-@media screen and (max-width: 1550px) {
-    .lineTop,
-    .lineBot {
-        width: 95%;
-    }
 }

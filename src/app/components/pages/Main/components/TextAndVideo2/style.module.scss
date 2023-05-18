@@ -5,9 +5,11 @@
     justify-items: center;
     gap: adaptiveSize(100, 50) adaptiveSize(50, 25);
 
+    position: relative;
+
     @include mr-t-b;
     @include pd-t-b;
-    @include border;
+    // @include border;
 
     h1 {
         @include font-42;
@@ -37,12 +39,23 @@
         outline: none;
         border: none;
     }
-}
 
-@media screen and (max-width: 920px) {
-    .TextAndVideo2 {
+    @media screen and (max-width: 920px) {
         display: flex;
         flex-direction: column;
         gap: 20px;
     }
+}
+
+.TextAndVideo2:after,
+.TextAndVideo2:before {
+    @include decor-lines;
+}
+
+.TextAndVideo2:after {
+    bottom: 0;
+}
+
+.TextAndVideo2:before {
+    top: 0;
 }

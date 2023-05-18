@@ -1,4 +1,5 @@
 import { withSuspense } from '@HOC/withSuspense'
+import { NotFound } from '@UI/NotFound'
 import { Header } from '@components/Ordinary/Header'
 import Contacts from '@components/pages/Contacts'
 import { Main } from '@components/pages/Main'
@@ -10,10 +11,6 @@ import './App.scss'
 const MoreInfo = withSuspense(
     React.lazy(() => import('@components/pages/MoreInfo'))
 )
-
-// const Contacts = withSuspense(
-//     React.lazy(() => import('@components/pages/Contacts'))
-// )
 
 // const NewsBlog = withSuspense(
 //     React.lazy(() => import('@components/pages/News'))
@@ -33,13 +30,17 @@ export const App = () => (
             />
 
             <Route
-                path="moreInfo/*"
+                path="moreinfo/*"
                 element={<MoreInfo />}
             />
 
             <Route
                 path="contacts"
                 element={<Contacts />}
+            />
+            <Route
+                path="*"
+                element={<NotFound />}
             />
             {/* <Route
                 path="news"
