@@ -1,6 +1,7 @@
 import { withSuspense } from '@HOC/withSuspense'
-import '@fontsource/roboto/300.css'
-import '@fontsource/roboto/400.css'
+import { LoadingCircle } from '@UI/LoadingCircle'
+// import '@fontsource/roboto/300.css'
+// import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 import React from 'react'
@@ -14,8 +15,15 @@ import { store } from './app/redux/store'
 
 const container = document.getElementById('root')
 
-const CMS = withSuspense(React.lazy(() => import('@components/pages/CMS')))
-const Login = withSuspense(React.lazy(() => import('@components/pages/Login')))
+const CMS = withSuspense(
+    React.lazy(() => import('@components/pages/CMS')),
+    <LoadingCircle />
+)
+
+const Login = withSuspense(
+    React.lazy(() => import('@components/pages/Login')),
+    <LoadingCircle />
+)
 
 if (container) {
     const root = createRoot(container)

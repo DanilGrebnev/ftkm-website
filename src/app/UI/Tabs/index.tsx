@@ -1,3 +1,5 @@
+import { withSuspense } from '@HOC/withSuspense'
+import { LoadingCircle } from '@UI/LoadingCircle'
 import { ITabs } from '@interfaces/Tabs'
 import React, { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'

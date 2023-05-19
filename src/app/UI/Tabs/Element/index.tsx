@@ -8,7 +8,7 @@ interface IElement {
     children?: React.ReactNode
 }
 
-export const Element: React.FC<IElement> = ({
+export  const Element: React.FC<IElement> = ({
     value,
     elementValue,
     children,
@@ -25,3 +25,4 @@ export const Element: React.FC<IElement> = ({
         </div>
     )
 }
+
