@@ -1,9 +1,14 @@
 import Box from '@mui/material/Box'
 import CircularProgress from '@mui/material/CircularProgress'
+import React from 'react'
 
-export const LoadingCircle = () => {
+interface ICirkle {
+    style?: React.CSSProperties
+}
+
+export const LoadingCircle: React.FC<ICirkle> = ({ style }) => {
     return (
-        <Box sx={{ display: 'flex' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', ...style }}>
             <CircularProgress />
         </Box>
     )

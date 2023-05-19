@@ -1,6 +1,6 @@
 import s from './style.module.scss'
 
-export const YandexMap = () => {
+const YandexMap = () => {
     return (
         <div
             className={s.Map}
@@ -36,3 +36,5 @@ export const YandexMap = () => {
         </div>
     )
 }
+
+export default YandexMap

@@ -24,7 +24,7 @@ const a = [
     },
 ]
 
-const MoreInfo = () => {
+export const MoreInfo = () => {
     useSetDocumentTitle('МиТЛП | Больше информации')
 
     return (
@@ -47,4 +47,3 @@ const MoreInfo = () => {
     )
 }
 
-export default MoreInfo

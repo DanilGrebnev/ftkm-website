@@ -18,18 +18,22 @@ export const Partners = () => {
             <div className={style.imgWrapper}>
                 <img
                     src={neftemah}
+                    loading="lazy"
                     alt="Завод 'Нефтемаш'"
                 />
                 <img
                     src={october}
+                    loading="lazy"
                     alt="Завод 'Красный Октябрь'"
                 />
                 <img
                     src={rusal}
+                    loading="lazy"
                     alt="Завод 'Русал'"
                 />
                 <img
                     src={vtz}
+                    loading="lazy"
                     alt="Волжский Трубный Завод"
                 />
             </div>

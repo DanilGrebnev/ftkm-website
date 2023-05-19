@@ -1,13 +1,21 @@
+import { withSuspense } from '@HOC/withSuspense'
 import { ButtonAndContainer } from '@UI/ButtonAndContainer'
-import { YandexMap } from '@UI/YandexMap/inedx'
+import { LoadingCircle } from '@UI/LoadingCircle'
+// import { YandexMap } from '@UI/YandexMap/inedx'
 import { useSetDocumentTitle } from '@hooks/useSetDocumentTitle'
 import { Container } from '@mui/material'
+import React from 'react'
 
 import { Footer } from '../Main/components'
 import { Address } from './components/Address'
 import { ContactInformation } from './components/ContactInformation/inedx'
 import { WorkingMode } from './components/WorkingMode'
 import s from './style.module.scss'
+
+const YandexMap = withSuspense(
+    React.lazy(() => import('@UI/YandexMap/inedx')),
+    <LoadingCircle />
+)
 
 const Contacts = () => {
     useSetDocumentTitle('МиТЛП | Контакты')
