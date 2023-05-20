@@ -19,7 +19,7 @@ export const EquipmentGallery = () => {
                     src={image1}
                     alt="Оборудование"
                 />
-                <p>Современное сварочное оборудование</p>
+                <p>Современное оборудование</p>
             </div>
             <div>
                 <img

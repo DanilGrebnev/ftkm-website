@@ -36,6 +36,10 @@ $maxWidth: var(--maxWidth);
     );
 }
 
+@mixin Roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
 @mixin decor-lines($color: black) {
     content: '';
     position: absolute;
@@ -142,7 +146,7 @@ $maxWidth: var(--maxWidth);
 
 //--------------CMS-----------------
 @import 'cms';
-
+//-------------Adaptation-----------
 @media screen and (min-width: 2000px) {
     :root {
         --maxWidth: 2000;

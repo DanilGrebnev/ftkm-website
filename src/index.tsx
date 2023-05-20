@@ -1,7 +1,8 @@
 import { withSuspense } from '@HOC/withSuspense'
 import { LoadingCircle } from '@UI/LoadingCircle'
-// import '@fontsource/roboto/300.css'
-// import '@fontsource/roboto/400.css'
+import { NotFound } from '@UI/NotFound'
+import '@fontsource/roboto/300.css'
+import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 import React from 'react'
@@ -12,6 +13,7 @@ import { Route, Routes } from 'react-router-dom'
 
 import { App } from './App'
 import { store } from './app/redux/store'
+import './index.scss'
 
 const container = document.getElementById('root')
 
@@ -46,7 +48,7 @@ if (container) {
                     />
                     <Route
                         path="*"
-                        element={<div>Not found</div>}
+                        element={<NotFound />}
                     />
                 </Routes>
             </Provider>

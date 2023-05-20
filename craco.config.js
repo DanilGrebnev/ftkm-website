@@ -20,6 +20,7 @@ module.exports = {
                     '@redux': 'app/redux',
                     '@interfaces': 'app/interface',
                     '@HOC': 'app/HOC',
+                    '@fonts': 'fonts',
                 },
             },
         },
