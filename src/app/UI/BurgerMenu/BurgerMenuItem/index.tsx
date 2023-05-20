@@ -3,11 +3,13 @@ import { useReturnToCorrectLink } from '@hooks/useReturnToCorrectLink'
 import { NavLink } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
 
+import s from './s.module.scss'
+
 export const BurgerMenuItems = () => {
     const { goRightPage } = useReturnToCorrectLink()
 
     return (
-        <nav>
+        <nav className={s.nav}>
             <NavLink to="/">Главная</NavLink>
 
             {pageList.map(({ href, text }) => {

@@ -4,6 +4,10 @@ import { reducer } from './reducers'
 
 export const store = configureStore({
     reducer,
+    middleware: getDefaultMiddleware =>
+        getDefaultMiddleware({
+            serializableCheck: false,
+        }),
 })
 
 // Выведение типов `RootState` и `AppDispatch` из хранилища

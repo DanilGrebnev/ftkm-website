@@ -2,17 +2,15 @@ import { axios } from '@lib/axios'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { INewsStore } from 'app/interface/News'
 
+interface IfetchNews {
+    skip: number
+    limit: number
+    filterStr?: string
+}
+
 export const fetchNews = createAsyncThunk(
     'news',
-    async ({
-        skip,
-        limit,
-        filterStr,
-    }: {
-        skip: number
-        limit: number
-        filterStr?: string
-    }) => {
+    async ({ skip, limit, filterStr }: IfetchNews) => {
         let query
 
         if (filterStr) {

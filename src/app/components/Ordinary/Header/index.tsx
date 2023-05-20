@@ -1,5 +1,6 @@
 import { BurgerMenu } from '@UI/BurgerMenu'
-import { BurgerMenuItems } from '@UI/BurgerMenu/BergerMenuItem'
+import { BurgerMenuItems } from '@UI/BurgerMenu/BurgerMenuItem'
+import { BurgerMenuModal } from '@UI/BurgerMenu/BurgerMenuModal'
 import { HeightCalcHelper } from '@lib/HeightHelper'
 import { AppBar, Container, Toolbar, Typography } from '@mui/material'
 import { useEffect, useRef } from 'react'
@@ -7,7 +8,7 @@ import { useEffect, useRef } from 'react'
 import { VSTUIcon } from '../VSTU_icon'
 import { HeaderMenuItems } from './HeaderMenuItems'
 import { muiStyles } from './mui-styles'
-import style from './style.module.scss'
+import s from './style.module.scss'
 
 export const Header = () => {
     const ref = useRef<HTMLElement>(null)
@@ -19,23 +20,23 @@ export const Header = () => {
     }, [ref])
 
     return (
-        <section
+        <header
             ref={ref}
-            className="Header"
+            className={s.headerWrapper}
             id="Header"
         >
             <AppBar
-                className={style.Header}
+                className={s.Header}
                 position="sticky"
             >
                 <Container maxWidth="xl">
                     <Toolbar
-                        className={style.toolbar}
+                        className={s.toolbar}
                         disableGutters
                     >
-                        <VSTUIcon className={style.vstuIcon} />
+                        <VSTUIcon className={s.vstuIcon} />
 
-                        <BurgerMenu element={<BurgerMenuItems />} />
+                        <BurgerMenu />
 
                         {/* При адаптации показывает лого посредине экрана */}
 
@@ -51,6 +52,7 @@ export const Header = () => {
                     </Toolbar>
                 </Container>
             </AppBar>
-        </section>
+            <BurgerMenuModal children={<BurgerMenuItems />} />
+        </header>
     )
 }

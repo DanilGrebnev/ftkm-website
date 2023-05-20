@@ -1,7 +1,9 @@
+import { BurgerMenuItems } from '@UI/BurgerMenu/BurgerMenuItem'
 import { useSetDocumentTitle } from '@hooks/useSetDocumentTitle'
 
 import {
     Admission,
+    BurgerMenuModal,
     CardList,
     CareerOpportunities,
     DepartmentSpecialists,
