@@ -21,9 +21,16 @@
 }
 
 .modal a {
+    position: relative;
+    transition: 0.3s;
     padding: 10px 0;
     color: black;
     border-bottom: 1px solid black;
+}
+
+.modal a:hover {
+    transform: scale(1.01);
+    font-weight: 600;
 }
 
 .modal a:first-child {
@@ -39,6 +46,7 @@
     width: 30%;
     background: rgba(0, 0, 0, 0.4);
     height: 5px;
-    bottom: 80px;
+    bottom: 10vh;
     border-radius: 4px;
+    cursor: pointer;
 }
