@@ -1,55 +1,63 @@
-import { withSuspense } from '@HOC/withSuspense'
-import { LoadingCircle } from '@UI/LoadingCircle'
-import { ITabs } from '@interfaces/Tabs'
 import React, { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
 import { Button } from './Button'
-import { Element } from './Element'
+import { ITab, ITabs, IWithTab, prop } from './interface'
 import s from './s.module.scss'
 
 /**
- * Принимаем массив объектов, которые содержат название кнопки и React элемент
+ * Компонент, в который можно обренуть
+ * дочерний отображаемый компонент и передать label
+ * кнопки
  */
-export const Tabs: React.FC<ITabs> = ({ array, style, buttonStyle }) => {
-    const [value, setValue] = useState(1)
+export const Tab: React.FC<ITab> = ({ label, children }) => {
+    return children
+}
+
+/**
+ * HOC который оборачивает компонент в Tab
+ * и возвращает новый компонент
+ */
+export const withTab = (label: string, children: React.ReactElement) => {
+    return <Tab label={label}>{children}</Tab>
+}
+
+export const Tabs: React.FC<ITabs> = ({
+    children,
+    buttonStyle,
+    modalStyle,
+}) => {
+    const childrenArray = !Array.isArray(children) ? [children] : children
+
+    const [tab, setTab] = useState(0)
 
     const onClick = (e: React.SyntheticEvent) => {
         const target = e.target as HTMLButtonElement
 
-        setValue(+target.value)
+        setTab(+target.value)
     }
 
     return (
-        <section
-            style={style}
-            className={`Tabs ${s.Tabs}`}
-        >
+        <section className={`Tabs ${s.Tabs}`}>
             <div className={`Tabs_Button ${s.TabsButton}`}>
-                {array.map((el, i) => {
+                {childrenArray.map((el, i) => {
+                    const element = el as unknown as prop
+
                     return (
                         <Button
-                            style={buttonStyle}
+                            style={buttonStyle || {}}
                             key={uuidv4()}
                             onClick={onClick}
-                            value={i + 1}
-                            currentValue={value}
-                            text={el.btnText}
+                            tab={i}
+                            currentTab={tab}
+                            text={element.props.label}
                         />
                     )
                 })}
             </div>
+
             <div className={`Tabs_Item ${s.TabsItem}`}>
-                {array.map((el, i) => {
-                    return (
-                        <Element
-                            key={uuidv4()}
-                            children={el.element}
-                            elementValue={i + 1}
-                            value={value}
-                        />
-                    )
-                })}
+                {childrenArray.map((tabItem, i) => i === tab && tabItem)}
             </div>
         </section>
     )

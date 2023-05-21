@@ -17,10 +17,14 @@ const helperSlice = createSlice({
             if (elWithDataAtr && !state.isOpenBurgerMenu) {
                 state.isOpenBurgerMenu = true
 
+                document.body.style.position = 'fixed'
+
                 return
             }
 
             state.isOpenBurgerMenu = false
+
+            document.body.style.position = 'static'
         },
     },
 })

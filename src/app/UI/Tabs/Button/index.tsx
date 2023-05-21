@@ -1,31 +1,30 @@
-import { TStyle } from '@interfaces/Style'
 import React from 'react'
 
 import s from './s.module.scss'
 
 interface IButton<T = string> {
-    value: number
+    tab: number
     text: T
-    currentValue: number
+    currentTab: number
     onClick: any
-    style?: TStyle
+    style?: React.CSSProperties
 }
 
 export const Button: React.FC<IButton> = ({
-    value,
+    tab,
     text,
-    currentValue,
+    currentTab,
     onClick,
     style,
 }) => {
-    const className = +value === +currentValue ? s.active : ' '
+    const className = +tab === +currentTab ? s.active : ''
 
     return (
         <button
             style={style}
             onClick={onClick}
             className={s.button + ' ' + className}
-            value={value}
+            value={tab}
         >
             {text}
         </button>

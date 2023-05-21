@@ -40,7 +40,7 @@ export const BurgerMenu: React.FC<IProps> = ({ element }) => {
             >
                 <div
                     className={s.BM_Container}
-                    data-openBurgerModal
+                    data-openburgermodal
                 >
                     <section
                         id="BurgerIcon"
