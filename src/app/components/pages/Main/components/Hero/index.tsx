@@ -1,3 +1,4 @@
+import preloadMetalluurgy from '@images/preloadMetallurgy.jpg'
 import bgVideo from '@videos/metallurgy.mp4'
 import { HeightCalcHelper } from 'app/lib/HeightHelper'
 import { useEffect, useState } from 'react'
@@ -34,12 +35,15 @@ export const Hero = () => {
             </div>
             <video
                 className={style.VideoIntro}
-                src={bgVideo}
                 loop
                 autoPlay
+                preload="auto"
                 muted
+                poster={preloadMetalluurgy}
                 style={{ height: state }}
-            />
+            >
+                <source src={bgVideo} />
+            </video>
         </section>
     )
 }

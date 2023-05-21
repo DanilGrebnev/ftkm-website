@@ -23,8 +23,10 @@ export const TextAndVideo1 = () => {
             </p>
             <video
                 controls
-                src={putinVideo}
-            />
+                preload="metadata"
+            >
+                <source src={putinVideo} />
+            </video>
         </Container>
     )
 }

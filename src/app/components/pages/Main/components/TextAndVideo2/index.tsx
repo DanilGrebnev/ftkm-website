@@ -1,4 +1,5 @@
 import { Grid } from '@components/containers/Grid'
+import preloadMetallurgy from '@images/preloadMetallurgy.jpg'
 import video1 from '@videos/metallurgy.mp4'
 
 import style from './style.module.scss'
@@ -10,12 +11,15 @@ export const TextAndVideo2 = () => {
                 Все профессии хороши, но <q>Металлург</q> - звучит гордо
             </h1>
             <video
+                preload={preloadMetallurgy}
                 style={{ background: 'black' }}
-                src={video1}
                 controls
-            />
+            >
+                <source src={video1} />
+            </video>
 
             <iframe
+                loading="lazy"
                 src="https://www.youtube.com/embed/4WiUXo5x2eI"
                 title="Металлургия - это красиво!"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
