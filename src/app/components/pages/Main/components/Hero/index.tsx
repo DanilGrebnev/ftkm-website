@@ -1,4 +1,4 @@
-import preloadMetalluurgy from '@images/preloadMetallurgy.jpg'
+import preloadMetalluurgy from '@images/preloadmetallurgy.webp'
 import bgVideo from '@videos/metallurgy.mp4'
 import { HeightCalcHelper } from 'app/lib/HeightHelper'
 import { useEffect, useState } from 'react'
