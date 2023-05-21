@@ -5,7 +5,7 @@ $color: rgb(144, 202, 249);
 .button {
     @include Roboto;
 
-    font-size: adaptiveSize(20, 11);
+    font-size: adaptiveSize(20, 12);
 
     color: black;
     cursor: pointer;

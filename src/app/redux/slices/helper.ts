@@ -12,9 +12,9 @@ const helperSlice = createSlice({
         toggleBurgerMenu(state, action) {
             const { target } = action.payload
 
-            const elWithDataAtr = target.closest('[data-openburgermodal]')
+            const elementWithDataAtr = target.closest('[data-openburgermodal]')
 
-            if (elWithDataAtr && !state.isOpenBurgerMenu) {
+            if (elementWithDataAtr && !state.isOpenBurgerMenu) {
                 state.isOpenBurgerMenu = true
 
                 document.body.style.position = 'fixed'
@@ -22,9 +22,13 @@ const helperSlice = createSlice({
                 return
             }
 
-            state.isOpenBurgerMenu = false
+            if (state.isOpenBurgerMenu) {
+                state.isOpenBurgerMenu = false
 
-            document.body.style.position = 'static'
+                document.body.style.position = 'static'
+
+                return
+            }
         },
     },
 })
