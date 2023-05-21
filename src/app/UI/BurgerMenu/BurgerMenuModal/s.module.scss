@@ -1,3 +1,5 @@
+@import '@variables';
+
 .modal {
     position: absolute;
     max-width: 100vw;
@@ -7,22 +9,36 @@
     overflow: hidden;
     transition: 0.5s;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .modal nav {
     display: flex;
     flex-direction: column;
-    // border: 1px solid black;
     width: 85%;
 }
 
 .modal a {
-    padding: 7px 0;
+    padding: 10px 0;
     color: black;
     border-bottom: 1px solid black;
 }
 
+.modal a:first-child {
+    margin-top: 10px;
+}
+
 .modal a:last-child {
     border-bottom: none;
+}
+
+.bottomLine {
+    position: absolute;
+    width: 30%;
+    background: rgba(0, 0, 0, 0.4);
+    height: 5px;
+    bottom: 80px;
+    border-radius: 4px;
 }

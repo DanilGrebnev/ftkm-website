@@ -1,6 +1,6 @@
 import { useAppDispatch } from '@hooks/useAppDispatch'
 import { useAppSelector } from '@hooks/useAppSelector'
-import { closeBurgerMenu, openBurgerMenu } from '@redux/slices/helper'
+import { toggleBurgerMenu } from '@redux/slices/helper'
 import React, { useEffect, useRef } from 'react'
 import { CSSTransition } from 'react-transition-group'
 
@@ -18,19 +18,15 @@ export const BurgerMenu: React.FC<IProps> = ({ element }) => {
 
     const dispatch = useAppDispatch()
 
-    const closeMenu = (e: Event) => {
-        dispatch(closeBurgerMenu(e))
-    }
-
-    const openMenu = () => {
-        dispatch(openBurgerMenu())
+    const toggleMenu = (e: Event | React.SyntheticEvent) => {
+        dispatch(toggleBurgerMenu(e))
     }
 
     useEffect(() => {
-        document.addEventListener('click', closeMenu)
+        document.addEventListener('click', toggleMenu)
 
         return () => {
-            document.removeEventListener('click', closeMenu)
+            document.removeEventListener('click', toggleMenu)
         }
     }, [])
 
@@ -42,26 +38,20 @@ export const BurgerMenu: React.FC<IProps> = ({ element }) => {
                 nodeRef={nodeRef}
                 classNames="BurgerIcon"
             >
-                <div className={s.BM_Container}>
+                <div
+                    className={s.BM_Container}
+                    data-openBurgerModal
+                >
                     <section
                         id="BurgerIcon"
                         className={s.BurgerIcon}
                     >
                         <div
                             className={s.lineWrapper}
-                            data-open
-                            onClick={openMenu}
                             ref={nodeRef}
                         >
-                            <span
-                                className={s.line1}
-                                data-open
-                            />
-                            {/* <span data-open></span> */}
-                            <span
-                                className={s.line2}
-                                data-open
-                            />
+                            <span className={s.line1} />
+                            <span className={s.line2} />
                         </div>
                     </section>
                 </div>

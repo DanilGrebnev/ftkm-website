@@ -34,6 +34,7 @@ export const BurgerMenuModal: React.FC<IBurgerMenuModal> = ({
                     className={s.modal}
                 >
                     {children}
+                    <div className={s.bottomLine}></div>
                 </div>
             </CSSTransition>
         </React.Fragment>

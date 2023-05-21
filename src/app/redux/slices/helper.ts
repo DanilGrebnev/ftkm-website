@@ -8,18 +8,15 @@ const helperSlice = createSlice({
     name: 'helper',
     initialState,
     reducers: {
-        openBurgerMenu(state) {
-            if (state.isOpenBurgerMenu) return
-
-            state.isOpenBurgerMenu = true
-        },
-
-        closeBurgerMenu(state, action) {
+        //Отвечает за открытие и закрытие бургер меню
+        toggleBurgerMenu(state, action) {
             const { target } = action.payload
 
-            if (!state.isOpenBurgerMenu) return
+            const elWithDataAtr = target.closest('[data-openburgermodal]')
 
-            if (target.dataset.open) {
+            if (elWithDataAtr && !state.isOpenBurgerMenu) {
+                state.isOpenBurgerMenu = true
+
                 return
             }
 
@@ -28,5 +25,5 @@ const helperSlice = createSlice({
     },
 })
 
-export const { openBurgerMenu, closeBurgerMenu } = helperSlice.actions
+export const { toggleBurgerMenu } = helperSlice.actions
 export const helperReducer = helperSlice.reducer

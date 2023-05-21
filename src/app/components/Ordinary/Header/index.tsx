@@ -1,6 +1,7 @@
 import { BurgerMenu } from '@UI/BurgerMenu'
 import { BurgerMenuItems } from '@UI/BurgerMenu/BurgerMenuItem'
 import { BurgerMenuModal } from '@UI/BurgerMenu/BurgerMenuModal'
+import { useAppSelector } from '@hooks/useAppSelector'
 import { HeightCalcHelper } from '@lib/HeightHelper'
 import { AppBar, Container, Toolbar, Typography } from '@mui/material'
 import { useEffect, useRef } from 'react'
@@ -12,6 +13,8 @@ import s from './style.module.scss'
 
 export const Header = () => {
     const ref = useRef<HTMLElement>(null)
+
+    const { isOpenBurgerMenu } = useAppSelector(({ helper }) => helper)
 
     useEffect(() => {
         if (ref.current) {
