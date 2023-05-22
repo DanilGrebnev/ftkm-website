@@ -13,15 +13,13 @@ export const ScientificDirection = () => {
             className={s.ScientificDirection}
         >
             <h2>Научные направления</h2>
-            {data.map(({ title, list }, i) => {
-                return (
-                    <List
-                        key={i}
-                        title={title}
-                        list={list}
-                    />
-                )
-            })}
+            {data.map(({ title, list }, i) => (
+                <List
+                    key={i}
+                    title={title}
+                    list={list}
+                />
+            ))}
         </Container>
     )
 }
