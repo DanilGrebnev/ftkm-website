@@ -19,7 +19,8 @@ export const TextAndVideo2 = () => {
                 Все профессии хороши, но <q>Металлург</q> - звучит гордо
             </h1>
             <video
-                preload={preloadMetallurgy}
+                preload="none"
+                poster={preloadMetallurgy}
                 style={{ background: 'black' }}
                 controls
             >

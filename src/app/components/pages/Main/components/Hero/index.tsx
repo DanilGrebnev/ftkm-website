@@ -37,7 +37,7 @@ export const Hero = () => {
                 className={style.VideoIntro}
                 loop
                 autoPlay
-                preload="auto"
+                preload="none"
                 muted
                 poster={preloadMetalluurgy}
                 style={{ height: state }}

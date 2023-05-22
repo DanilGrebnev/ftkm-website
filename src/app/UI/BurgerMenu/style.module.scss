@@ -3,19 +3,16 @@
 .BM_Container {
     flex-grow: 1;
     display: none;
-}
-
-.BurgerIcon {
-    position: relative;
-    width: 30px;
-    display: flex;
-    flex-direction: column;
+    height: 100%;
 }
 
 .lineWrapper {
     position: relative;
+    display: block;
     height: 15px;
     cursor: pointer;
+    max-width: 28px;
+    user-select: none;
 
     span {
         position: absolute;

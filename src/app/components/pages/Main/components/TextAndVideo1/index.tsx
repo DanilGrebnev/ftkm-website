@@ -22,8 +22,8 @@ export const TextAndVideo1 = () => {
                 - сказал Владимир Владимирович Путин о металлургии.
             </p>
             <video
+                preload="none"
                 controls
-                preload="metadata"
             >
                 <source src={putinVideo} />
             </video>

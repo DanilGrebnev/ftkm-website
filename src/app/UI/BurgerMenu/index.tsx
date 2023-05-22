@@ -38,22 +38,15 @@ export const BurgerMenu: React.FC<IProps> = ({ element }) => {
                 nodeRef={nodeRef}
                 classNames="BurgerIcon"
             >
-                <div
-                    className={s.BM_Container}
-                    data-openburgermodal
-                >
-                    <section
-                        id="BurgerIcon"
-                        className={s.BurgerIcon}
+                <div className={s.BM_Container}>
+                    <div
+                        data-openburgermodal
+                        className={s.lineWrapper}
+                        ref={nodeRef}
                     >
-                        <div
-                            className={s.lineWrapper}
-                            ref={nodeRef}
-                        >
-                            <span className={s.line1} />
-                            <span className={s.line2} />
-                        </div>
-                    </section>
+                        <span className={s.line1} />
+                        <span className={s.line2} />
+                    </div>
                 </div>
             </CSSTransition>
         </>

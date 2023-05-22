@@ -14,8 +14,6 @@ import s from './style.module.scss'
 export const Header = () => {
     const ref = useRef<HTMLElement>(null)
 
-    const { isOpenBurgerMenu } = useAppSelector(({ helper }) => helper)
-
     useEffect(() => {
         if (ref.current) {
             HeightCalcHelper.height = ref.current.offsetHeight
