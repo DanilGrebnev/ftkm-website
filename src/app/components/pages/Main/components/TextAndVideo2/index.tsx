@@ -1,16 +1,9 @@
-import { withSuspense } from '@HOC/withSuspense'
-import { LoadingCircle } from '@UI/LoadingCircle'
+import { LazyVideo } from '@components/Ordinary/LazyVideo'
 import { Grid } from '@components/containers/Grid'
 import preloadMetallurgy from '@images/preloadmetallurgy.webp'
 import video1 from '@videos/metallurgy.mp4'
-import React from 'react'
 
 import style from './style.module.scss'
-
-const LazyVideo = withSuspense(
-    React.lazy(() => import('@components/Ordinary/YouTubeVideo')),
-    <LoadingCircle />
-)
 
 export const TextAndVideo2 = () => {
     return (
@@ -18,22 +11,17 @@ export const TextAndVideo2 = () => {
             <h1>
                 Все профессии хороши, но <q>Металлург</q> - звучит гордо
             </h1>
-            <video
-                preload="none"
-                poster={preloadMetallurgy}
-                style={{ background: 'black' }}
-                controls
-            >
-                <source src={video1} />
-            </video>
             <LazyVideo
+                title="Металлургия - это красиво!"
+                src={video1}
+                controls
+                preload="metadata"
+            />
+            <LazyVideo
+                type="YouTube"
                 title="Металлургия - это красиво!"
                 src="https://www.youtube.com/embed/4WiUXo5x2eI"
             />
-            {/* <iframe
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            /> */}
             <p>
                 В промышленности, строительстве, транспорте, энергетике в
                 широких масштабах применяются изделия из литых заготовок.

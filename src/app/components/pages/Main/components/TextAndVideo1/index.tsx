@@ -1,3 +1,4 @@
+import { LazyVideo } from '@components/Ordinary/LazyVideo'
 import { Container } from '@mui/material'
 import putinVideo from '@videos/metallurgy-putin.mp4'
 
@@ -21,12 +22,11 @@ export const TextAndVideo1 = () => {
                 </strong>
                 - сказал Владимир Владимирович Путин о металлургии.
             </p>
-            <video
-                preload="none"
+            <LazyVideo
+                src={putinVideo}
+                preload="metadata"
                 controls
-            >
-                <source src={putinVideo} />
-            </video>
+            />
         </Container>
     )
 }

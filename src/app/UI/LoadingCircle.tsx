@@ -8,7 +8,14 @@ interface ICirkle {
 
 export const LoadingCircle: React.FC<ICirkle> = ({ style }) => {
     return (
-        <Box sx={{ display: 'flex', justifyContent: 'center', ...style }}>
+        <Box
+            sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                ...style,
+            }}
+        >
             <CircularProgress />
         </Box>
     )
