@@ -5,7 +5,8 @@ import { Grid } from '@components/containers/Grid'
 import { useAppDispatch } from '@hooks/useAppDispatch'
 import { useAppSelector } from '@hooks/useAppSelector'
 import { Container } from '@mui/material'
-import { clearState, fetchNews } from '@redux/slices/news'
+import { clearState } from '@redux/slices/news'
+import { getNews } from '@redux/slices/thunks/newsThunk'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -22,14 +23,14 @@ const NewsBlog = () => {
 
     const limit = 20
 
-    const getNews = async (skip: number) => {
-        await dispatch(fetchNews({ skip, limit }))
+    const fetchNews = async (skip: number) => {
+        await dispatch(getNews({ skip, limit }))
 
         setSkip(p => p + limit)
     }
 
     useEffect(() => {
-        dispatch(fetchNews({ skip, limit }))
+        dispatch(getNews({ skip, limit }))
 
         setSkip(p => p + limit)
 
@@ -67,7 +68,7 @@ const NewsBlog = () => {
                         size="medium"
                         disabled={loading || newsEnding ? true : false}
                         loading={loading}
-                        onClick={() => getNews(skip)}
+                        onClick={() => fetchNews(skip)}
                     />
                 }
             </div>

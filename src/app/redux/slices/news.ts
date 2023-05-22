@@ -2,33 +2,7 @@ import { axios } from '@lib/axios'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { INewsStore } from 'app/interface/News'
 
-interface IfetchNews {
-    skip: number
-    limit: number
-    filterStr?: string
-}
-
-export const fetchNews = createAsyncThunk(
-    'news',
-    async ({ skip, limit, filterStr }: IfetchNews) => {
-        let query
-
-        if (filterStr) {
-            query = `&filterStr=${filterStr}`
-        } else {
-            query = ''
-        }
-
-        console.log(`news?skip=${skip}&limit=${limit}${query}`)
-
-        const res = await axios.get(`news?skip=${skip}&limit=${limit}${query}`)
-
-        return {
-            data: res.data,
-            documentsCount: res.headers['x-total-count'],
-        }
-    }
-)
+import { getNews } from './thunks/newsThunk'
 
 const newsSlice = createSlice({
     name: 'news',
@@ -51,7 +25,7 @@ const newsSlice = createSlice({
 
     extraReducers: builder => {
         builder
-            .addCase(fetchNews.fulfilled, (state, action) => {
+            .addCase(getNews.fulfilled, (state, action) => {
                 state.news.push(...action.payload.data)
 
                 state.documentsCount = +action.payload.documentsCount
@@ -60,12 +34,12 @@ const newsSlice = createSlice({
 
                 state.error = false
             })
-            .addCase(fetchNews.pending, state => {
+            .addCase(getNews.pending, state => {
                 state.loading = true
 
                 state.error = false
             })
-            .addCase(fetchNews.rejected, state => {
+            .addCase(getNews.rejected, state => {
                 state.loading = false
 
                 state.error = true
