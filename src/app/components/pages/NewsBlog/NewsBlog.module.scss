@@ -1,22 +1,9 @@
-.news-blog {
-    margin: 20px 0;
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-auto-rows: minmax(auto, 400px);
-    padding: 0;
-}
-
 .NewsContainer {
     padding-top: 20px;
     position: relative;
 }
 
-.btnContainer {
-    display: flex;
-    justify-content: center;
-    margin: 50px auto;
-}
+
 
 .loadingBlock {
     height: 50px;

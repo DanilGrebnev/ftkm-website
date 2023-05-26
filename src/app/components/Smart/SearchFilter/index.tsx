@@ -1,8 +1,8 @@
 import { useAppDispatch } from '@hooks/useAppDispatch'
 import { useAppSelector } from '@hooks/useAppSelector'
 import { Button, TextField } from '@mui/material'
-import { setSearchMode } from '@redux/slices/news'
-import { clearState } from '@redux/slices/news'
+// import { setSearchMode } from '@redux/slices/news/news'
+import { clearState } from '@redux/slices/news/news'
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 
 import style from './SearchField.module.scss'

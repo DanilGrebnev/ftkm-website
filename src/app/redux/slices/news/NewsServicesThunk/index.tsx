@@ -1,28 +1,16 @@
 import { axios } from '@lib/axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
-interface IFetchNews {
+interface IGetNews {
     skip: number
     limit: number
     filterStr?: string
 }
 
-class NewsServices {
-    postNews = createAsyncThunk(
-        'postNews',
-        async ({ skip, limit }: { skip: number; limit: number }) => {
-            const res = await axios.get(`news?skip=${skip}&limit=${limit}`)
-
-            return {
-                data: res.data,
-                documentsCount: res.headers['x-total-count'],
-            }
-        }
-    )
-
+class NewsServicesThunk {
     getNews = createAsyncThunk(
         'news',
-        async ({ skip, limit, filterStr }: IFetchNews) => {
+        async ({ skip = 0, limit = 10, filterStr = '' }: IGetNews) => {
             let query
 
             if (filterStr) {
@@ -30,8 +18,6 @@ class NewsServices {
             } else {
                 query = ''
             }
-
-            // console.log(`news?skip=${skip}&limit=${limit}${query}`)
 
             const res = await axios.get(
                 `news?skip=${skip}&limit=${limit}${query}`
@@ -43,6 +29,18 @@ class NewsServices {
             }
         }
     )
+
+    postNews = createAsyncThunk(
+        'postNews',
+        async ({ skip, limit }: { skip: number; limit: number }) => {
+            const res = await axios.get(`news?skip=${skip}&limit=${limit}`)
+
+            return {
+                data: res.data,
+                documentsCount: res.headers['x-total-count'],
+            }
+        }
+    )
 }
 
-export const { postNews, getNews } = new NewsServices()
+export const NewsServices = new NewsServicesThunk()

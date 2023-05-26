@@ -12,9 +12,11 @@ export interface INewsItem<S = string, N = number> {
 }
 
 export interface INewsStore {
-    loading: true | false
-    error: true | false
+    loading: boolean
+    error: boolean
     news: INewsItem[]
     documentsCount: number
     searchMode: boolean
+    skip: number
+    limit: number
 }

@@ -1,6 +1,6 @@
 import { useAppDispatch } from '@hooks/useAppDispatch'
 import { useAppSelector } from '@hooks/useAppSelector'
-import { toggleBurgerMenu } from '@redux/slices/helper'
+import { toggleBurgerMenu } from '@redux/slices/helper/helper'
 import React, { useEffect, useRef } from 'react'
 import { CSSTransition } from 'react-transition-group'
 

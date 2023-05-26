@@ -1,4 +1,5 @@
 import { useSetDocumentTitle } from '@hooks/useSetDocumentTitle'
+import React from 'react'
 
 import {
     Admission,

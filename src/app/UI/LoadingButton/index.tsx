@@ -3,7 +3,7 @@ import React from 'react'
 
 interface ILoadingButton {
     loading: boolean
-    onClick: () => void
+    onClick?: () => void
     text: string
     disabled?: boolean
     size?: 'large' | 'medium' | 'small'

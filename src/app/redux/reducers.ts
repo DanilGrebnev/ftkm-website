@@ -1,5 +1,5 @@
-import { helperReducer } from './slices/helper'
-import { newsReducer } from './slices/news'
+import { helperReducer } from './slices/helper/helper'
+import { newsReducer } from './slices/news/news'
 
 export const reducer = {
     news: newsReducer,

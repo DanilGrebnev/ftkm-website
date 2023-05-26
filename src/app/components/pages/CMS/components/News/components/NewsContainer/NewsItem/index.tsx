@@ -18,7 +18,10 @@ export const NewsItem: React.FC<INewsItem> = ({
     return (
         <div className={s.newsItem}>
             {imgName && (
-                <ImgComponent src={'http://127.0.0.1:3001/' + imgName} alt="" />
+                <ImgComponent
+                    src={'http://127.0.0.1:3001/' + imgName}
+                    alt=""
+                />
             )}
             <div className={s.itemInfo}>
                 <h1>{title}</h1>
