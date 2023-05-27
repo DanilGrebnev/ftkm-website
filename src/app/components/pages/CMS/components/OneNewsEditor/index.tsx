@@ -1,26 +1,23 @@
+import { globalVariables } from '@globalVariables'
 import { clickToLabelElement } from '@lib/clickToLabelElement'
-import { Button, TextField } from '@mui/material'
+import { Button } from '@mui/material'
 import { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
+import { BodyInput } from './components/BodyInput'
+import { ImgInput } from './components/ImgInput'
+import { SendButton } from './components/SendButton'
+import { TitleInput } from './components/TitleInput'
 import { useOneNewsEditorService } from './oneNewsEditorService'
 import s from './style.module.scss'
 
 export const OneNewsEditor = () => {
     const { _id } = useParams()
+
     const fileRef = useRef<HTMLInputElement>(null)
 
-    const {
-        data,
-        loading,
-        editNews,
-        getOneNews,
-        removeImg,
-        sendFiles,
-        sendNews,
-        setData,
-        setLoading,
-    } = useOneNewsEditorService({ _id })
+    const { data, loading, getOneNews, removeImg, sendFiles, setLoading } =
+        useOneNewsEditorService({ _id })
 
     useEffect(() => {
         if (_id) {
@@ -37,7 +34,7 @@ export const OneNewsEditor = () => {
                 <img
                     className={s.previewImg}
                     alt="изображение"
-                    src={`http://127.0.0.1:3001/${data.imgName}`}
+                    src={globalVariables.URL + data.imgName}
                 />
             )}
             <div className={s.fileInfo}>
@@ -45,69 +42,32 @@ export const OneNewsEditor = () => {
                     <Button
                         onClick={() => clickToLabelElement(fileRef)}
                         variant="outlined"
-                    >
-                        Выбрать файл
-                    </Button>
+                        children="выбрать файл"
+                    />
                 ) : (
                     <Button
                         onClick={() => removeImg(data.imgName)}
                         variant="outlined"
                         color="error"
-                    >
-                        Удалить файл
-                    </Button>
+                        children="Удалить файл"
+                    />
                 )}
                 <div>
                     {!data.imgName ? 'файл не выбран' : 'название файла: '}
                     <strong>{data.imgName}</strong>
                 </div>
             </div>
-            <input
-                ref={fileRef}
-                accept=".jpg,.jpeg,.png"
-                onChange={e => sendFiles(e, _id)}
-                name="img"
-                id="file"
-                type="file"
+
+            <ImgInput
+                // _id={_id}
+                fileRef={fileRef}
             />
-            <TextField
-                value={data.title}
-                className={s.input}
-                label="Заголовок"
-                variant="outlined"
-                name="title"
-                onChange={(e: any) =>
-                    setData({ ...data, title: e.target.value })
-                }
-            />
-            <TextField
-                value={data.body}
-                onChange={(e: any) =>
-                    setData({ ...data, body: e.target.value })
-                }
-                className={s.textarea}
-                label="Текст новости"
-                multiline
-                minRows={8}
-                maxRows={20}
-            />
-            {_id ? (
-                <Button
-                    onClick={() => editNews(data)}
-                    className={s.btnSubmit}
-                    variant="contained"
-                >
-                    изменить
-                </Button>
-            ) : (
-                <Button
-                    onClick={sendNews}
-                    className={s.btnSubmit}
-                    variant="contained"
-                >
-                    Отправить
-                </Button>
-            )}
+
+            <TitleInput />
+
+            <BodyInput />
+
+            <SendButton id={_id} />
         </div>
     )
 }

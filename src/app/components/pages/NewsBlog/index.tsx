@@ -9,16 +9,6 @@ import { ButtonContainer } from './components/ButtonContainer'
 import { NewsContainer } from './components/NewsContainer'
 
 const NewsBlog = () => {
-    const dispatch = useAppDispatch()
-
-    const { news } = useAppSelector(({ news }) => news)
-
-    useEffect(() => {
-        if (news.length) return
-
-        dispatch(NewsServices.getNews({ skip: 0, limit: 1 }))
-    }, [])
-
     return (
         <Container
             maxWidth="xl"

@@ -3,7 +3,7 @@ import { useAppSelector } from '@hooks/useAppSelector'
 import { NewsServices } from '@redux/slices/news/NewsServicesThunk'
 import { useEffect } from 'react'
 
-import { NewsItem } from './NewsItem'
+import { NewsItem } from '../NewsItem'
 import s from './s.module.scss'
 
 export const NewsContainer = () => {
@@ -19,10 +19,10 @@ export const NewsContainer = () => {
 
     return (
         <section className={s.newsContainer}>
-            {news.map(document => (
+            {news.map(news => (
                 <NewsItem
-                    key={document._id}
-                    {...document}
+                    key={news._id}
+                    {...news}
                 />
             ))}
         </section>

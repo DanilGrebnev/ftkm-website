@@ -21,6 +21,7 @@ module.exports = {
                     '@interfaces': 'app/interface',
                     '@HOC': 'app/HOC',
                     '@fonts': 'fonts',
+                    '@globalVariables': 'globalVariables.ts',
                 },
             },
         },

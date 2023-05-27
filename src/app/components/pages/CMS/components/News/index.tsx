@@ -1,6 +1,6 @@
+import { AddNewsBtn } from './components/AddNewsBtn'
 import { ButtonContainer } from './components/ButtonContainer'
 import { NewsContainer } from './components/NewsContainer'
-import { AddNewsBtn } from './components/AddNewsBtn'
 import s from './style.module.scss'
 
 export const News = () => {

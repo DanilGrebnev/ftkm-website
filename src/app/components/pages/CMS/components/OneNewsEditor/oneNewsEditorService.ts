@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom'
 
 type id = string | undefined
 
-interface IuseOneNewsEditorService {
+interface initialState {
     _id: id
 }
 
-export const useOneNewsEditorService = ({ _id }: IuseOneNewsEditorService) => {
+export const useOneNewsEditorService = ({ _id }: initialState) => {
     const navigate = useNavigate()
 
     const [loading, setLoading] = useState<boolean>()
@@ -23,9 +23,9 @@ export const useOneNewsEditorService = ({ _id }: IuseOneNewsEditorService) => {
         setLoading(true)
 
         try {
-            const res = await axios.post('news', data)
+            await axios.post('news', data)
 
-            navigate('/cms/news/' + res.data._id)
+            navigate('/cms')
         } catch (err) {
             console.log(err)
         } finally {
@@ -37,11 +37,10 @@ export const useOneNewsEditorService = ({ _id }: IuseOneNewsEditorService) => {
         try {
             const res = await axios.get('news/' + _id)
 
-            const { title, body, imgName } = res.data
-
-            setData({ title, body, imgName })
+            setData({ ...res.data })
         } catch (error) {
-            console.log(error)
+            console.log('Ошибка получения статьи')
+            navigate('/cms')
         }
     }
 

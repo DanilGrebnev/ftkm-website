@@ -13,10 +13,15 @@ export interface INewsItem<S = string, N = number> {
 
 export interface INewsStore {
     loading: boolean
-    error: boolean
+    error: any
     news: INewsItem[]
     documentsCount: number
     searchMode: boolean
     skip: number
     limit: number
+    editNews: {
+        title: string
+        body: string
+        imgName: string
+    }
 }

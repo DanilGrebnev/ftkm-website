@@ -13,16 +13,8 @@ export const ButtonContainer = () => {
     const dispatch = useAppDispatch()
 
     const getNews = () => {
-        dispatch(NewsServices.getNews({ skip: 1, limit: 1 }))
+        dispatch(NewsServices.getNews({}))
     }
-
-    const ClearState = () => {
-        dispatch(clearState(32))
-    }
-
-    useEffect(() => {
-        ClearState()
-    }, [])
 
     const disabled = news.length >= documentsCount
 

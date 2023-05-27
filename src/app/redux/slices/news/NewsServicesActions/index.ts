@@ -6,9 +6,14 @@ type TAction = {
 }
 
 class NewsServices<S extends INewsStore> {
-    clearState(state: S, action: TAction) {
+    setInputData(state: S, action: TAction) {
+        const name = action.payload.name as 'title' | 'body' | 'imgName'
+
+        state.editNews[name] = action.payload.value
+    }
+
+    clearState(state: S) {
         state.news = []
-        console.log(action.payload)
     }
 
     resetSkip(state: S) {

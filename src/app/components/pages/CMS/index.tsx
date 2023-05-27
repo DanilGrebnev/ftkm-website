@@ -18,6 +18,10 @@ const CMS = () => {
                         path="newsEditor"
                         element={<OneNewsEditor />}
                     />
+                    <Route
+                        path="newsEditor/:_id"
+                        element={<OneNewsEditor />}
+                    />
                 </Routes>
             </div>
         </section>

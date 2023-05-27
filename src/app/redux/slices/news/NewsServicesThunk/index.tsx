@@ -1,22 +1,26 @@
 import { axios } from '@lib/axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
-interface IGetNews {
-    skip: number
-    limit: number
-    filterStr?: string
+interface IGetNews<N = number> {
+    skip?: N
+    limit?: N
+    filter?: string
+}
+
+interface IBody {
+    title: string
+    body: string
+    imgName?: string
 }
 
 class NewsServicesThunk {
     getNews = createAsyncThunk(
         'news',
-        async ({ skip = 0, limit = 10, filterStr = '' }: IGetNews) => {
-            let query
+        async ({ skip = 0, limit = 1, filter = '' }: IGetNews) => {
+            let query = ''
 
-            if (filterStr) {
-                query = `&filterStr=${filterStr}`
-            } else {
-                query = ''
+            if (filter) {
+                query = `&filter=${filter}`
             }
 
             const res = await axios.get(
@@ -30,14 +34,29 @@ class NewsServicesThunk {
         }
     )
 
-    postNews = createAsyncThunk(
-        'postNews',
-        async ({ skip, limit }: { skip: number; limit: number }) => {
-            const res = await axios.get(`news?skip=${skip}&limit=${limit}`)
+    postNews = createAsyncThunk('postNews', async (body: IBody) => {
+        const result = await axios.post('news', body)
 
-            return {
-                data: res.data,
-                documentsCount: res.headers['x-total-count'],
+        return result
+    })
+
+    sendFile = createAsyncThunk(
+        'sendFile',
+        async (e: React.ChangeEvent<HTMLInputElement>) => {
+            const target = e.target as HTMLInputElement
+
+            const formData = new FormData()
+
+            let img: Blob
+
+            if (target.files) {
+                img = target.files[0]
+
+                formData.set('img', img)
+
+                const res = await axios.post(`/news/uploadImage`, formData)
+
+                return res.data
             }
         }
     )

@@ -1,6 +1,7 @@
 import { DeleteToolTip } from '@UI/ToolTip/DeleteToolTip'
 import { EditToolTip } from '@UI/ToolTip/EditToolTip'
 import { ImgComponent } from '@components/Ordinary/CardMedia'
+import { globalVariables } from '@globalVariables'
 import { INewsItem } from '@interfaces/News'
 import CalendarMonthSharpIcon from '@mui/icons-material/CalendarMonthSharp'
 import React from 'react'
@@ -31,13 +32,8 @@ export const NewsItem: React.FC<INewsItem> = ({
                     <p>{createdDate}</p>
                 </div>
 
-                {/* <div className={s.files}>
-                    <FolderSharpIcon sx={{ color: '#e4ed0f' }} />
-                    <p>Прикреплённых файлов: 3</p>
-                </div> */}
-
                 <div className={s.btnGroup}>
-                    <Link to={_id}>
+                    <Link to={`newsEditor/` + _id}>
                         <EditToolTip />
                     </Link>
                     <DeleteToolTip />

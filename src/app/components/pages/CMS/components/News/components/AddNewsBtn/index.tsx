@@ -3,6 +3,7 @@ import { Tooltip } from '@mui/material'
 import { Link } from 'react-router-dom'
 
 export const AddNewsBtn = () => {
+    
     return (
         <Link to={'newsEditor'}>
             <Tooltip

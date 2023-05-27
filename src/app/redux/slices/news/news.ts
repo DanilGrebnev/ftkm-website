@@ -11,16 +11,21 @@ const newsSlice = createSlice({
         news: [],
         searchMode: false,
         loading: true,
-        error: false,
+        error: '',
         documentsCount: 0,
         skip: 0,
         limit: 1,
+        editNews: {
+            body: '',
+            title: '',
+            imgName: '',
+        },
     } as INewsStore,
 
     reducers: {
         clearState: NewsServicesActions.clearState,
 
-        resetSkip: NewsServicesActions.resetSkip,
+        setInputData: NewsServicesActions.setInputData,
     },
 
     extraReducers: builder => {
@@ -32,22 +37,32 @@ const newsSlice = createSlice({
 
                 state.loading = false
 
-                state.error = false
-
                 state.skip = state.skip += state.limit
             })
             .addCase(NewsServices.getNews.pending, state => {
                 state.loading = true
-
-                state.error = false
             })
-            .addCase(NewsServices.getNews.rejected, state => {
+            .addCase(NewsServices.getNews.rejected, (state, action) => {
                 state.loading = false
 
-                state.error = true
+                state.error = action.payload
             })
+            .addCase(NewsServices.postNews.pending, state => {
+                state.loading = true
+            })
+            .addCase(NewsServices.postNews.fulfilled, state => {
+                state.loading = false
+            })
+            .addCase(NewsServices.postNews.rejected, (state, action) => {
+                state.error = action.payload
+            })
+            .addCase(NewsServices.sendFile.pending, state => {})
+            .addCase(NewsServices.sendFile.fulfilled, (state, action) => {
+                state.editNews.imgName = action.payload
+            })
+            .addCase(NewsServices.sendFile.rejected, (state, action) => {})
     },
 })
 
-export const { clearState } = newsSlice.actions
+export const { clearState, setInputData } = newsSlice.actions
 export const newsReducer = newsSlice.reducer
