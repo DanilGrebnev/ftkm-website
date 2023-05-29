@@ -40,6 +40,21 @@ class NewsServicesThunk {
         return result
     })
 
+    editNews = createAsyncThunk(
+        'editNews',
+        async ({ body, _id }: { body: IBody; _id: string }) => {
+            const result = await axios.put('news/' + _id, body)
+
+            return result
+        }
+    )
+
+    getOneNews = createAsyncThunk('getOneNews', async (_id: string) => {
+        const result = await axios.get('news/' + _id)
+
+        return result
+    })
+
     sendFile = createAsyncThunk(
         'sendFile',
         async (e: React.ChangeEvent<HTMLInputElement>) => {

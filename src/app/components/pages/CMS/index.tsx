@@ -7,8 +7,14 @@ import './style.scss'
 
 const CMS = () => {
     return (
-        <section className={s.CMS}>
-            <div className={s.block}>
+        <section
+            id="CMS"
+            className={s.CMS}
+        >
+            <div
+                id="CMS-body"
+                className={s.block}
+            >
                 <Routes>
                     <Route
                         path="/"

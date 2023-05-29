@@ -22,6 +22,7 @@ module.exports = {
                     '@HOC': 'app/HOC',
                     '@fonts': 'fonts',
                     '@globalVariables': 'globalVariables.ts',
+                    '@API_RESPONSES': 'app/API_RESPONSES.ts',
                 },
             },
         },

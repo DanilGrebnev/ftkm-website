@@ -4,7 +4,7 @@ import { TextField } from '@mui/material'
 import { setInputData } from '@redux/slices/news/news'
 
 export const TitleInput = () => {
-    const { editNews } = useAppSelector(({ news }) => news)
+    const { newsFields } = useAppSelector(({ news }) => news)
 
     const dispatch = useAppDispatch()
 
@@ -19,11 +19,11 @@ export const TitleInput = () => {
 
     return (
         <TextField
-            value={editNews.title}
+            value={newsFields.title}
             name="title"
             onChange={setData}
             sx={{ maxWidth: '1000px' }}
-            label="Текст новости"
+            label="Заголовок новости"
         />
     )
 }

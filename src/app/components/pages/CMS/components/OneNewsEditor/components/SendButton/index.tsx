@@ -1,27 +1,34 @@
+import { LoadingButton } from '@UI/LoadingButton'
 import { useAppDispatch } from '@hooks/useAppDispatch'
 import { useAppSelector } from '@hooks/useAppSelector'
 import { Button } from '@mui/material'
 import { NewsServices } from '@redux/slices/news/NewsServicesThunk'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-type ISendButton = { id: string | undefined }
+import { useSendNews } from '../../hook/useSendNews'
+
+interface ISendButton {
+    id: string | undefined
+    ref?: HTMLDivElement
+}
 
 export const SendButton: React.FC<ISendButton> = ({ id }) => {
-    const { editNews } = useAppSelector(({ news }) => news)
+    const { newsFields, fetchNews } = useAppSelector(({ news }) => news)
 
-    const dispatch = useAppDispatch()
+    const { postNews, editNews } = useSendNews()
 
     return id ? (
-        <Button
-            // onClick={() => editNews(data)}
-            variant="contained"
-            children="Изменить"
+        <LoadingButton
+            onClick={() => editNews(newsFields, id)}
+            loading={fetchNews}
+            text="Изменить"
         />
     ) : (
-        <Button
-            onClick={() => dispatch(NewsServices.postNews(editNews))}
-            variant="contained"
-            children=" Отправить"
+        <LoadingButton
+            onClick={() => postNews(newsFields)}
+            loading={fetchNews}
+            text="Отправить"
         />
     )
 }

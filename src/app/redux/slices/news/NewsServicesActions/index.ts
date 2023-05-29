@@ -9,7 +9,7 @@ class NewsServices<S extends INewsStore> {
     setInputData(state: S, action: TAction) {
         const name = action.payload.name as 'title' | 'body' | 'imgName'
 
-        state.editNews[name] = action.payload.value
+        state.newsFields[name] = action.payload.value
     }
 
     clearState(state: S) {
@@ -18,6 +18,10 @@ class NewsServices<S extends INewsStore> {
 
     resetSkip(state: S) {
         state.skip = 0
+    }
+
+    closeModal(state: S) {
+        state.showNewsResponseModal = false
     }
 }
 

@@ -16,12 +16,26 @@ export interface INewsStore {
     error: any
     news: INewsItem[]
     documentsCount: number
+    fetchNews: boolean
     searchMode: boolean
+    imgLoading: boolean
+    showNewsResponseModal: boolean
+    newsResponseModalContent: string
     skip: number
     limit: number
-    editNews: {
+    newsFields: {
         title: string
         body: string
         imgName: string
     }
+}
+
+export interface INewsData {
+    title: string
+    body: string
+    imgName: string
+}
+
+export interface INewsDataResponse {
+    data: INewsData
 }

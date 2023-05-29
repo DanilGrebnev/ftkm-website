@@ -4,7 +4,7 @@ import { TextField } from '@mui/material'
 import { setInputData } from '@redux/slices/news/news'
 
 export const BodyInput = () => {
-    const { editNews } = useAppSelector(({ news }) => news)
+    const { newsFields } = useAppSelector(({ news }) => news)
 
     const dispatch = useAppDispatch()
 
@@ -19,7 +19,7 @@ export const BodyInput = () => {
 
     return (
         <TextField
-            value={editNews.body}
+            value={newsFields.body}
             name="body"
             onChange={setData}
             sx={{ maxWidth: '1000px' }}
