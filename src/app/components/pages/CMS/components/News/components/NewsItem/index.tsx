@@ -1,14 +1,16 @@
 import { AlertDialog } from '@UI/AlertDialog'
-import { DeleteToolTip } from '@UI/ToolTip/DeleteToolTip'
-import { EditToolTip } from '@UI/ToolTip/EditToolTip'
-import { ImgComponent } from '@components/Ordinary/CardMedia'
 import { useAppDispatch } from '@hooks/useAppDispatch'
+import { useOpenModal } from '@hooks/useOpenModal'
 import { INewsItem } from '@interfaces/News'
-import CalendarMonthSharpIcon from '@mui/icons-material/CalendarMonthSharp'
 import { NewsServices } from '@redux/slices/news/NewsServicesThunk'
+import { toggleDeleteLoading } from '@redux/slices/news/news'
+import { clearState } from '@redux/slices/news/news'
+import { clearSkip } from '@redux/slices/news/news'
 import React from 'react'
-import { Link } from 'react-router-dom'
 
+import { DateBlock } from './components/DateBlock'
+import { DeleteBtn } from './components/DeleteBtn'
+import { EditBtn } from './components/EditBtn'
 import s from './style.module.scss'
 
 export const NewsItem: React.FC<INewsItem> = ({
@@ -17,47 +19,52 @@ export const NewsItem: React.FC<INewsItem> = ({
     createdDate,
     title,
     imgName,
+    isDeleteLoading,
 }) => {
     const dispatch = useAppDispatch()
 
-    const [open, setOpen] = React.useState(false)
+    const { open, closeModal, openModal } = useOpenModal()
 
-    const openModal = () => {
-        setOpen(true)
-    }
+    const onClickAction = async (_id: string) => {
+        dispatch(toggleDeleteLoading(_id))
 
-    const onClickAction = async () => {
-        const res = await dispatch(NewsServices.deleteNews(_id))
+        const res: any = await dispatch(NewsServices.deleteNews(_id))
+
+        if (!res.error) {
+            dispatch(clearState())
+            dispatch(clearSkip())
+            dispatch(NewsServices.getNews({}))
+        }
+
+        dispatch(toggleDeleteLoading(_id))
 
         console.log(res)
     }
 
     return (
         <div className={s.newsItem}>
-            {imgName && (
+            {/* {imgName && (
                 <ImgComponent
                     src={'http://127.0.0.1:3001/' + imgName}
                     alt=""
                 />
-            )}
+            )} */}
             <div className={s.itemInfo}>
                 <h1>{title}</h1>
-                <div className={s.date}>
-                    <CalendarMonthSharpIcon sx={{ color: '#0f78ed' }} />
-                    <p>Дата публикации:</p>
-                    <p>{createdDate}</p>
-                </div>
+                <DateBlock createdDate={createdDate} />
 
                 <div className={s.btnGroup}>
-                    <Link to={`newsEditor/` + _id}>
-                        <EditToolTip />
-                    </Link>
-                    <DeleteToolTip onClick={openModal} />
+                    <EditBtn id={_id} />
+                    <DeleteBtn
+                        isLoading={isDeleteLoading}
+                        onClick={openModal}
+                    />
+
                     <AlertDialog
-                        handleClose={() => setOpen(false)}
                         open={open}
+                        handleClose={closeModal}
                         dialogTitle="Удалить новость?"
-                        onClickAction={onClickAction}
+                        onClickAction={() => onClickAction(_id)}
                     />
                 </div>
             </div>

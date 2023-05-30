@@ -1,7 +1,7 @@
 import { API_RESPONSES } from '@API_RESPONSES'
+import { globalVariables } from '@globalVariables'
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { INewsStore } from 'app/interface/News'
-import { INewsDataResponse } from 'app/interface/News'
+import { INewsDataResponse, INewsItem, INewsStore } from 'app/interface/News'
 
 import { NewsServicesActions } from './NewsServicesActions'
 import { NewsServices } from './NewsServicesThunk'
@@ -11,11 +11,13 @@ const newsSlice = createSlice({
 
     initialState: {
         news: [],
+        getNewsError: false,
         loading: true,
         fetchNews: false,
         imgLoading: false,
         showNewsResponseModal: false,
         newsResponseModalContent: '',
+        skip: globalVariables.limit,
         error: '',
         documentsCount: 0,
         newsFields: {
@@ -33,17 +35,35 @@ const newsSlice = createSlice({
         setInputData: NewsServicesActions.setInputData,
 
         clearNewsFields: NewsServicesActions.clearNewsFields,
+
+        toggleDeleteLoading: NewsServicesActions.toggleDeleteLoading,
+
+        setSkip(state) {
+            state.skip = state.skip + globalVariables.limit
+        },
+
+        clearSkip(state) {
+            state.skip = globalVariables.limit
+        },
     },
 
     extraReducers: builder => {
         builder
             //Получение новостей
             .addCase(NewsServices.getNews.fulfilled, (state, action) => {
-                state.news.push(...action.payload.data)
+                const news = action.payload.data.map((news: INewsItem) => {
+                    news.isDeleteLoading = false
+
+                    return news
+                })
+
+                state.news.push(...news)
 
                 state.documentsCount = Number(action.payload.documentsCount)
 
                 state.loading = false
+
+                state.getNewsError = false
             })
             .addCase(NewsServices.getNews.pending, state => {
                 state.loading = true
@@ -51,7 +71,7 @@ const newsSlice = createSlice({
             .addCase(NewsServices.getNews.rejected, (state, action) => {
                 state.loading = false
 
-                state.error = action.payload
+                state.getNewsError = true
             })
             //Получение одной новости
             .addCase(
@@ -81,6 +101,8 @@ const newsSlice = createSlice({
             })
             .addCase(NewsServices.editNews.rejected, (state, action) => {
                 state.error = action.payload
+
+                state.fetchNews = false
 
                 state.showNewsResponseModal = true
 
@@ -132,7 +154,14 @@ const newsSlice = createSlice({
     },
 })
 
-export const { clearState, setInputData, closeModal, clearNewsFields } =
-    newsSlice.actions
+export const {
+    clearState,
+    setInputData,
+    closeModal,
+    clearNewsFields,
+    toggleDeleteLoading,
+    setSkip,
+    clearSkip,
+} = newsSlice.actions
 
 export const newsReducer = newsSlice.reducer

@@ -24,7 +24,7 @@ const Transition = React.forwardRef(function Transition(
     )
 })
 
-interface AlertDialog {
+interface IAlertDialog {
     open: boolean
     onClickAction: () => void
     handleClose: () => void
@@ -32,15 +32,13 @@ interface AlertDialog {
     dialogContent?: string
 }
 
-export const AlertDialog: React.FC<AlertDialog> = ({
+export const AlertDialog: React.FC<IAlertDialog> = ({
     open,
     dialogTitle,
     dialogContent,
     handleClose,
     onClickAction,
 }) => {
-    // const { newsResponseModalContent } = useAppSelector(({ news }) => news)
-
     return (
         <div>
             <Dialog
@@ -64,6 +62,7 @@ export const AlertDialog: React.FC<AlertDialog> = ({
                         color="error"
                         onClick={() => {
                             onClickAction()
+                            handleClose()
                         }}
                     >
                         Удалить

@@ -9,6 +9,7 @@ export interface INewsItem<S = string, N = number> {
     updatedAt?: N
     createdAt?: N
     imgName?: S
+    isDeleteLoading?: boolean
 }
 
 export interface INewsStore {
@@ -20,6 +21,8 @@ export interface INewsStore {
     imgLoading: boolean
     showNewsResponseModal: boolean
     newsResponseModalContent: string
+    skip: number
+    getNewsError: boolean
     newsFields: {
         title: string
         body: string

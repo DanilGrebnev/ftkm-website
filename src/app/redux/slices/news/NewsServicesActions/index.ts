@@ -20,6 +20,16 @@ class NewsServices<S extends INewsStore> {
         state.showNewsResponseModal = false
     }
 
+    toggleDeleteLoading(state: S, action: TAction) {
+        state.news = state.news.map(news => {
+            if (news._id === action.payload) {
+                news.isDeleteLoading = !news.isDeleteLoading
+            }
+
+            return news
+        })
+    }
+
     clearNewsFields(state: S) {
         state.newsFields = {
             title: '',

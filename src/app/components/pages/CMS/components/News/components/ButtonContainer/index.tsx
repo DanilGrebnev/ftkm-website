@@ -1,15 +1,17 @@
 import { LoadingButton } from '@UI/LoadingButton'
 import { globalVariables } from '@globalVariables'
-import { useAppDispatch } from '@hooks/useAppDispatch'
 import { useAppSelector } from '@hooks/useAppSelector'
+import { useGetNews } from '@hooks/useGetNews'
 import { useMoreNewsComplete } from '@hooks/useMoreNewsComplete'
-import { NewsServices } from '@redux/slices/news/NewsServicesThunk'
-import { useEffect, useState } from 'react'
 
 import s from './s.module.scss'
 
 export const ButtonContainer = () => {
+    const { getNews } = useGetNews()
+
     const { isCompleteMoreNews } = useMoreNewsComplete()
+
+    const { skip } = useAppSelector(({ news }) => news)
 
     const limit = globalVariables.limit
     /*
@@ -18,17 +20,7 @@ export const ButtonContainer = () => {
      *т.к. лимит статей отрисовывается сразу
      *при первом рендере
      */
-    const [skip, setSkip] = useState(limit)
-
     const { loading } = useAppSelector(({ news }) => news)
-
-    const dispatch = useAppDispatch()
-
-    const getNews = () => {
-        dispatch(NewsServices.getNews({ limit, skip }))
-
-        setSkip(p => p + limit)
-    }
 
     const text = isCompleteMoreNews ? 'новости кончались' : 'загрузить ещё'
 
@@ -39,7 +31,7 @@ export const ButtonContainer = () => {
                 size="medium"
                 disabled={loading || isCompleteMoreNews}
                 loading={loading}
-                onClick={getNews}
+                onClick={() => getNews({ skip, limit })}
             />
         </div>
     )

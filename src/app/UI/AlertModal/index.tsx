@@ -1,7 +1,6 @@
 import Alert from '@mui/material/Alert'
 import AlertTitle from '@mui/material/AlertTitle'
 import Collapse from '@mui/material/Collapse'
-import Stack from '@mui/material/Stack'
 import React from 'react'
 
 interface IAlertModal {
@@ -21,7 +20,7 @@ export const AlertModal: React.FC<IAlertModal> = ({
         <Collapse in={showModal}>
             <Alert severity={type}>
                 <AlertTitle>{title}</AlertTitle>
-                {/* {decription} */}
+                {decription}
             </Alert>
         </Collapse>
     )

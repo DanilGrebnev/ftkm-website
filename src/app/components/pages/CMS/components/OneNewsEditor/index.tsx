@@ -32,6 +32,12 @@ export const OneNewsEditor = () => {
         }
     }, [_id])
 
+    const alertModalType =
+        newsResponseModalContent === API_RESPONSES.NEWS_SEND_ERROR ||
+        newsResponseModalContent === API_RESPONSES.NEWS_EDIT_ERROR
+            ? 'error'
+            : 'success'
+
     return (
         <div className={s.EditorContainer}>
             {/* <div>Изображение новости</div>
@@ -72,11 +78,7 @@ export const OneNewsEditor = () => {
             <SendButton id={_id} />
 
             <AlertModal
-                type={
-                    newsResponseModalContent !== API_RESPONSES.NEWS_SEND_ERROR
-                        ? 'success'
-                        : 'error'
-                }
+                type={alertModalType}
                 title={newsResponseModalContent}
                 showModal={showNewsResponseModal}
             />

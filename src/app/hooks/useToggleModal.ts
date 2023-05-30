@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 
 interface IImageModal {
     isActive: boolean
@@ -6,7 +6,10 @@ interface IImageModal {
 }
 
 export const useToggleModal = () => {
-    const [state, setState] = useState<IImageModal>({ isActive: false, src: '' })
+    const [state, setState] = useState<IImageModal>({
+        isActive: false,
+        src: '',
+    })
 
     const openModal = (src: string) => {
         setState({ src, isActive: true })
