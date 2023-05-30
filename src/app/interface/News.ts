@@ -17,12 +17,9 @@ export interface INewsStore {
     news: INewsItem[]
     documentsCount: number
     fetchNews: boolean
-    searchMode: boolean
     imgLoading: boolean
     showNewsResponseModal: boolean
     newsResponseModalContent: string
-    skip: number
-    limit: number
     newsFields: {
         title: string
         body: string
@@ -38,4 +35,8 @@ export interface INewsData {
 
 export interface INewsDataResponse {
     data: INewsData
+}
+
+export interface INewsEditInputs {
+    onChange: (e: any) => void
 }

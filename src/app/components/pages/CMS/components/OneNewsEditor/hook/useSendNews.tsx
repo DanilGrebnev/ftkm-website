@@ -7,7 +7,6 @@ import { closeModal } from '@redux/slices/news/news'
 import { createPortal } from 'react-dom'
 import { useNavigate } from 'react-router-dom'
 
-
 export const useSendNews = () => {
     const dispatch = useAppDispatch()
 

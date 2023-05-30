@@ -1,11 +1,8 @@
 import { LoadingButton } from '@UI/LoadingButton'
-import { useAppDispatch } from '@hooks/useAppDispatch'
 import { useAppSelector } from '@hooks/useAppSelector'
-import { Button } from '@mui/material'
-import { NewsServices } from '@redux/slices/news/NewsServicesThunk'
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 
+import { useIsEmptyFields } from '../../fn/useIsEmptyFields'
 import { useSendNews } from '../../hook/useSendNews'
 
 interface ISendButton {
@@ -14,21 +11,30 @@ interface ISendButton {
 }
 
 export const SendButton: React.FC<ISendButton> = ({ id }) => {
+    const [disabled, setDisabled] = useState(false)
+
     const { newsFields, fetchNews } = useAppSelector(({ news }) => news)
 
     const { postNews, editNews } = useSendNews()
 
-    return id ? (
+    const { isEmpty } = useIsEmptyFields()
+
+    const onClick = id
+        ? () => editNews(newsFields, id)
+        : () => postNews(newsFields)
+
+    const text = id ? 'Изменить' : 'Отправить'
+
+    return (
         <LoadingButton
-            onClick={() => editNews(newsFields, id)}
+            onClick={() => {
+                setDisabled(true)
+                onClick()
+                setTimeout(setDisabled, 3000, false)
+            }}
             loading={fetchNews}
-            text="Изменить"
-        />
-    ) : (
-        <LoadingButton
-            onClick={() => postNews(newsFields)}
-            loading={fetchNews}
-            text="Отправить"
+            text={text}
+            disabled={isEmpty || disabled}
         />
     )
 }

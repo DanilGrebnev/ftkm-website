@@ -16,12 +16,16 @@ class NewsServices<S extends INewsStore> {
         state.news = []
     }
 
-    resetSkip(state: S) {
-        state.skip = 0
-    }
-
     closeModal(state: S) {
         state.showNewsResponseModal = false
+    }
+
+    clearNewsFields(state: S) {
+        state.newsFields = {
+            title: '',
+            body: '',
+            imgName: '',
+        }
     }
 }
 

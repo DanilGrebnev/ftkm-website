@@ -1,3 +1,4 @@
+import { globalVariables } from '@globalVariables'
 import { axios } from '@lib/axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
@@ -16,7 +17,11 @@ interface IBody {
 class NewsServicesThunk {
     getNews = createAsyncThunk(
         'news',
-        async ({ skip = 0, limit = 1, filter = '' }: IGetNews) => {
+        async ({
+            skip = 0,
+            limit = globalVariables.limit,
+            filter = '',
+        }: IGetNews) => {
             let query = ''
 
             if (filter) {
@@ -51,6 +56,12 @@ class NewsServicesThunk {
 
     getOneNews = createAsyncThunk('getOneNews', async (_id: string) => {
         const result = await axios.get('news/' + _id)
+
+        return result
+    })
+
+    deleteNews = createAsyncThunk('deleteNews', async (_id: string) => {
+        const result = await axios.delete('news/' + _id)
 
         return result
     })

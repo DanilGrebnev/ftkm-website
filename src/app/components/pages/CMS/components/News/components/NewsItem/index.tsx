@@ -1,9 +1,11 @@
+import { AlertDialog } from '@UI/AlertDialog'
 import { DeleteToolTip } from '@UI/ToolTip/DeleteToolTip'
 import { EditToolTip } from '@UI/ToolTip/EditToolTip'
 import { ImgComponent } from '@components/Ordinary/CardMedia'
-import { globalVariables } from '@globalVariables'
+import { useAppDispatch } from '@hooks/useAppDispatch'
 import { INewsItem } from '@interfaces/News'
 import CalendarMonthSharpIcon from '@mui/icons-material/CalendarMonthSharp'
+import { NewsServices } from '@redux/slices/news/NewsServicesThunk'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
@@ -16,6 +18,20 @@ export const NewsItem: React.FC<INewsItem> = ({
     title,
     imgName,
 }) => {
+    const dispatch = useAppDispatch()
+
+    const [open, setOpen] = React.useState(false)
+
+    const openModal = () => {
+        setOpen(true)
+    }
+
+    const onClickAction = async () => {
+        const res = await dispatch(NewsServices.deleteNews(_id))
+
+        console.log(res)
+    }
+
     return (
         <div className={s.newsItem}>
             {imgName && (
@@ -36,7 +52,13 @@ export const NewsItem: React.FC<INewsItem> = ({
                     <Link to={`newsEditor/` + _id}>
                         <EditToolTip />
                     </Link>
-                    <DeleteToolTip />
+                    <DeleteToolTip onClick={openModal} />
+                    <AlertDialog
+                        handleClose={() => setOpen(false)}
+                        open={open}
+                        dialogTitle="Удалить новость?"
+                        onClickAction={onClickAction}
+                    />
                 </div>
             </div>
         </div>

@@ -11,7 +11,6 @@ const newsSlice = createSlice({
 
     initialState: {
         news: [],
-        searchMode: false,
         loading: true,
         fetchNews: false,
         imgLoading: false,
@@ -19,8 +18,6 @@ const newsSlice = createSlice({
         newsResponseModalContent: '',
         error: '',
         documentsCount: 0,
-        skip: 0,
-        limit: 1,
         newsFields: {
             body: '',
             title: '',
@@ -34,18 +31,19 @@ const newsSlice = createSlice({
         closeModal: NewsServicesActions.closeModal,
 
         setInputData: NewsServicesActions.setInputData,
+
+        clearNewsFields: NewsServicesActions.clearNewsFields,
     },
 
     extraReducers: builder => {
         builder
+            //Получение новостей
             .addCase(NewsServices.getNews.fulfilled, (state, action) => {
                 state.news.push(...action.payload.data)
 
-                state.documentsCount = +action.payload.documentsCount
+                state.documentsCount = Number(action.payload.documentsCount)
 
                 state.loading = false
-
-                state.skip = state.skip += state.limit
             })
             .addCase(NewsServices.getNews.pending, state => {
                 state.loading = true
@@ -55,6 +53,22 @@ const newsSlice = createSlice({
 
                 state.error = action.payload
             })
+            //Получение одной новости
+            .addCase(
+                NewsServices.getOneNews.fulfilled,
+                (state, action: PayloadAction<INewsDataResponse>) => {
+                    state.loading = false
+
+                    const { title, imgName, body } = action.payload.data
+
+                    state.newsFields = { title, imgName, body }
+                }
+            )
+            .addCase(NewsServices.getOneNews.pending, state => {
+                state.loading = true
+            })
+            .addCase(NewsServices.getOneNews.rejected, (state, action) => {})
+            //Редактирование новостей
             .addCase(NewsServices.editNews.fulfilled, (state, action) => {
                 state.fetchNews = false
 
@@ -72,6 +86,7 @@ const newsSlice = createSlice({
 
                 state.newsResponseModalContent = API_RESPONSES.NEWS_EDIT_ERROR
             })
+            //Отправка новостей
             .addCase(NewsServices.postNews.pending, state => {
                 state.fetchNews = true
             })
@@ -91,6 +106,21 @@ const newsSlice = createSlice({
 
                 state.newsResponseModalContent = API_RESPONSES.NEWS_SEND_ERROR
             })
+            //Удаление новостей
+            .addCase(NewsServices.deleteNews.fulfilled, state => {
+                state.loading = false
+
+                state.newsResponseModalContent = API_RESPONSES.NEWS_DELETE_OK
+            })
+            .addCase(NewsServices.deleteNews.pending, state => {
+                state.loading = true
+            })
+            .addCase(NewsServices.deleteNews.rejected, state => {
+                state.loading = false
+
+                state.newsResponseModalContent = API_RESPONSES.NEWS_DELETE_ERROR
+            })
+            //Отправка изображения
             .addCase(NewsServices.sendFile.pending, state => {
                 state.imgLoading = true
             })
@@ -99,19 +129,10 @@ const newsSlice = createSlice({
                 state.imgLoading = false
             })
             .addCase(NewsServices.sendFile.rejected, (state, action) => {})
-            .addCase(
-                NewsServices.getOneNews.fulfilled,
-                (state, action: PayloadAction<INewsDataResponse>) => {
-                    state.loading = false
-                    state.newsFields = action.payload.data
-                }
-            )
-            .addCase(NewsServices.getOneNews.pending, state => {
-                state.loading = true
-            })
-            .addCase(NewsServices.getOneNews.rejected, (state, action) => {})
     },
 })
 
-export const { clearState, setInputData, closeModal } = newsSlice.actions
+export const { clearState, setInputData, closeModal, clearNewsFields } =
+    newsSlice.actions
+
 export const newsReducer = newsSlice.reducer

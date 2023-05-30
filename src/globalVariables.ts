@@ -5,4 +5,8 @@ export const globalVariables = {
     get URL() {
         return `http://127.0.0.1:${this.API_PORT}/`
     },
+
+    get limit() {
+        return 5
+    },
 }

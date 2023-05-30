@@ -14,7 +14,7 @@ export const NewsContainer = () => {
     useEffect(() => {
         if (news.length) return
 
-        dispatch(NewsServices.getNews({ limit: 1, skip: 0 }))
+        dispatch(NewsServices.getNews({}))
     }, [])
 
     return (

@@ -8,9 +8,9 @@ export const News = () => {
         <section className={s.news}>
             <div className={s.searchContainer}>
                 <AddNewsBtn />
+                <ButtonContainer />
             </div>
             <NewsContainer />
-            <ButtonContainer />
         </section>
     )
 }

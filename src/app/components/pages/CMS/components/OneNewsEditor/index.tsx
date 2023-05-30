@@ -1,12 +1,8 @@
 import { API_RESPONSES } from '@API_RESPONSES'
 import { AlertModal } from '@UI/AlertModal'
-import { globalVariables } from '@globalVariables'
 import { useAppDispatch } from '@hooks/useAppDispatch'
 import { useAppSelector } from '@hooks/useAppSelector'
-import { clickToLabelElement } from '@lib/clickToLabelElement'
-import { Button } from '@mui/material'
 import { NewsServices } from '@redux/slices/news/NewsServicesThunk'
-import { error } from 'console'
 import { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
@@ -14,22 +10,21 @@ import { BodyInput } from './components/BodyInput'
 import { ImgInput } from './components/ImgInput'
 import { SendButton } from './components/SendButton'
 import { TitleInput } from './components/TitleInput'
+import { useSetData } from './fn/useSetData'
 import s from './style.module.scss'
 
-
-//! Статьи изменяются, даже если были отправлены пустые данные.
 export const OneNewsEditor = () => {
     const { _id } = useParams()
+
+    const dspatch = useAppDispatch()
+
+    const fileRef = useRef<HTMLInputElement>(null)
 
     const { showNewsResponseModal, newsResponseModalContent } = useAppSelector(
         ({ news }) => news
     )
 
-    const fileRef = useRef<HTMLInputElement>(null)
-
-    const modalRef = useRef<HTMLDivElement>(null)
-
-    const dspatch = useAppDispatch()
+    const { setData } = useSetData()
 
     useEffect(() => {
         if (_id) {
@@ -70,9 +65,9 @@ export const OneNewsEditor = () => {
 
             <ImgInput fileRef={fileRef} />
 
-            <TitleInput />
+            <TitleInput onChange={setData} />
 
-            <BodyInput />
+            <BodyInput onChange={setData} />
 
             <SendButton id={_id} />
 
