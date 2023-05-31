@@ -15,12 +15,12 @@ const container = document.getElementById('root')
 
 const CMS = withSuspense(
     React.lazy(() => import('@components/pages/CMS')),
-    <LoadingCircle />
+    <LoadingCircle fullScreen />
 )
 
 const Login = withSuspense(
     React.lazy(() => import('@components/pages/Login')),
-    <LoadingCircle />
+    <LoadingCircle fullScreen />
 )
 
 if (container) {
