@@ -1,6 +1,6 @@
 import { useAppDispatch } from '@hooks/useAppDispatch'
 import { useAppSelector } from '@hooks/useAppSelector'
-import { NewsServices } from '@redux/slices/news/NewsServicesThunk'
+import { useGetNews } from '@hooks/useGetNews'
 import { useEffect } from 'react'
 
 import { NewsItem } from '../NewsItem'
@@ -8,13 +8,13 @@ import s from './s.module.scss'
 
 export const NewsContainer = () => {
     const { news } = useAppSelector(({ news }) => news)
-
-    const dispatch = useAppDispatch()
+    
+    const { getNews } = useGetNews()
 
     useEffect(() => {
         if (news.length) return
 
-        dispatch(NewsServices.getNews({}))
+        getNews()
     }, [])
 
     return (

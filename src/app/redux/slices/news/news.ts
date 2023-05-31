@@ -17,7 +17,7 @@ const newsSlice = createSlice({
         imgLoading: false,
         showNewsResponseModal: false,
         newsResponseModalContent: '',
-        skip: globalVariables.limit,
+        skip: 0,
         error: '',
         documentsCount: 0,
         newsFields: {
@@ -38,19 +38,17 @@ const newsSlice = createSlice({
 
         toggleDeleteLoading: NewsServicesActions.toggleDeleteLoading,
 
-        setSkip(state) {
-            state.skip = state.skip + globalVariables.limit
-        },
-
-        clearSkip(state) {
-            state.skip = globalVariables.limit
-        },
+        clearSkip: NewsServicesActions.clearSkip,
     },
 
     extraReducers: builder => {
         builder
-            //Получение новостей
+            //------------------------Получение всех новостей-------------------------------
             .addCase(NewsServices.getNews.fulfilled, (state, action) => {
+                /*Добавляет поле "isDeleteLoading"
+                 *во время удаления иконка заменяется на
+                 *лоадер
+                 */
                 const news = action.payload.data.map((news: INewsItem) => {
                     news.isDeleteLoading = false
 
@@ -58,6 +56,8 @@ const newsSlice = createSlice({
                 })
 
                 state.news.push(...news)
+
+                state.skip = state.skip + globalVariables.limit
 
                 state.documentsCount = Number(action.payload.documentsCount)
 
@@ -73,7 +73,7 @@ const newsSlice = createSlice({
 
                 state.getNewsError = true
             })
-            //Получение одной новости
+            //------------------------Получение одной новости-------------------------------
             .addCase(
                 NewsServices.getOneNews.fulfilled,
                 (state, action: PayloadAction<INewsDataResponse>) => {
@@ -88,11 +88,13 @@ const newsSlice = createSlice({
                 state.loading = true
             })
             .addCase(NewsServices.getOneNews.rejected, (state, action) => {})
-            //Редактирование новостей
+            //------------------------Редактирование новостей-------------------------------
             .addCase(NewsServices.editNews.fulfilled, (state, action) => {
                 state.fetchNews = false
 
                 state.showNewsResponseModal = true
+
+                state.skip = 0
 
                 state.newsResponseModalContent = API_RESPONSES.NEWS_EDIT_OK
             })
@@ -108,7 +110,7 @@ const newsSlice = createSlice({
 
                 state.newsResponseModalContent = API_RESPONSES.NEWS_EDIT_ERROR
             })
-            //Отправка новостей
+            //-------------------------------Отправка новостей-------------------------------
             .addCase(NewsServices.postNews.pending, state => {
                 state.fetchNews = true
             })
@@ -116,6 +118,8 @@ const newsSlice = createSlice({
                 state.fetchNews = false
 
                 state.showNewsResponseModal = true
+
+                state.skip = 0
 
                 state.newsResponseModalContent = API_RESPONSES.NEWS_SEND_OK
             })
@@ -128,9 +132,11 @@ const newsSlice = createSlice({
 
                 state.newsResponseModalContent = API_RESPONSES.NEWS_SEND_ERROR
             })
-            //Удаление новостей
+            //-------------------------------Удаление новостей-------------------------------
             .addCase(NewsServices.deleteNews.fulfilled, state => {
                 state.loading = false
+
+                state.skip = 0
 
                 state.newsResponseModalContent = API_RESPONSES.NEWS_DELETE_OK
             })
@@ -142,7 +148,7 @@ const newsSlice = createSlice({
 
                 state.newsResponseModalContent = API_RESPONSES.NEWS_DELETE_ERROR
             })
-            //Отправка изображения
+            //-------------------------------Отправка изображения-------------------------------
             .addCase(NewsServices.sendFile.pending, state => {
                 state.imgLoading = true
             })
@@ -160,7 +166,6 @@ export const {
     closeModal,
     clearNewsFields,
     toggleDeleteLoading,
-    setSkip,
     clearSkip,
 } = newsSlice.actions
 

@@ -11,9 +11,6 @@ export const ButtonContainer = () => {
 
     const { isCompleteMoreNews } = useMoreNewsComplete()
 
-    const { skip } = useAppSelector(({ news }) => news)
-
-    const limit = globalVariables.limit
     /*
      *Сколько статей пропустить при запросе
      *(изначально пропустится лимит статей)
@@ -31,7 +28,7 @@ export const ButtonContainer = () => {
                 size="medium"
                 disabled={loading || isCompleteMoreNews}
                 loading={loading}
-                onClick={() => getNews({ skip, limit })}
+                onClick={() => getNews()}
             />
         </div>
     )

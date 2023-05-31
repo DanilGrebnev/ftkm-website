@@ -16,7 +16,7 @@ interface IBody {
 
 class NewsServicesThunk {
     getNews = createAsyncThunk(
-        'news',
+        'getNews',
         async ({
             skip = 0,
             limit = globalVariables.limit,

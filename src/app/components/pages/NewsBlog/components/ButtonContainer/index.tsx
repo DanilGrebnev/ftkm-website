@@ -1,37 +1,29 @@
 import { LoadingButton } from '@UI/LoadingButton'
-import { useAppDispatch } from '@hooks/useAppDispatch'
 import { useAppSelector } from '@hooks/useAppSelector'
-import { NewsServices } from '@redux/slices/news/NewsServicesThunk'
-import React, { useState } from 'react'
+import { useGetNews } from '@hooks/useGetNews'
+import { useMoreNewsComplete } from '@hooks/useMoreNewsComplete'
+import React from 'react'
 
 import s from './s.module.scss'
 
 export const ButtonContainer: React.FC = () => {
-    const dispatch = useAppDispatch()
+    const { getNews } = useGetNews()
 
-    const { loading, news, documentsCount } = useAppSelector(({ news }) => news)
+    const { isCompleteMoreNews } = useMoreNewsComplete()
 
-    const [skip, setSkip] = useState(1)
+    const { loading } = useAppSelector(({ news }) => news)
 
-    const limit = 1
-
-    const newsEnding = news.length >= documentsCount
-
-    const getNews = async (skip: number) => {
-        await dispatch(NewsServices.getNews({ skip, limit }))
-
-        setSkip(skip + 1)
-    }
+    const text = !isCompleteMoreNews ? 'Загрузить ещё' : 'Новости кончались'
 
     return (
         <div className={s.btnContainer}>
             {
                 <LoadingButton
-                    text={!newsEnding ? 'Загрузить ещё' : 'Новости кончались'}
+                    text={text}
                     size="medium"
-                    disabled={loading || newsEnding ? true : false}
+                    disabled={loading || isCompleteMoreNews}
                     loading={loading}
-                    onClick={() => getNews(skip)}
+                    onClick={() => getNews()}
                 />
             }
         </div>

@@ -1,5 +1,6 @@
 import { AlertDialog } from '@UI/AlertDialog'
 import { useAppDispatch } from '@hooks/useAppDispatch'
+import { useGetNews } from '@hooks/useGetNews'
 import { useOpenModal } from '@hooks/useOpenModal'
 import { INewsItem } from '@interfaces/News'
 import { NewsServices } from '@redux/slices/news/NewsServicesThunk'
@@ -23,7 +24,9 @@ export const NewsItem: React.FC<INewsItem> = ({
 }) => {
     const dispatch = useAppDispatch()
 
-    const { open, closeModal, openModal } = useOpenModal()
+    const { getNews } = useGetNews()
+
+    const { open, toggleModal } = useOpenModal()
 
     const onClickAction = async (_id: string) => {
         dispatch(toggleDeleteLoading(_id))
@@ -33,12 +36,11 @@ export const NewsItem: React.FC<INewsItem> = ({
         if (!res.error) {
             dispatch(clearState())
             dispatch(clearSkip())
-            dispatch(NewsServices.getNews({}))
+            getNews(0)
+            return
         }
 
         dispatch(toggleDeleteLoading(_id))
-
-        console.log(res)
     }
 
     return (
@@ -57,12 +59,11 @@ export const NewsItem: React.FC<INewsItem> = ({
                     <EditBtn id={_id} />
                     <DeleteBtn
                         isLoading={isDeleteLoading}
-                        onClick={openModal}
+                        onClick={toggleModal}
                     />
-
                     <AlertDialog
                         open={open}
-                        handleClose={closeModal}
+                        handleClose={toggleModal}
                         dialogTitle="Удалить новость?"
                         onClickAction={() => onClickAction(_id)}
                     />

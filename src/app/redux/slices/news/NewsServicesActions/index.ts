@@ -1,3 +1,4 @@
+import { globalVariables } from '@globalVariables'
 import { INewsStore } from '@interfaces/News'
 
 type TAction = {
@@ -28,6 +29,14 @@ class NewsServices<S extends INewsStore> {
 
             return news
         })
+    }
+
+    setSkip(state: S) {
+        state.skip = state.skip + globalVariables.limit
+    }
+
+    clearSkip(state: S) {
+        state.skip = 0
     }
 
     clearNewsFields(state: S) {

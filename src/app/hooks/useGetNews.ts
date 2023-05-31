@@ -1,19 +1,21 @@
+import { globalVariables } from '@globalVariables'
 import { NewsServices } from '@redux/slices/news/NewsServicesThunk'
-import { setSkip } from '@redux/slices/news/news'
 
 import { useAppDispatch } from './useAppDispatch'
+import { useAppSelector } from './useAppSelector'
 
-interface IGetNews {
-    limit: number
-    skip: number
-}
-
+/**
+ * Хук получения всех новостей
+ */
 export const useGetNews = () => {
     const dispatch = useAppDispatch()
 
-    const getNews = ({ limit, skip }: IGetNews) => {
-        dispatch(NewsServices.getNews({ limit, skip }))
-        dispatch(setSkip())
+    const { skip } = useAppSelector(({ news }) => news)
+
+    const limit = globalVariables.limit
+
+    const getNews = (defaultSkip: number = skip) => {
+        dispatch(NewsServices.getNews({ limit, skip: defaultSkip }))
     }
 
     return { getNews }

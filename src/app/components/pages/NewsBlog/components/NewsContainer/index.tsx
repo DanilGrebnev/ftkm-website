@@ -1,8 +1,7 @@
 import { NewsCardItem } from '@components/Smart/NewsCardItem'
 import { Grid } from '@components/containers/Grid'
-import { useAppDispatch } from '@hooks/useAppDispatch'
 import { useAppSelector } from '@hooks/useAppSelector'
-import { NewsServices } from '@redux/slices/news/NewsServicesThunk'
+import { useGetNews } from '@hooks/useGetNews'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -10,11 +9,10 @@ import s from './s.module.scss'
 
 export const NewsContainer: React.FC = () => {
     const { news } = useAppSelector(({ news }) => news)
-
-    const dispatch = useAppDispatch()
+    const { getNews } = useGetNews()
 
     useEffect(() => {
-        dispatch(NewsServices.getNews({ skip: 0, limit: 1 }))
+        getNews()
     }, [])
 
     return (
