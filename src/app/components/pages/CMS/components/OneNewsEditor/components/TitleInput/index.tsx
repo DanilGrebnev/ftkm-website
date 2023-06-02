@@ -1,8 +1,6 @@
-import { useAppDispatch } from '@hooks/useAppDispatch'
 import { useAppSelector } from '@hooks/useAppSelector'
 import { INewsEditInputs } from '@interfaces/News'
 import { TextField } from '@mui/material'
-import { setInputData } from '@redux/slices/news/news'
 
 import { useIsEmptyFields } from '../../fn/useIsEmptyFields'
 

@@ -3,17 +3,12 @@
     flex-direction: column;
     gap: 20px;
     padding: 20px;
-
-    input[type='file'] {
-        display: none;
-    }
 }
 
 .previewImg {
     max-width: 300px;
     width: 100%;
     aspect-ratio: 16 / 9;
-    
 }
 
 .input {
