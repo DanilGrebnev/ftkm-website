@@ -1,5 +1,3 @@
-import { SwiperEquipment } from './components/SwiperEquipment/index'
-
 export { BurgerMenuModal } from '@UI/BurgerMenu/BurgerMenuModal'
 export { NewsBlock } from './components/NewsBlock/index'
 export { Admission } from './components/Admission'

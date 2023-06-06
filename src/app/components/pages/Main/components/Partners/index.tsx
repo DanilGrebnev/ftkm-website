@@ -1,5 +1,6 @@
 import { ImgComponent } from '@components/Ordinary/ImgComponent'
 import { Container } from '@mui/material'
+import { v4 } from 'uuid'
 
 import { data } from './data'
 import style from './style.module.scss'
@@ -16,7 +17,7 @@ export const Partners = () => {
             <div className={style.imgWrapper}>
                 {data.map(data => (
                     <ImgComponent
-                        key={data.src}
+                        key={v4()}
                         {...data}
                     />
                 ))}

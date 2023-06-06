@@ -1,23 +1,34 @@
-import neftemah from '@images/neftemash.png'
-import october from '@images/red-october.gif'
-import rusal from '@images/rusal.jpg'
-import vtz from '@images/vtz_.jpg'
+import vkm from '@images/вкм_сталь.png'
+import vtz from '@images/волжский_трубный.png'
+import redOctober from '@images/красный_октябрь.png'
+import zavod from '@images/литейно_механический_завод.png'
+import neftemash from '@images/нефтемаш.png'
+import rusal from '@images/русал.png'
 
 export const data = [
-    {
-        src: neftemah,
-        alt: 'Завод "Нефтемаш"',
-    },
-    {
-        src: october,
-        alt: 'Завод "Красный Октябрь"',
-    },
     {
         src: rusal,
         alt: 'Завод "Русал"',
     },
     {
+        src: redOctober,
+        alt: 'Завод "Красный Октябрь"',
+    },
+    {
+        src: neftemash,
+        alt: 'Завод "Нефтемаш"',
+    },
+    {
         src: vtz,
         alt: 'Волжский трубный завод',
+    },
+
+    {
+        src: vkm,
+        alt: 'ВКМ "СТАЛЬ"',
+    },
+    {
+        src: zavod,
+        alt: 'Литейно-механический завод',
     },
 ]
