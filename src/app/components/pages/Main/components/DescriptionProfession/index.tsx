@@ -32,7 +32,7 @@ export const DescriptionProfession = () => {
                     значит станешь востребованным специалистом на рынке труда!
                 </p>
                 <ImgComponent src={img1} />
-                <ImgComponent src={img1} />
+                <ImgComponent src={img2} />
             </div>
         </Container>
     )
