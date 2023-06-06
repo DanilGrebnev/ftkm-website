@@ -10,3 +10,13 @@
         @include mr-t-b;
     }
 }
+
+.img {
+    aspect-ratio: 16 / 9;
+    object-position: 50% 50%;
+    object-fit: contain;
+    max-width: 1000px;
+    width: 100%;
+    display: block;
+    @include br-rd;
+}

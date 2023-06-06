@@ -9,6 +9,14 @@ import img6 from '@images/equipment/6.webp'
 import s from './s.module.scss'
 
 export const SwiperEquipment = () => {
+    const images = [img1, img2, img3, img4, img5, img6].map(src => (
+        <img
+            alt="ВолгГТУ оборудование"
+            className={s.img}
+            src={src}
+        />
+    ))
+
     return (
         <section className={s.SwiperEquipment}>
             <h2>Обрудование кафедры</h2>
@@ -16,8 +24,9 @@ export const SwiperEquipment = () => {
                 slidesPerView={1}
                 spaceBetween={20}
                 maxWdth="lg"
-                src={[img1, img2, img3, img4, img5, img6]}
-            />
+            >
+                {images}
+            </SwiperComponet>
         </section>
     )
 }

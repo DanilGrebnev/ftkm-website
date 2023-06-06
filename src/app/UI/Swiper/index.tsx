@@ -14,6 +14,7 @@ export const SwiperComponet: React.FC<ISwiperComponet> = ({
     style,
     slidesPerView = 1,
     spaceBetween = 50,
+    children,
 }) => {
     return (
         <Container
@@ -28,20 +29,14 @@ export const SwiperComponet: React.FC<ISwiperComponet> = ({
                 spaceBetween={spaceBetween}
                 slidesPerView={slidesPerView}
             >
-                {src?.map(elSrc => {
-                    return (
-                        <SwiperSlide
-                            className={s.SwiperSlide}
-                            key={uuidv4()}
-                        >
-                            <img
-                                alt={elSrc}
-                                className={s.img}
-                                src={elSrc}
-                            />
-                        </SwiperSlide>
-                    )
-                })}
+                {children?.map(el => (
+                    <SwiperSlide
+                        className={s.SwiperSlide}
+                        key={uuidv4()}
+                    >
+                        {el}
+                    </SwiperSlide>
+                ))}
             </Swiper>
         </Container>
     )
