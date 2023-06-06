@@ -4,7 +4,7 @@ import React from 'react'
 
 interface ICardMedia<S = string> {
     src: S
-    alt: S
+    alt?: S
     className?: S
     style?: React.CSSProperties
     onError?: (errorEvent: SyntheticEvent<HTMLImageElement, Event>) => void

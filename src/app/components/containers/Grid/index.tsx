@@ -13,7 +13,7 @@ export const Grid = React.memo((props: IGridProps) => {
             className={`Grid ${className} ${styleSCSS.Grid}`}
             style={{ ...style, ...setPropsStyle(props) }}
         >
-            <>{children}</>
+            {children}
         </section>
     )
 })

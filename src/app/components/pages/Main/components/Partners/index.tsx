@@ -1,4 +1,4 @@
-import { ImgComponent } from '@components/Ordinary/CardMedia'
+import { ImgComponent } from '@components/Ordinary/ImgComponent'
 import { Container } from '@mui/material'
 
 import { data } from './data'

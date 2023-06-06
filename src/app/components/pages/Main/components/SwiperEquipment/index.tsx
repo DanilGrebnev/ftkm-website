@@ -21,6 +21,8 @@ export const SwiperEquipment = () => {
         <section className={s.SwiperEquipment}>
             <h2>Обрудование кафедры</h2>
             <SwiperComponet
+                navigation
+                pagination
                 slidesPerView={1}
                 spaceBetween={20}
                 maxWdth="lg"

@@ -8,9 +8,9 @@ export interface IGridPropsStyle<S = string> {
 }
 
 export interface IGridProps extends IGridPropsStyle {
-    children?: JSX.Element[] | JSX.Element
+    children?: React.ReactNode | React.ReactNode[]
 
-    style?: { [styleName: string]: string }
+    style?: React.CSSProperties
 
     onClick?: (e: React.MouseEvent<HTMLElement>, ...params: any) => void
 

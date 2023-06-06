@@ -1,0 +1,32 @@
+@import '@variables';
+
+.description {
+    @include font-20;
+    text-align: justify;
+    grid-column: 1/3;
+}
+
+.description:before {
+    content: '';
+    display: inline-block;
+    width: adaptiveSize(50, 25);
+}
+
+.descriptionContainer {
+    gap: adaptiveSize(50, 25);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    img {
+        display: inline-block;
+        width: 100%;
+        @include br-rd;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .descriptionContainer {
+        display: flex;
+        flex-direction: column;
+    }
+}

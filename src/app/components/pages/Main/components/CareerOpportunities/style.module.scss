@@ -11,7 +11,7 @@
     h2 {
         text-align: center;
         @include font-42;
-        margin-bottom: adaptiveSize(40, 20);
+        @include h2-title-mr-b;
     }
 
     h4 {

@@ -10,9 +10,12 @@ export const setPropsStyle = (props: IGridPropsStyle) => {
         'grid',
     ]
 
-    return styleName.reduce<{ [key: string]: string | undefined }>((acc, style) => {
-        props[style] && (acc[style] = props[style])
+    return styleName.reduce<{ [key: string]: string | undefined }>(
+        (acc, style) => {
+            props[style] && (acc[style] = props[style])
 
-        return acc
-    }, {})
+            return acc
+        },
+        {}
+    )
 }

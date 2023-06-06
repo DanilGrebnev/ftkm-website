@@ -3,15 +3,14 @@
 .TextAndVideo2 {
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
-    gap: adaptiveSize(100, 50) adaptiveSize(50, 25);
+    gap: adaptiveSize(100, 50) adaptiveSize(40, 15);
 
     position: relative;
 
     @include mr-t-b;
     @include pd-t-b;
-    // @include border;
 
-    h1 {
+    h2 {
         @include font-42;
         grid-column: 1/3;
     }

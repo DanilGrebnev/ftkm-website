@@ -80,6 +80,10 @@ $maxWidth: var(--maxWidth);
     margin: adaptiveSize(20, 10) auto;
 }
 
+@mixin h2-title-mr-b {
+    margin-bottom: adaptiveSize(40, 20);
+}
+
 @mixin mr-left-50 {
     margin-left: adaptiveSize(50, 25);
 }

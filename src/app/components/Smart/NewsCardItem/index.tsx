@@ -1,4 +1,4 @@
-import { ImgComponent } from '@components/Ordinary/CardMedia'
+import { ImgComponent } from '@components/Ordinary/ImgComponent'
 import { onErrorLoadImage } from '@lib/onErrorLoadImage'
 import React from 'react'
 

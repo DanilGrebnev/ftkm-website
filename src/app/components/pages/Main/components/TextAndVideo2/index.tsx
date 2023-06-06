@@ -1,6 +1,5 @@
 import { LazyVideo } from '@components/Ordinary/LazyVideo'
 import { Grid } from '@components/containers/Grid'
-import preloadMetallurgy from '@images/preloadmetallurgy.webp'
 import video1 from '@videos/metallurgy.mp4'
 
 import style from './style.module.scss'
@@ -8,9 +7,9 @@ import style from './style.module.scss'
 export const TextAndVideo2 = () => {
     return (
         <Grid className={`Text-and-video-2 ${style.TextAndVideo2}`}>
-            <h1>
+            <h2>
                 Все профессии хороши, но <q>Металлург</q> - звучит гордо
-            </h1>
+            </h2>
             <LazyVideo
                 title="Металлургия - это красиво!"
                 src={video1}

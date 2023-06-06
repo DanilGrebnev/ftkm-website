@@ -5,6 +5,7 @@ import {
     CardList,
     CareerOpportunities,
     DepartmentSpecialists,
+    DescriptionProfession,
     EquipmentGallery,
     Footer,
     Hero,
@@ -26,6 +27,7 @@ export const Main = () => {
         <section className={`Main-page ${style.Main || ''}`}>
             <Hero />
             <CardList />
+            <DescriptionProfession />
             <TextAndVideo1 />
             <TextAndVideo2 />
             <CareerOpportunities />

@@ -5,4 +5,6 @@ export interface ISwiperComponet {
     slidesPerView?: number
     spaceBetween?: number
     children?: React.ReactNode[]
+    navigation?: boolean
+    pagination?: boolean
 }
