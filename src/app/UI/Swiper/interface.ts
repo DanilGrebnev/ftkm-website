@@ -4,4 +4,5 @@ export interface ISwiperComponet {
     maxWdth?: 'xl' | 'md' | 'lg' | 'xs' | 'sm'
     slidesPerView?: number
     spaceBetween?: number
+    children?: React.ReactNode
 }

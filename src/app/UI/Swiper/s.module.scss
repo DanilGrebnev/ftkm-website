@@ -11,9 +11,10 @@
 }
 
 .img {
-    object-position: center;
-    object-fit: cover;
-    max-width: 850px;
+    aspect-ratio: 16 / 9;
+    object-position: 50% 50%;
+    object-fit: contain;
+    max-width: 1000px;
     width: 100%;
     display: block;
     @include br-rd;
