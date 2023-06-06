@@ -10,6 +10,11 @@ export const UploadFilesBtn: React.FC = () => {
         ref?.current?.click()
     }
 
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const FileList = e?.target.files
+       
+    }
+
     return (
         <div>
             <LoadingButton
@@ -17,8 +22,10 @@ export const UploadFilesBtn: React.FC = () => {
                 children="Загрузить файлы"
             />
             <input
+                onChange={onChange}
                 className={s.input}
                 type="file"
+                multiple
                 ref={ref}
             />
         </div>

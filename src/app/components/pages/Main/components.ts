@@ -1,3 +1,5 @@
+import { SwiperEquipment } from './components/SwiperEquipment/index'
+
 export { BurgerMenuModal } from '@UI/BurgerMenu/BurgerMenuModal'
 export { NewsBlock } from './components/NewsBlock/index'
 export { Admission } from './components/Admission'
@@ -14,3 +16,4 @@ export { Partners } from './components/Partners'
 export { Questions } from './components/Questions'
 export { DepartmentSpecialists } from './components/DepartmentSpecialists'
 export { ScientificDirection } from './components/ScientificDirection'
+export { SwiperEquipment } from './components/SwiperEquipment'

@@ -1,5 +1,4 @@
 import { useSetDocumentTitle } from '@hooks/useSetDocumentTitle'
-import React from 'react'
 
 import {
     Admission,
@@ -12,6 +11,7 @@ import {
     Partners,
     Questions,
     ScientificDirection,
+    SwiperEquipment,
     TextAndVideo1,
     TextAndVideo2,
 } from './components'
@@ -30,7 +30,8 @@ export const Main = () => {
             <TextAndVideo2 />
             <CareerOpportunities />
             <Admission />
-            <EquipmentGallery />
+            <SwiperEquipment />
+            {/* <EquipmentGallery /> */}
             <Partners />
             <DepartmentSpecialists />
             <ScientificDirection />

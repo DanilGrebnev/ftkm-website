@@ -45,9 +45,9 @@ export const HeaderMenuItems = () => {
                 <NavLink to="/moreinfo">
                     <Button className={style.Btn}>Больше информации</Button>
                 </NavLink>
-                <NavLink to="/news">
+                {/* <NavLink to="/news">
                     <Button className={style.Btn}>Новости</Button>
-                </NavLink>
+                </NavLink> */}
             </nav>
         </Box>
     )
