@@ -37,7 +37,7 @@ export const OneNewsEditor = () => {
 
     return (
         <div className={s.EditorContainer}>
-            <UploadFilesBtn />
+            {/* <UploadFilesBtn /> */}
 
             <TitleInput onChange={setData} />
 
