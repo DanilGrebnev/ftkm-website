@@ -3,8 +3,12 @@ export const globalVariables = {
         return 8089
     },
 
+    // get URL() {
+    //     return `http://localhost:${this.API_PORT}/`
+    // },
+
     get URL() {
-        return `http://localhost:${this.API_PORT}/`
+        return `http://website.mitlp.ru/`
     },
 
     get limit() {
