@@ -5,6 +5,7 @@
 }
 
 .newsBlock {
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: adaptiveSize(30, 15);
 }
@@ -15,8 +16,14 @@
     justify-content: center;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 720px) {
     .newsBlock {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .newsBlock {
+        display: none;
     }
 }

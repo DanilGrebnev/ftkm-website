@@ -12,7 +12,7 @@ export const globalVariables = {
     },
 
     get URL() {
-        return this.URL_PRODUCTION
+        return this.URL_DEVELOPMENT
     },
 
     get limit() {

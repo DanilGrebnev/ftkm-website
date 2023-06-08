@@ -1,11 +1,11 @@
-import { onErrorLoadImage } from '@lib/onErrorLoadImage'
 import { INewsItem } from 'app/interface/News'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import { useGetNews } from '../hooks/useGetNews'
 import s from './style.module.scss'
 
-export const NewsItem: React.FC<INewsItem> = ({
+const NewsItem: React.FC<INewsItem> = ({
     _id,
     body,
     title,
@@ -22,5 +22,22 @@ export const NewsItem: React.FC<INewsItem> = ({
                 </div>
             </div>
         </Link>
+    )
+}
+
+export const NewsList: React.FC = () => {
+    const { news } = useGetNews()
+
+    return (
+        <>
+            {news.map(el => {
+                return (
+                    <NewsItem
+                        key={el._id}
+                        {...el}
+                    />
+                )
+            })}
+        </>
     )
 }

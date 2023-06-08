@@ -1,0 +1,22 @@
+@import '@variables';
+
+.accordion {
+    border-radius: 4px !important;
+    box-shadow: none !important;
+}
+
+.accordion::before {
+    display: none !important;
+}
+
+.accordionDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+@media screen and (min-width: 500px) {
+    .accordion {
+        display: none;
+    }
+}
