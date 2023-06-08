@@ -8,7 +8,7 @@ export const globalVariables = {
     // },
 
     get URL() {
-        return `http://website.mitlp.ru/`
+        return `http://vstu.mitlp.ru/`
     },
 
     get limit() {
