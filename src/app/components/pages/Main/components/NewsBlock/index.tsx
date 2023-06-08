@@ -1,6 +1,7 @@
 import { Grid } from '@components/containers/Grid'
 import { axios } from '@lib/axios'
 import { Button } from '@mui/material'
+import { Container } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -21,7 +22,11 @@ export const NewsBlock = () => {
     }, [])
 
     return (
-        <>
+        <Container
+            className={s.wrapper}
+            id="News-Block"
+            maxWidth="xl"
+        >
             <Grid className={s.newsBlock}>
                 {news.map(news => {
                     return (
@@ -37,6 +42,6 @@ export const NewsBlock = () => {
                     <Button variant="outlined">Архив новостей</Button>
                 </Link>
             </div>
-        </>
+        </Container>
     )
 }

@@ -9,6 +9,7 @@ import {
     EquipmentGallery,
     Footer,
     Hero,
+    NewsBlock,
     Partners,
     Questions,
     ScientificDirection,
@@ -37,6 +38,7 @@ export const Main = () => {
             <Partners />
             <DepartmentSpecialists />
             <ScientificDirection />
+            <NewsBlock />
             <Questions />
             <Footer />
         </section>

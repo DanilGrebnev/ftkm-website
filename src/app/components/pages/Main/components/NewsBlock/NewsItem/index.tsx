@@ -12,25 +12,14 @@ export const NewsItem: React.FC<INewsItem> = ({
     imgName,
     createdDate,
 }) => {
-    const img = 'http://127.0.0.1:3001/' + imgName
-
-    const style = !imgName
-        ? {
-              marginTop: '15px',
-          }
-        : {
-              marginTop: 'none',
-          }
-
     return (
         <Link to={`news/${_id}`}>
-            <div className={s.container}>
-                {imgName && <img alt={title} src={img} />}
-
-                <div style={style} className={s.date}>
-                    {createdDate}
+            <div className={s.wrapper}>
+                <div className={s.container}>
+                    <h3 className={s.title}>{title}</h3>
+                    <p className={s.date}>{createdDate}</p>
+                    <p className={s.body}>{body}</p>
                 </div>
-                <div className={s.body}>{body}</div>
             </div>
         </Link>
     )
