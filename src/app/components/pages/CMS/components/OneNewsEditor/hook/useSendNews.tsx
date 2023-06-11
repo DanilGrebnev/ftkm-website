@@ -4,7 +4,6 @@ import { INewsData } from '@interfaces/News'
 import { NewsServices } from '@redux/slices/news/NewsServicesThunk'
 import { clearState } from '@redux/slices/news/news'
 import { closeModal } from '@redux/slices/news/news'
-import { createPortal } from 'react-dom'
 import { useNavigate } from 'react-router-dom'
 
 export const useSendNews = () => {
@@ -14,8 +13,6 @@ export const useSendNews = () => {
 
     const editNews = async (body: INewsData, _id: string) => {
         const res = await dispatch(NewsServices.editNews({ body, _id }))
-
-        console.log(res)
 
         if (res.meta.requestStatus === 'rejected') {
             setTimeout(() => {

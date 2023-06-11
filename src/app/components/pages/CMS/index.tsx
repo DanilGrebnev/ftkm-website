@@ -1,9 +1,12 @@
+import { WithAuth } from '@HOC/WithAuth'
 import { Route, Routes } from 'react-router-dom'
 
 import { News } from './components/News'
 import { OneNewsEditor } from './components/OneNewsEditor'
 import s from './style.module.scss'
 import './style.scss'
+
+const OneNewsEditorWithAuth = <WithAuth Component={OneNewsEditor} />
 
 const CMS = () => {
     return (
@@ -22,11 +25,11 @@ const CMS = () => {
                     />
                     <Route
                         path="newsEditor"
-                        element={<OneNewsEditor />}
+                        element={OneNewsEditorWithAuth}
                     />
                     <Route
                         path="newsEditor/:_id"
-                        element={<OneNewsEditor />}
+                        element={OneNewsEditorWithAuth}
                     />
                 </Routes>
             </div>

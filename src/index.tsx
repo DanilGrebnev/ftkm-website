@@ -1,3 +1,4 @@
+import { WithAuth } from '@HOC/WithAuth'
 import { withSuspense } from '@HOC/withSuspense'
 import { LoadingCircle } from '@UI/LoadingCircle'
 import { NotFound } from '@UI/NotFound'
@@ -40,7 +41,7 @@ if (container) {
                     />
                     <Route
                         path="CMS/*"
-                        element={<CMS />}
+                        element={<WithAuth Component={CMS} />}
                     />
                     <Route
                         path="*"
