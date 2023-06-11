@@ -1,15 +1,30 @@
+import { axios } from '@lib/axios'
 import { Button, TextField } from '@mui/material'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import s from './style.module.scss'
-import { useFetchLogin } from './useLoginFetch'
+import { fetchLogin } from './utils'
 
 const Login = () => {
-    const { fetchLogin } = useFetchLogin()
+    const navigate = useNavigate()
 
+    //Функция отправки запрос на сервер
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
+
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+
+        if (!token) return
+
+        axios.get('user/auth').then(res => {
+            if (res?.data?.access) {
+                navigate('/cms')
+            }
+        })
+    }, [])
 
     return (
         <div className={s.LoginContainer}>
