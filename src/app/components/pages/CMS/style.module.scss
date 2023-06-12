@@ -13,6 +13,7 @@
     height: 95vh;
     @include box-sh;
     @include cms-br;
+    overflow-y: hidden;
 }
 
 .modalRoot {

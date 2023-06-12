@@ -2,11 +2,13 @@ import LoadingBtn from '@mui/lab/LoadingButton'
 import React from 'react'
 
 interface ILoadingButton {
-    loading: boolean
+    loading?: boolean
     onClick?: () => void
-    text: string
+    text?: string
     disabled?: boolean
+    children?: React.ReactNode
     size?: 'large' | 'medium' | 'small'
+    className?: string
 }
 
 export const LoadingButton: React.FC<ILoadingButton> = ({
@@ -15,9 +17,12 @@ export const LoadingButton: React.FC<ILoadingButton> = ({
     text,
     disabled,
     size,
+    children,
+    className,
 }) => {
     return (
         <LoadingBtn
+            className={className}
             size={size}
             onClick={onClick}
             loading={loading}
@@ -27,7 +32,7 @@ export const LoadingButton: React.FC<ILoadingButton> = ({
             variant="outlined"
             disabled={disabled}
         >
-            <div>{text}</div>
+            {<div>{text}</div>}
         </LoadingBtn>
     )
 }

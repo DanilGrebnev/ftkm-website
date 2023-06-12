@@ -1,12 +1,22 @@
+:root {
+    --minW: 400px;
+}
+
 .newsContainer {
     width: 100%;
+    // height: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(var(--minW), 1fr));
     gap: 20px;
     margin-top: 20px;
-    overflow-y: auto;
+    overflow: auto;
     border-radius: 20px;
-    max-height: 800px;
-    // border: 1px solid black;
+    max-height: 80vh;
     padding: 10px;
+}
+
+@media screen and (max-width: 900px) {
+    :root {
+        --minW: 250px;
+    }
 }

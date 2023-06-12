@@ -15,7 +15,8 @@
     align-items: start;
 
     h1 {
-        font-size: 20px;
+        @include font-20;
+        // font-size: 20px;
         max-height: 60px;
         overflow-y: auto;
     }

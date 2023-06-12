@@ -8,7 +8,7 @@ import s from './s.module.scss'
 
 export const NewsContainer = () => {
     const { news } = useAppSelector(({ news }) => news)
-    
+
     const { getNews } = useGetNews()
 
     useEffect(() => {
