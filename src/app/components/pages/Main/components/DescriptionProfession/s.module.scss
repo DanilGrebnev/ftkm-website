@@ -7,9 +7,7 @@
 }
 
 .description:before {
-    content: '';
-    display: inline-block;
-    width: adaptiveSize(50, 25);
+    @include redLine;
 }
 
 .descriptionContainer {

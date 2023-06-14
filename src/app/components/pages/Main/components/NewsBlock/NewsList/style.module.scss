@@ -16,21 +16,44 @@
 }
 
 .title {
-    white-space: nowrap;
     font-weight: 500;
-    @include font-20;
+    @include font-18;
     width: 100%;
+    max-height: adaptiveSize(60, 40);
     overflow: hidden;
-    text-overflow: ellipsis;
 }
 
-.date,
 .body {
     @include font-16;
 }
 
 .date {
+    @include font-14;
     opacity: 0.6;
+}
+
+.body {
+    hyphens: auto;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    text-align: justify;
+}
+
+.body:before {
+    @include redLine;
+}
+
+.wrapper:hover * {
+    color: $mui-blue;
+}
+
+@media screen and (max-width: 499px) {
+    .wrapper {
+        box-shadow: none;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        border-color: $mui-blue;
+    }
 }
 
 @media screen and (max-width: 400px) {

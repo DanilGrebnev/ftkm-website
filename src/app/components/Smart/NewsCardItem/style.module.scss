@@ -21,7 +21,7 @@ $pb: 20px;
     }
 }
 
-/*Этот псевдоэлемент нужен чтобы сделать pb снизу*/
+/*Этот псевдоэлемент нужен чтобы сделать padding-bottom снизу*/
 .cardContainer:after {
     content: '';
     display: block;
@@ -45,6 +45,7 @@ $pb: 20px;
     font-weight: 500;
     max-height: 100px;
     text-align: justify;
+    overflow: hidden;
 }
 
 .date,
@@ -64,9 +65,7 @@ $pb: 20px;
 }
 
 .body::before {
-    display: inline-block;
-    content: '';
-    width: 30px;
+    @include redLine;
 }
 
 .bgFilter {

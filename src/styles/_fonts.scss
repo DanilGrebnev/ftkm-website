@@ -2,6 +2,10 @@
     @include adaptiv-font(12, 7);
 }
 
+@mixin font-14 {
+    @include adaptiv-font(14, 9);
+}
+
 @mixin font-16 {
     @include adaptiv-font(16, 10);
 }

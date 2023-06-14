@@ -40,6 +40,14 @@ $maxWidth: var(--maxWidth);
     font-family: 'Roboto', sans-serif;
 }
 
+//Красная строка. Добавляется в
+//Псевдоэлемент ::before
+@mixin redLine {
+    display: inline-block;
+    content: '';
+    width: adaptiveSize(30, 15);
+}
+
 @mixin decor-lines($color: black) {
     content: '';
     position: absolute;

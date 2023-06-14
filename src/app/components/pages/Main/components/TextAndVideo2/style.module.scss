@@ -24,10 +24,7 @@
     }
 
     p::before {
-        content: '';
-        display: inline-block;
-        background: black;
-        width: adaptiveSize(50, 10);
+        @include redLine;
     }
 
     iframe,
