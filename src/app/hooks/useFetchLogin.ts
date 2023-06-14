@@ -14,9 +14,7 @@ type data = {
 export const useFetchLogin = () => {
     const [isLoading, setLoading] = useState<boolean>(false)
 
-    const fetchLogin = async ({ login, password }: payload): Promise<void> => {
-        const payload = { login, password }
-
+    const fetchLogin = async (payload: payload): Promise<void> => {
         setLoading(true)
 
         try {

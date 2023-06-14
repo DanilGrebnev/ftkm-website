@@ -1,52 +1,35 @@
 import { API_RESPONSES } from '@API_RESPONSES'
 import { AlertModal } from '@UI/AlertModal'
-import { useAppSelector } from '@hooks/useAppSelector'
+import { useGetNewsStore } from '@hooks/useGetNewsStore'
 import { useGetOneNews } from '@hooks/useGetOneNews'
-import { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
 
 import { BodyInput } from './components/BodyInput'
 import { SendButton } from './components/SendButton'
 import { TitleInput } from './components/TitleInput'
-import { UploadFilesBtn } from './components/UploadFilesBtn'
-import { useSetData } from './fn/useSetData'
 import s from './style.module.scss'
 
 export const OneNewsEditor = () => {
-    const { _id } = useParams()
+    useGetOneNews()
 
-    const { getOneNews } = useGetOneNews()
+    const { showNewsResponseModal, newsResponseModalContent } =
+        useGetNewsStore()
 
-    const { setData } = useSetData()
-
-    const { showNewsResponseModal, newsResponseModalContent } = useAppSelector(
-        ({ news }) => news
-    )
-
-    useEffect(() => {
-        if (_id) {
-            getOneNews(_id)
-        }
-    }, [_id])
-
-    const alertModalType =
-        newsResponseModalContent === API_RESPONSES.NEWS_SEND_ERROR ||
-        newsResponseModalContent === API_RESPONSES.NEWS_EDIT_ERROR
+    const alertType =
+        newsResponseModalContent ===
+        (API_RESPONSES.NEWS_SEND_ERROR || API_RESPONSES.NEWS_EDIT_ERROR)
             ? 'error'
             : 'success'
 
     return (
         <div className={s.EditorContainer}>
-            {/* <UploadFilesBtn /> */}
+            <TitleInput />
 
-            <TitleInput onChange={setData} />
+            <BodyInput />
 
-            <BodyInput onChange={setData} />
-
-            <SendButton id={_id} />
+            <SendButton />
 
             <AlertModal
-                type={alertModalType}
+                type={alertType}
                 title={newsResponseModalContent}
                 showModal={showNewsResponseModal}
             />

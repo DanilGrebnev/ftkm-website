@@ -1,7 +1,6 @@
 import { withSuspense } from '@HOC/withSuspense'
 import { ButtonAndContainer } from '@UI/ButtonAndContainer'
 import { LoadingCircle } from '@UI/LoadingCircle'
-// import { YandexMap } from '@UI/YandexMap/inedx'
 import { useSetDocumentTitle } from '@hooks/useSetDocumentTitle'
 import { Container } from '@mui/material'
 import React from 'react'
@@ -30,11 +29,13 @@ const Contacts = () => {
                 className={s.container}
             >
                 <h1>Контактная информация</h1>
+
                 <section className={s.content}>
                     <Address />
                     <WorkingMode />
                     <ContactInformation />
                 </section>
+
                 <YandexMap />
             </Container>
             <ButtonAndContainer

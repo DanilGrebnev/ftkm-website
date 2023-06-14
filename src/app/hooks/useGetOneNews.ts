@@ -1,13 +1,17 @@
 import { NewsServices } from '@redux/slices/news/NewsServicesThunk'
+import { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
 import { useAppDispatch } from './useAppDispatch'
 
 export const useGetOneNews = () => {
+    const { _id } = useParams()
+
     const dispatch = useAppDispatch()
 
-    const getOneNews = (_id: string) => {
-        dispatch(NewsServices.getOneNews(_id))
-    }
+    useEffect(() => {
+        if (!_id) return
 
-    return { getOneNews }
+        dispatch(NewsServices.getOneNews(_id))
+    }, [_id])
 }

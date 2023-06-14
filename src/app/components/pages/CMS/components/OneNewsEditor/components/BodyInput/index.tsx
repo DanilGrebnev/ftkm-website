@@ -1,14 +1,12 @@
-import { useAppDispatch } from '@hooks/useAppDispatch'
-import { useAppSelector } from '@hooks/useAppSelector'
-import { INewsEditInputs } from '@interfaces/News'
+import { useGetNewsStore } from '@hooks/useGetNewsStore'
+import { useIsEmptyFields } from '@hooks/useIsEmptyFields'
+import { useSetData } from '@hooks/useSetData'
 import { TextField } from '@mui/material'
-import { setInputData } from '@redux/slices/news/news'
-import React from 'react'
 
-import { useIsEmptyFields } from '../../fn/useIsEmptyFields'
+export const BodyInput = () => {
+    const { setData } = useSetData()
 
-export const BodyInput: React.FC<INewsEditInputs> = ({ onChange }) => {
-    const { newsFields } = useAppSelector(({ news }) => news)
+    const { newsFields } = useGetNewsStore()
 
     const { isEmptyBody } = useIsEmptyFields()
 
@@ -18,7 +16,7 @@ export const BodyInput: React.FC<INewsEditInputs> = ({ onChange }) => {
             value={newsFields.body}
             name="body"
             autoComplete="off"
-            onChange={onChange}
+            onChange={setData}
             sx={{ maxWidth: '1000px' }}
             label="Текст новости"
             helperText={!isEmptyBody && 'Поле не может быть пустым'}

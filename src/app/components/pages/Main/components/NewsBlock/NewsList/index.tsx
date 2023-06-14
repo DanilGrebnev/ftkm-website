@@ -2,7 +2,7 @@ import { INewsItem } from 'app/interface/News'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { useGetNews } from '../hooks/useGetNews'
+import { useGetLastNews } from '../hooks/useGetNews'
 import s from './style.module.scss'
 
 const NewsItem: React.FC<INewsItem> = ({
@@ -26,15 +26,15 @@ const NewsItem: React.FC<INewsItem> = ({
 }
 
 export const NewsList: React.FC = () => {
-    const { news } = useGetNews()
+    const { news } = useGetLastNews(8)
 
     return (
         <>
-            {news.map(el => {
+            {news.map(data => {
                 return (
                     <NewsItem
-                        key={el._id}
-                        {...el}
+                        key={data._id}
+                        {...data}
                     />
                 )
             })}

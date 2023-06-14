@@ -1,11 +1,12 @@
-import { useAppSelector } from '@hooks/useAppSelector'
-import { INewsEditInputs } from '@interfaces/News'
+import { useGetNewsStore } from '@hooks/useGetNewsStore'
+import { useIsEmptyFields } from '@hooks/useIsEmptyFields'
+import { useSetData } from '@hooks/useSetData'
 import { TextField } from '@mui/material'
 
-import { useIsEmptyFields } from '../../fn/useIsEmptyFields'
+export const TitleInput = () => {
+    const { setData } = useSetData()
 
-export const TitleInput: React.FC<INewsEditInputs> = ({ onChange }) => {
-    const { newsFields } = useAppSelector(({ news }) => news)
+    const { newsFields } = useGetNewsStore()
 
     const { isEmptyTitle } = useIsEmptyFields()
 
@@ -15,7 +16,7 @@ export const TitleInput: React.FC<INewsEditInputs> = ({ onChange }) => {
             error={!isEmptyTitle}
             value={newsFields.title}
             name="title"
-            onChange={onChange}
+            onChange={setData}
             sx={{ maxWidth: '1000px' }}
             label="Заголовок новости"
             helperText={!isEmptyTitle && 'Поле не может быть пустым'}

@@ -1,29 +1,24 @@
 import { LoadingButton } from '@UI/LoadingButton'
-import { useAppSelector } from '@hooks/useAppSelector'
+import { useGetNewsStore } from '@hooks/useGetNewsStore'
+import { useIsEmptyFields } from '@hooks/useIsEmptyFields'
+import { useSendNews } from '@hooks/useSendNews'
 import { useState } from 'react'
+import { useParams } from 'react-router-dom'
 
-import { useIsEmptyFields } from '../../fn/useIsEmptyFields'
-import { useSendNews } from '../../hook/useSendNews'
+export const SendButton: React.FC = () => {
+    const { _id } = useParams()
 
-interface ISendButton {
-    id: string | undefined
-    ref?: HTMLDivElement
-}
-
-export const SendButton: React.FC<ISendButton> = ({ id }) => {
     const [disabled, setDisabled] = useState(false)
 
-    const { newsFields, fetchNews } = useAppSelector(({ news }) => news)
+    const { newsFields, fetchNews } = useGetNewsStore()
 
     const { postNews, editNews } = useSendNews()
 
     const { isEmpty } = useIsEmptyFields()
 
-    const onClick = id
-        ? () => editNews(newsFields, id)
+    const onClick = _id
+        ? () => editNews(newsFields, _id)
         : () => postNews(newsFields)
-
-    const text = id ? 'Изменить' : 'Отправить'
 
     return (
         <LoadingButton
@@ -33,7 +28,7 @@ export const SendButton: React.FC<ISendButton> = ({ id }) => {
                 setTimeout(setDisabled, 3000, false)
             }}
             loading={fetchNews}
-            text={text}
+            text={_id ? 'Изменить' : 'Отправить'}
             disabled={isEmpty || disabled}
         />
     )

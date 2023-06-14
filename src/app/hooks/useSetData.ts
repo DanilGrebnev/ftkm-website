@@ -4,12 +4,16 @@ import { useCallback } from 'react'
 
 export const useSetData = () => {
     const dispatch = useAppDispatch()
+ 
+    const setData = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+        const name = e.target.name
 
-    const setData = useCallback((e: any) => {
+        const value = e.target.value
+
         dispatch(
             setInputData({
-                name: e.target.name,
-                value: e.target.value,
+                name,
+                value,
             })
         )
     }, [])

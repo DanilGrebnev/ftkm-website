@@ -1,7 +1,7 @@
-import { useAppSelector } from '@hooks/useAppSelector'
+import { useGetNewsStore } from './useGetNewsStore'
 
 export const useIsEmptyFields = () => {
-    const { newsFields } = useAppSelector(({ news }) => news)
+    const { newsFields } = useGetNewsStore()
 
     const title = newsFields.title.trim()
 

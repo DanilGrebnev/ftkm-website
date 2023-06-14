@@ -39,7 +39,3 @@ export interface INewsData {
 export interface INewsDataResponse {
     data: INewsData
 }
-
-export interface INewsEditInputs {
-    onChange: (e: any) => void
-}

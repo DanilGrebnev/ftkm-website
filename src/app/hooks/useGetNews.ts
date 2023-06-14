@@ -2,7 +2,7 @@ import { globalVariables } from '@globalVariables'
 import { NewsServices } from '@redux/slices/news/NewsServicesThunk'
 
 import { useAppDispatch } from './useAppDispatch'
-import { useAppSelector } from './useAppSelector'
+import { useGetNewsStore } from './useGetNewsStore'
 
 /**
  * Хук получения всех новостей
@@ -10,7 +10,7 @@ import { useAppSelector } from './useAppSelector'
 export const useGetNews = () => {
     const dispatch = useAppDispatch()
 
-    const { skip } = useAppSelector(({ news }) => news)
+    const { skip } = useGetNewsStore()
 
     const limit = globalVariables.limit
 

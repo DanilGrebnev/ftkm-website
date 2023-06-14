@@ -1,4 +1,3 @@
-import { AlertModal } from '@UI/AlertModal'
 import { useAppDispatch } from '@hooks/useAppDispatch'
 import { INewsData } from '@interfaces/News'
 import { NewsServices } from '@redux/slices/news/NewsServicesThunk'

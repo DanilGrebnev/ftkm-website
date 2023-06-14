@@ -7,10 +7,14 @@
         text-align: start;
     }
 
-    .biografy_text {
-        @include font-20;
-        text-align: justify;
-    }
-
     margin-bottom: adaptiveSize(100, 50);
+}
+
+.biografy_text {
+    @include font-20;
+    text-align: justify;
+}
+
+.biografy_text:before {
+    @include redLine;
 }

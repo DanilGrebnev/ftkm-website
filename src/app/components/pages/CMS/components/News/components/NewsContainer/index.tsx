@@ -1,13 +1,12 @@
-import { useAppDispatch } from '@hooks/useAppDispatch'
-import { useAppSelector } from '@hooks/useAppSelector'
 import { useGetNews } from '@hooks/useGetNews'
+import { useGetNewsStore } from '@hooks/useGetNewsStore'
 import { useEffect } from 'react'
 
 import { NewsItem } from '../NewsItem'
 import s from './s.module.scss'
 
 export const NewsContainer = () => {
-    const { news } = useAppSelector(({ news }) => news)
+    const { news } = useGetNewsStore()
 
     const { getNews } = useGetNews()
 

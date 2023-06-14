@@ -11,5 +11,10 @@
     p {
         @include font-20;
     }
+
+    p:before {
+        @include redLine;
+    }
+
     margin-bottom: 100px;
 }
