@@ -12,6 +12,10 @@ export const AlertModal: React.FC<IAlertModal> = ({
     type,
     showModal,
 }) => {
+    React.useEffect(() => {
+        console.log(type)
+    }, [type])
+
     return (
         <Collapse in={showModal}>
             <Alert severity={type}>{title}</Alert>

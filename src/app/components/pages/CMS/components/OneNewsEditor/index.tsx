@@ -2,6 +2,7 @@ import { API_RESPONSES } from '@API_RESPONSES'
 import { AlertModal } from '@UI/AlertModal'
 import { useGetNewsStore } from '@hooks/useGetNewsStore'
 import { useGetOneNews } from '@hooks/useGetOneNews'
+import { returnAlertType } from '@lib/returnAlertType'
 
 import { BodyInput } from './components/BodyInput'
 import { SendButton } from './components/SendButton'
@@ -14,11 +15,7 @@ export const OneNewsEditor = () => {
     const { showNewsResponseModal, newsResponseModalContent } =
         useGetNewsStore()
 
-    const alertType =
-        newsResponseModalContent ===
-        (API_RESPONSES.NEWS_SEND_ERROR || API_RESPONSES.NEWS_EDIT_ERROR)
-            ? 'error'
-            : 'success'
+    const type = returnAlertType(newsResponseModalContent)
 
     return (
         <div className={s.EditorContainer}>
@@ -29,7 +26,7 @@ export const OneNewsEditor = () => {
             <SendButton />
 
             <AlertModal
-                type={alertType}
+                type={type}
                 title={newsResponseModalContent}
                 showModal={showNewsResponseModal}
             />
