@@ -1,43 +1,21 @@
 @import '@variables';
 
 .newsItem {
-    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 1fr);
+    padding: 5px;
     width: 100%;
-    height: 100%;
-    @include box-sh;
-    @include cms-br;
-    @include br-rd;
-    overflow: hidden;
     gap: 20px;
-    justify-self: center;
-    align-self: center;
-    display: flex;
-    align-items: start;
+    border-radius: 4px;
+    @include box-sh;
 
     h1 {
-        @include font-20;
-        // font-size: 20px;
+        @include font-16;
         max-height: 60px;
         overflow-y: auto;
+        display: flex;
+        align-items: center;
     }
-
-    img {
-        width: 170px;
-        height: 170px;
-        @include br-rd;
-        object-fit: cover;
-        object-position: center;
-    }
-}
-
-.itemInfo {
-    display: flex;
-    max-width: 100%;
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 10px;
 }
 
 .files {
@@ -47,6 +25,7 @@
 
 .btnGroup {
     display: flex;
-    justify-content: end;
+    align-items: center;
     gap: 20px;
+    justify-self: end;
 }

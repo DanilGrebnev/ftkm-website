@@ -14,25 +14,20 @@ const CMS = () => {
             id="CMS"
             className={s.CMS}
         >
-            <div
-                id="CMS-body"
-                className={s.block}
-            >
-                <Routes>
-                    <Route
-                        path="/"
-                        element={<News />}
-                    />
-                    <Route
-                        path="newsEditor"
-                        element={OneNewsEditorWithAuth}
-                    />
-                    <Route
-                        path="newsEditor/:_id"
-                        element={OneNewsEditorWithAuth}
-                    />
-                </Routes>
-            </div>
+            <Routes>
+                <Route
+                    path="/"
+                    element={<News />}
+                />
+                <Route
+                    path="newsEditor"
+                    element={OneNewsEditorWithAuth}
+                />
+                <Route
+                    path="newsEditor/:_id"
+                    element={OneNewsEditorWithAuth}
+                />
+            </Routes>
         </section>
     )
 }

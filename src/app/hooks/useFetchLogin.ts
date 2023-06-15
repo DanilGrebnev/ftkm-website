@@ -1,5 +1,7 @@
+/** @module useFetchLogin */
 import { API_RESPONSES } from '@API_RESPONSES'
 import { axios } from '@lib/axios'
+import { redirectToCmsPage } from '@lib/redirectToCmsPage'
 import { useState } from 'react'
 
 type payload = {
@@ -11,10 +13,30 @@ type data = {
     data?: { token?: string }
 }
 
-export const useFetchLogin = () => {
+interface IReturnData {
+    isLoading: boolean
+    fetchLogin: (payload: payload) => Promise<any>
+}
+/**
+ * Хук возвращает статус загрузки запроса к
+ * серверу и функцию для авторизации на сервере
+ * @returns {Object} obj
+ * @returns {boolean} obj.isLoading - статус загрузки
+ * @returns {Function} obj.fetchLogin - функция запроса к серверу
+ */
+export const useFetchLogin = (): IReturnData => {
     const [isLoading, setLoading] = useState<boolean>(false)
 
-    const fetchLogin = async (payload: payload): Promise<void> => {
+    /**
+     * Функция запроса к серверу для авторизации.
+     * В случае успешной авторизации,
+     * устанавливает в локальное хранилище токен доступа и
+     * переадресует на страницу CMS
+     * @param {Objcet} payload
+     * @param {string} payload.login
+     * @param {string} payload.password
+     */
+    const fetchLogin = async (payload: payload): Promise<any> => {
         setLoading(true)
 
         try {
@@ -26,7 +48,7 @@ export const useFetchLogin = () => {
 
             localStorage.setItem('token', token)
 
-            window.location.reload()
+            redirectToCmsPage()
         } catch (err) {
             console.log(err)
 

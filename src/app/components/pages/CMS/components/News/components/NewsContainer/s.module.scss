@@ -1,18 +1,18 @@
+@import '@variables';
+
 :root {
     --minW: 400px;
 }
 
 .newsContainer {
     width: 100%;
-    // height: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--minW), 1fr));
-    gap: 20px;
+    gap: adaptiveSize(20, 10);
     margin-top: 20px;
     overflow: auto;
     border-radius: 20px;
-    max-height: 80vh;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 @media screen and (max-width: 900px) {

@@ -1,6 +1,5 @@
 import { LoadingButton } from '@UI/LoadingButton'
-
-import { useFetchLogin } from '../../../../hooks/useFetchLogin'
+import { useFetchLogin } from '@hooks/useFetchLogin'
 
 interface ILoginButton {
     login: string

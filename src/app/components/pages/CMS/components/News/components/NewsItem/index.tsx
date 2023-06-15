@@ -1,5 +1,6 @@
 import { useOpenModal } from '@hooks/useOpenModal'
 import { INewsItem } from '@interfaces/News'
+import Paper from '@mui/material/Paper'
 import React from 'react'
 
 import { AlertDeleteDialog } from './components/AlertDeleteDialog'
@@ -19,8 +20,8 @@ export const NewsItem: React.FC<INewsItem> = ({
     const { open, toggleModal } = useOpenModal()
 
     return (
-        <div className={s.newsItem}>
-            <div className={s.itemInfo}>
+        <Paper>
+            <div className={s.newsItem}>
                 <h1>{title}</h1>
                 <DateBlock createdDate={createdDate} />
 
@@ -37,6 +38,6 @@ export const NewsItem: React.FC<INewsItem> = ({
                     />
                 </div>
             </div>
-        </div>
+        </Paper>
     )
 }
