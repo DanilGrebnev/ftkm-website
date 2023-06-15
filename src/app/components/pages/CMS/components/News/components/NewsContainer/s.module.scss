@@ -9,10 +9,11 @@
     gap: adaptiveSize(20, 10);
     margin-top: 20px;
     overflow: auto;
-    border-radius: 20px;
     padding: 10px;
     display: flex;
     flex-direction: column;
+    overflow: scroll;
+    max-height: 90vh;
 }
 
 @media screen and (max-width: 900px) {
