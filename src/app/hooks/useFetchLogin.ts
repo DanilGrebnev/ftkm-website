@@ -20,9 +20,6 @@ interface IReturnData {
 /**
  * Хук возвращает статус загрузки запроса к
  * серверу и функцию для авторизации на сервере
- * @returns {Object} obj
- * @returns {boolean} obj.isLoading - статус загрузки
- * @returns {Function} obj.fetchLogin - функция запроса к серверу
  */
 export const useFetchLogin = (): IReturnData => {
     const [isLoading, setLoading] = useState<boolean>(false)
@@ -32,9 +29,6 @@ export const useFetchLogin = (): IReturnData => {
      * В случае успешной авторизации,
      * устанавливает в локальное хранилище токен доступа и
      * переадресует на страницу CMS
-     * @param {Objcet} payload
-     * @param {string} payload.login
-     * @param {string} payload.password
      */
     const fetchLogin = async (payload: payload): Promise<any> => {
         setLoading(true)

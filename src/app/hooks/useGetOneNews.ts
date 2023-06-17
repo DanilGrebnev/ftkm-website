@@ -4,6 +4,10 @@ import { useParams } from 'react-router-dom'
 
 import { useAppDispatch } from './useAppDispatch'
 
+/**
+ * Хук получения одной статьи и у установки
+ * значения в redux хранилище
+ */
 export const useGetOneNews = () => {
     const { _id } = useParams()
 

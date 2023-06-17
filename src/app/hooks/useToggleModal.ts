@@ -5,6 +5,10 @@ interface IImageModal {
     src: string
 }
 
+/**
+ * Хук для открытия модального окна,
+ * куда помещается фотография
+ */
 export const useToggleModal = () => {
     const [state, setState] = useState<IImageModal>({
         isActive: false,

@@ -39,3 +39,11 @@ export interface INewsData {
 export interface INewsDataResponse {
     data: INewsData
 }
+
+export interface IGetNews<N = number> {
+    skip?: N
+    limit?: N
+    filter?: string
+}
+
+export interface IBody extends INewsData {}

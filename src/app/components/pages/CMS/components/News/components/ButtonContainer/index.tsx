@@ -1,7 +1,6 @@
 import { LoadingButton } from '@UI/LoadingButton'
-import { globalVariables } from '@globalVariables'
-import { useAppSelector } from '@hooks/useAppSelector'
 import { useGetNews } from '@hooks/useGetNews'
+import { useGetNewsStore } from '@hooks/useGetNewsStore'
 import { useMoreNewsComplete } from '@hooks/useMoreNewsComplete'
 
 import s from './s.module.scss'
@@ -11,13 +10,13 @@ export const ButtonContainer = () => {
 
     const { isCompleteMoreNews } = useMoreNewsComplete()
 
-    /*
-     *Сколько статей пропустить при запросе
-     *(изначально пропустится лимит статей)
-     *т.к. лимит статей отрисовывается сразу
-     *при первом рендере
+    /**
+     * Сколько статей пропустить при запросе
+     * (изначально пропустится лимит статей)
+     * т.к. лимит статей отрисовывается сразу
+     * при первом рендере
      */
-    const { loading } = useAppSelector(({ news }) => news)
+    const { loading } = useGetNewsStore()
 
     const text = isCompleteMoreNews ? 'новости кончались' : 'загрузить ещё'
 
@@ -28,7 +27,7 @@ export const ButtonContainer = () => {
                 size="medium"
                 disabled={loading || isCompleteMoreNews}
                 loading={loading}
-                onClick={() => getNews()}
+                onClick={getNews}
             />
         </div>
     )

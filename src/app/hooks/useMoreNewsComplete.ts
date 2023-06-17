@@ -1,18 +1,17 @@
+import { useGetNewsStore } from '@hooks/useGetNewsStore'
 import React from 'react'
 
-import { useAppSelector } from './useAppSelector'
-
+/**
+ * Хук проверяет, все ли новости загружены.
+ * Если новостей не осталось, то
+ */
 export const useMoreNewsComplete = () => {
     const [isCompleteMoreNews, setIsCompleteMoreNews] = React.useState(false)
 
-    const { documentsCount, news } = useAppSelector(({ news }) => news)
+    const { documentsCount, news } = useGetNewsStore()
 
     React.useEffect(() => {
         setIsCompleteMoreNews(news.length >= documentsCount)
-
-        // console.clear()
-        // console.log('Документов ', news.length)
-        // console.log('Всего документов', documentsCount)
     }, [news])
 
     return { isCompleteMoreNews }

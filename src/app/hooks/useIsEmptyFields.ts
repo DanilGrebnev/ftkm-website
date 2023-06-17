@@ -1,5 +1,9 @@
 import { useGetNewsStore } from './useGetNewsStore'
 
+/**
+ * Хук проверяет поля title и body на пустоту
+ * возвращает булевое значение
+ */
 export const useIsEmptyFields = () => {
     const { newsFields } = useGetNewsStore()
 

@@ -6,6 +6,8 @@ import { useGetNewsStore } from './useGetNewsStore'
 
 /**
  * Хук получения всех новостей
+ * возрвщает функцию, которая получает все новости
+ * и устанавливает их в redux хранилище
  */
 export const useGetNews = () => {
     const dispatch = useAppDispatch()

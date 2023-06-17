@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 
 /**
  * Сопостовляет текущий url с url,
- * на которую нужно перейти и
+ * на который нужно перейти и
  * перебрасывает на него
  */
 export const useReturnToCorrectLink = () => {

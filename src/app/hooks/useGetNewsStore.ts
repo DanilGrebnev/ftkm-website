@@ -1,6 +1,8 @@
 import { useAppSelector } from '@hooks/useAppSelector'
 
-//Возвращает news хранилище
+/**
+ * Возвращает даныне из redux хранилища "News"
+ */
 export const useGetNewsStore = () => {
     const news = useAppSelector(({ news }) => news)
 

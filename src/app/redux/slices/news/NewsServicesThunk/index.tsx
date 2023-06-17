@@ -1,18 +1,9 @@
 import { globalVariables } from '@globalVariables'
+import { IGetNews } from '@interfaces/News'
+import { IBody } from '@interfaces/News'
+import { TChangeInputEvent } from '@interfaces/react'
 import { axios } from '@lib/axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
-
-interface IGetNews<N = number> {
-    skip?: N
-    limit?: N
-    filter?: string
-}
-
-interface IBody {
-    title: string
-    body: string
-    imgName?: string
-}
 
 class NewsServicesThunk {
     getNews = createAsyncThunk(
@@ -66,26 +57,23 @@ class NewsServicesThunk {
         return result
     })
 
-    sendFile = createAsyncThunk(
-        'sendFile',
-        async (e: React.ChangeEvent<HTMLInputElement>) => {
-            const target = e.target as HTMLInputElement
+    sendFile = createAsyncThunk('sendFile', async (e: TChangeInputEvent) => {
+        const target = e.target as HTMLInputElement
 
-            const formData = new FormData()
+        const formData = new FormData()
 
-            let img: Blob
+        let img: Blob
 
-            if (target.files) {
-                img = target.files[0]
+        if (target.files) {
+            img = target.files[0]
 
-                formData.set('img', img)
+            formData.set('img', img)
 
-                const res = await axios.post(`/news/uploadImage`, formData)
+            const res = await axios.post(`/news/uploadImage`, formData)
 
-                return res.data
-            }
+            return res.data
         }
-    )
+    })
 }
 
 export const NewsServices = new NewsServicesThunk()

@@ -10,16 +10,13 @@ export const AddNewsBtn = () => {
             className={s.addBtn}
             to={'newsEditor'}
         >
-            <Tooltip
-                title="Добавить статью"
-                children={
-                    <AddCircleIcon
-                        sx={{ cursor: 'pointer' }}
-                        color="info"
-                        fontSize="large"
-                    />
-                }
-            />
+            <Tooltip title="Добавить статью">
+                <AddCircleIcon
+                    sx={{ cursor: 'pointer' }}
+                    color="info"
+                    fontSize="large"
+                />
+            </Tooltip>
         </Link>
     )
 }

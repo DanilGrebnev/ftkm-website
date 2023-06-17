@@ -1,4 +1,3 @@
-import { API_RESPONSES } from '@API_RESPONSES'
 import { AlertModal } from '@UI/AlertModal'
 import { useGetNewsStore } from '@hooks/useGetNewsStore'
 import { useGetOneNews } from '@hooks/useGetOneNews'

@@ -5,12 +5,21 @@ import { clearState } from '@redux/slices/news/news'
 import { closeModal } from '@redux/slices/news/news'
 import { useNavigate } from 'react-router-dom'
 
+interface IEditNews {
+    body: INewsData
+    _id: string
+}
+
+/**
+ * Хук инкапсулирует в себе функции по
+ * по отправки новостей и по редактированию
+ */
 export const useSendNews = () => {
     const dispatch = useAppDispatch()
 
     const navigate = useNavigate()
 
-    const editNews = async (body: INewsData, _id: string) => {
+    const editNews = async ({ body, _id }: IEditNews) => {
         const res = await dispatch(NewsServices.editNews({ body, _id }))
 
         if (res.meta.requestStatus === 'rejected') {

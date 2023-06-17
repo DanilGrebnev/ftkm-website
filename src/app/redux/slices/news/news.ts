@@ -43,7 +43,7 @@ const newsSlice = createSlice({
 
     extraReducers: builder => {
         builder
-            //------------------------Получение всех новостей-------------------------------
+            //------------------------Получение всех новостей-------------------------------//
             .addCase(NewsServices.getNews.fulfilled, (state, action) => {
                 /*Добавляет поле "isDeleteLoading"
                  *во время удаления иконка заменяется на
@@ -73,7 +73,7 @@ const newsSlice = createSlice({
 
                 state.getNewsError = true
             })
-            //------------------------Получение одной новости-------------------------------
+            //------------------------Получение одной новости-------------------------------//
             .addCase(
                 NewsServices.getOneNews.fulfilled,
                 (state, action: PayloadAction<INewsDataResponse>) => {
@@ -88,7 +88,7 @@ const newsSlice = createSlice({
                 state.loading = true
             })
             .addCase(NewsServices.getOneNews.rejected, (state, action) => {})
-            //------------------------Редактирование новостей-------------------------------
+            //------------------------Редактирование новостей-------------------------------//
             .addCase(NewsServices.editNews.fulfilled, (state, action) => {
                 state.fetchNews = false
 
@@ -110,7 +110,7 @@ const newsSlice = createSlice({
 
                 state.newsResponseModalContent = API_RESPONSES.NEWS_EDIT_ERROR
             })
-            //-------------------------------Отправка новостей-------------------------------
+            //-------------------------------Отправка новостей-----------------------------//
             .addCase(NewsServices.postNews.pending, state => {
                 state.fetchNews = true
             })
@@ -132,7 +132,7 @@ const newsSlice = createSlice({
 
                 state.newsResponseModalContent = API_RESPONSES.NEWS_SEND_ERROR
             })
-            //-------------------------------Удаление новостей-------------------------------
+            //-------------------------------Удаление новостей-------------------------------//
             .addCase(NewsServices.deleteNews.fulfilled, state => {
                 state.loading = false
 
@@ -148,7 +148,7 @@ const newsSlice = createSlice({
 
                 state.newsResponseModalContent = API_RESPONSES.NEWS_DELETE_ERROR
             })
-            //-------------------------------Отправка изображения-------------------------------
+            //-------------------------------Отправка изображения-------------------------------//
             .addCase(NewsServices.sendFile.pending, state => {
                 state.imgLoading = true
             })

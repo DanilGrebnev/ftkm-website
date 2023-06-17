@@ -17,7 +17,7 @@ export const SendButton: React.FC = () => {
     const { isEmpty } = useIsEmptyFields()
 
     const onClick = _id
-        ? () => editNews(newsFields, _id)
+        ? () => editNews({ body: newsFields, _id })
         : () => postNews(newsFields)
 
     return (
