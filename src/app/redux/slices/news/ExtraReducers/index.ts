@@ -1,13 +1,16 @@
 import { API_RESPONSES } from '@API_RESPONSES'
 import { globalVariables } from '@globalVariables'
-import { INewsDataResponse, INewsItem, INewsStore } from '@interfaces/News'
-import { ActionReducerMapBuilder, PayloadAction } from '@reduxjs/toolkit'
+import { INewsDataResponse, INewsItem } from '@interfaces/News'
+import { PayloadAction } from '@reduxjs/toolkit'
 
 import { NewsServices } from '../NewsServicesThunk'
+import { TBuilder } from './interface'
 
-export const ExtraReducers = (builder: ActionReducerMapBuilder<INewsStore>) => {
+export const ExtraReducers = (builder: TBuilder) => {
     builder
-        //------------------------Получение всех новостей-------------------------------//
+        /**
+         * Получение всех новостей
+         */
         .addCase(NewsServices.getNews.fulfilled, (state, action) => {
             /*Добавляет поле "isDeleteLoading"
              *во время удаления иконка заменяется на
@@ -37,7 +40,9 @@ export const ExtraReducers = (builder: ActionReducerMapBuilder<INewsStore>) => {
 
             state.getNewsError = true
         })
-        //------------------------Получение одной новости-------------------------------//
+        /**
+         * Получение одной новости
+         */
         .addCase(
             NewsServices.getOneNews.fulfilled,
             (state, action: PayloadAction<INewsDataResponse>) => {
@@ -52,7 +57,9 @@ export const ExtraReducers = (builder: ActionReducerMapBuilder<INewsStore>) => {
             state.loading = true
         })
         .addCase(NewsServices.getOneNews.rejected, (state, action) => {})
-        //------------------------Редактирование новостей-------------------------------//
+        /**
+         * Редактирование новостей
+         */
         .addCase(NewsServices.editNews.fulfilled, (state, action) => {
             state.fetchNews = false
 
@@ -74,7 +81,9 @@ export const ExtraReducers = (builder: ActionReducerMapBuilder<INewsStore>) => {
 
             state.newsResponseModalContent = API_RESPONSES.NEWS_EDIT_ERROR
         })
-        //-------------------------------Отправка новостей-----------------------------//
+        /**
+         * Отправка новостей
+         */
         .addCase(NewsServices.postNews.pending, state => {
             state.fetchNews = true
         })
@@ -96,7 +105,9 @@ export const ExtraReducers = (builder: ActionReducerMapBuilder<INewsStore>) => {
 
             state.newsResponseModalContent = API_RESPONSES.NEWS_SEND_ERROR
         })
-        //-------------------------------Удаление новостей-------------------------------//
+        /**
+         * Удаление новостей
+         */
         .addCase(NewsServices.deleteNews.fulfilled, state => {
             state.loading = false
 
@@ -112,7 +123,10 @@ export const ExtraReducers = (builder: ActionReducerMapBuilder<INewsStore>) => {
 
             state.newsResponseModalContent = API_RESPONSES.NEWS_DELETE_ERROR
         })
-        //-------------------------------Отправка изображения-------------------------------//
+        /**
+         * Отправка изображения
+         */
+        //? На стадии внедрения
         .addCase(NewsServices.sendFile.pending, state => {
             state.imgLoading = true
         })

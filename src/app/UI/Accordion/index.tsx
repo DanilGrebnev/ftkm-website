@@ -4,15 +4,7 @@ import AccordionDetails from '@mui/material/AccordionDetails'
 import AccordionSummary from '@mui/material/AccordionSummary'
 import React from 'react'
 
-interface IAccordionBlock<S = string, CSS = React.CSSProperties> {
-    children?: React.ReactNode | React.ReactNode[]
-    AccordionStyle?: CSS
-    DetailsStyle?: CSS
-    SummaryStyle?: CSS
-    AccordionClassName?: S
-    DetailsClassName?: S
-    Summary?: S
-}
+import { IAccordionBlock } from './interface'
 
 export const AccordionBlock: React.FC<IAccordionBlock> = ({
     children,

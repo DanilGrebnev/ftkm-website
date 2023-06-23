@@ -26,7 +26,7 @@ export const BurgerMenuItems = () => {
 
             <NavLink to="/moreinfo">Больше информации</NavLink>
 
-            {/* <NavLink to="/news">Новости</NavLink> */}
+            <NavLink to="/news">Новости</NavLink>
         </nav>
     )
 }

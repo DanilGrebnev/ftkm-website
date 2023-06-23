@@ -5,6 +5,8 @@ import { TChangeInputEvent } from '@interfaces/react'
 import { axios } from '@lib/axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
+import { TEditNews } from './interface'
+
 class NewsServicesThunk {
     getNews = createAsyncThunk(
         'getNews',
@@ -19,9 +21,9 @@ class NewsServicesThunk {
                 query = `&filter=${filter}`
             }
 
-            const res = await axios.get(
-                `news?skip=${skip}&limit=${limit}${query}`
-            )
+            const URL = `news?skip=${skip}&limit=${limit}${query}`
+
+            const res = await axios.get(URL)
 
             return {
                 data: res.data,
@@ -31,32 +33,39 @@ class NewsServicesThunk {
     )
 
     postNews = createAsyncThunk('postNews', async (body: IBody) => {
-        const result = await axios.post('news', body)
+        const res = await axios.post('news', body)
 
-        return result
+        return res
     })
 
     editNews = createAsyncThunk(
         'editNews',
-        async ({ body, _id }: { body: IBody; _id: string }) => {
-            const result = await axios.put('news/' + _id, body)
+        async ({ body, _id }: TEditNews) => {
+            const URL = 'news/' + _id
 
-            return result
+            const res = await axios.put(URL, body)
+
+            return res
         }
     )
 
     getOneNews = createAsyncThunk('getOneNews', async (_id: string) => {
-        const result = await axios.get('news/' + _id)
+        const URL = 'news/' + _id
 
-        return result
+        const res = await axios.get(URL)
+
+        return res
     })
 
     deleteNews = createAsyncThunk('deleteNews', async (_id: string) => {
-        const result = await axios.delete('news/' + _id)
+        const URL = 'news/' + _id
 
-        return result
+        const res = await axios.delete(URL)
+
+        return res
     })
 
+    //? На этапе внедрения
     sendFile = createAsyncThunk('sendFile', async (e: TChangeInputEvent) => {
         const target = e.target as HTMLInputElement
 

@@ -8,7 +8,10 @@ const helperSlice = createSlice({
     name: 'helper',
     initialState,
     reducers: {
-        //Отвечает за открытие и закрытие бургер меню
+        /**
+         * Отвечает за открытие и
+         * закрытие бургер меню
+         */
         toggleBurgerMenu(state, action) {
             const { target } = action.payload
 

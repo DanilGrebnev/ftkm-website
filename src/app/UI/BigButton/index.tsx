@@ -2,10 +2,6 @@ import React from 'react'
 
 import s from './s.module.scss'
 
-interface IBigButton {
-    style?: React.CSSProperties
-}
-
 export const BlueButton: React.FC<IBigButton> = ({ style }) => (
     <a
         style={style}
@@ -16,3 +12,7 @@ export const BlueButton: React.FC<IBigButton> = ({ style }) => (
         Узнай вакансии для твоей будущей специальности
     </a>
 )
+
+interface IBigButton {
+    style?: React.CSSProperties
+}

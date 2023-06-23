@@ -1,5 +1,6 @@
 import { useAppDispatch } from '@hooks/useAppDispatch'
 import { useAppSelector } from '@hooks/useAppSelector'
+import { WindowEvent } from '@hooks/useWindowEvent'
 import { toggleBurgerMenu } from '@redux/slices/helper/helper'
 import React, { useEffect, useRef } from 'react'
 import { CSSTransition } from 'react-transition-group'
@@ -18,20 +19,16 @@ export const BurgerMenu: React.FC<IProps> = ({ element }) => {
 
     const dispatch = useAppDispatch()
 
-    const toggleMenu = (e: Event | React.SyntheticEvent) => {
+    const toggleMenu = (e: MouseEvent) => {
         dispatch(toggleBurgerMenu(e))
     }
 
-    useEffect(() => {
-        document.addEventListener('click', toggleMenu)
-
-        return () => {
-            document.removeEventListener('click', toggleMenu)
-        }
-    }, [])
-
     return (
         <>
+            <WindowEvent
+                type="click"
+                listener={toggleMenu}
+            />
             <CSSTransition
                 timeout={300}
                 in={isOpenBurgerMenu}

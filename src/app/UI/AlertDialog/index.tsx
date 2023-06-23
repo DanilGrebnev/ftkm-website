@@ -1,4 +1,3 @@
-import { useAppSelector } from '@hooks/useAppSelector'
 import Button from '@mui/material/Button'
 import Dialog from '@mui/material/Dialog'
 import DialogActions from '@mui/material/DialogActions'
@@ -9,28 +8,9 @@ import Slide from '@mui/material/Slide'
 import { TransitionProps } from '@mui/material/transitions'
 import React from 'react'
 
-const Transition = React.forwardRef(function Transition(
-    props: TransitionProps & {
-        children: React.ReactElement<any, any>
-    },
-    ref: React.Ref<unknown>
-) {
-    return (
-        <Slide
-            direction="up"
-            ref={ref}
-            {...props}
-        />
-    )
-})
+import { IAlertDialog } from './interface'
 
-interface IAlertDialog {
-    open: boolean
-    onClickAction: () => void
-    handleClose: () => void
-    dialogTitle?: string
-    dialogContent?: string
-}
+const Transition = React.forwardRef(TransitionFn)
 
 export const AlertDialog: React.FC<IAlertDialog> = ({
     open,
@@ -70,5 +50,20 @@ export const AlertDialog: React.FC<IAlertDialog> = ({
                 </DialogActions>
             </Dialog>
         </div>
+    )
+}
+
+function TransitionFn(
+    props: TransitionProps & {
+        children: React.ReactElement<any, any>
+    },
+    ref: React.Ref<unknown>
+) {
+    return (
+        <Slide
+            direction="up"
+            ref={ref}
+            {...props}
+        />
     )
 }
