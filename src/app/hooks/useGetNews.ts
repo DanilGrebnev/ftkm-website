@@ -16,6 +16,8 @@ export const useGetNews = () => {
 
     const limit = globalVariables.limit
 
+    console.log(skip)
+
     const getNews = (defaultSkip: number = skip) => {
         dispatch(NewsServices.getNews({ limit, skip: defaultSkip }))
     }
