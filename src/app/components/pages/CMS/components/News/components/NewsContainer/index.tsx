@@ -11,9 +11,9 @@ export const NewsContainer = () => {
     const { getNews } = useGetNews()
 
     useEffect(() => {
-        if (news.length) return
-
-        getNews()
+        if (!news.length) {
+            getNews()
+        }
     }, [])
 
     return (

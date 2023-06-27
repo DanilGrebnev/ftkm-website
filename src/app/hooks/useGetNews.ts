@@ -16,10 +16,17 @@ export const useGetNews = () => {
 
     const limit = globalVariables.limit
 
-    console.log(skip)
+    const params = {
+        defaultSkip: skip,
+        defaultLimit: limit,
+    }
 
-    const getNews = (defaultSkip: number = skip) => {
-        dispatch(NewsServices.getNews({ limit, skip: defaultSkip }))
+    const getNews = (args: Partial<typeof params> = params) => {
+        const { defaultSkip, defaultLimit } = args
+
+        dispatch(
+            NewsServices.getNews({ limit: defaultLimit, skip: defaultSkip })
+        )
     }
 
     return { getNews }

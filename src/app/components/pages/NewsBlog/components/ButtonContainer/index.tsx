@@ -1,6 +1,6 @@
 import { LoadingButton } from '@UI/LoadingButton'
-import { useAppSelector } from '@hooks/useAppSelector'
 import { useGetNews } from '@hooks/useGetNews'
+import { useGetNewsStore } from '@hooks/useGetNewsStore'
 import { useMoreNewsComplete } from '@hooks/useMoreNewsComplete'
 import React from 'react'
 
@@ -11,7 +11,7 @@ export const ButtonContainer: React.FC = () => {
 
     const { isCompleteMoreNews } = useMoreNewsComplete()
 
-    const { loading } = useAppSelector(({ news }) => news)
+    const { loading } = useGetNewsStore()
 
     const text = !isCompleteMoreNews ? 'Загрузить ещё' : 'Новости кончались'
 

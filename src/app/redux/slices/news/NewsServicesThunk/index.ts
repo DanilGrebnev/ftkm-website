@@ -17,6 +17,13 @@ class NewsServicesThunk {
         }: IGetNews) => {
             let query = ''
 
+            if (typeof skip !== 'number') skip = 0
+
+            // console.group('getNews')
+            // console.log('From getNewsThunk')
+            // console.log(skip)
+            // console.groupEnd()
+
             if (filter) {
                 query = `&filter=${filter}`
             }

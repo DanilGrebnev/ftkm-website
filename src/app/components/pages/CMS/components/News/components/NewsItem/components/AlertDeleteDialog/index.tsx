@@ -1,12 +1,10 @@
 import { AlertDialog } from '@UI/AlertDialog'
+import { globalVariables } from '@globalVariables'
 import { useAppDispatch } from '@hooks/useAppDispatch'
 import { useGetNews } from '@hooks/useGetNews'
+import { useGetNewsStore } from '@hooks/useGetNewsStore'
 import { NewsServices } from '@redux/slices/news/NewsServicesThunk'
-import {
-    clearSkip,
-    clearState,
-    toggleDeleteLoading,
-} from '@redux/slices/news/news'
+import { clearState, toggleDeleteLoading } from '@redux/slices/news/news'
 
 interface props {
     open: boolean
@@ -20,7 +18,9 @@ export const AlertDeleteDialog: React.FC<props> = ({
     id,
 }) => {
     const dispatch = useAppDispatch()
-    
+
+    const { skip } = useGetNewsStore()
+
     const { getNews } = useGetNews()
 
     const onClickAction = async (id: string) => {
@@ -28,12 +28,14 @@ export const AlertDeleteDialog: React.FC<props> = ({
 
         const res: any = await dispatch(NewsServices.deleteNews(id))
 
-        if (!res.error) {
-            dispatch(clearState())
-            dispatch(clearSkip())
-            getNews(0)
+        if (res.error) {
+            dispatch(toggleDeleteLoading(id))
             return
         }
+
+        dispatch(clearState())
+
+        getNews({ defaultSkip: 0 })
 
         dispatch(toggleDeleteLoading(id))
     }

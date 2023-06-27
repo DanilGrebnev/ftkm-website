@@ -27,7 +27,7 @@ export const ButtonContainer = () => {
                 size="medium"
                 disabled={loading || isCompleteMoreNews}
                 loading={loading}
-                onClick={getNews}
+                onClick={() => getNews()}
             />
         </div>
     )
