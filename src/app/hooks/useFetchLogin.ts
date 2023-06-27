@@ -16,6 +16,7 @@ type data = {
 interface IReturnData {
     isLoading: boolean
     fetchLogin: (payload: payload) => Promise<any>
+    error: boolean
 }
 /**
  * Хук возвращает статус загрузки запроса к
@@ -23,6 +24,7 @@ interface IReturnData {
  */
 export const useFetchLogin = (): IReturnData => {
     const [isLoading, setLoading] = useState<boolean>(false)
+    const [error, setError] = useState(false)
 
     /**
      * Функция запроса к серверу для авторизации.
@@ -32,6 +34,8 @@ export const useFetchLogin = (): IReturnData => {
      */
     const fetchLogin = async (payload: payload): Promise<any> => {
         setLoading(true)
+
+        setError(false)
 
         try {
             const { data }: data = await axios.post('user/login', payload)
@@ -47,13 +51,18 @@ export const useFetchLogin = (): IReturnData => {
             console.log(err)
 
             console.log(API_RESPONSES.LOGIN_ERROR)
+
+            setError(true)
         } finally {
             setLoading(false)
+
+            setTimeout(setError, 5000, false)
         }
     }
 
     return {
         isLoading,
         fetchLogin,
+        error,
     }
 }

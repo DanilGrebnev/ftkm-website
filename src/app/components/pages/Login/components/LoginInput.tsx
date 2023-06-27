@@ -1,15 +1,16 @@
-import { ILoginInput } from '@interfaces/Login'
 import { TextField } from '@mui/material'
+import { forwardRef } from 'react'
 
 import s from '../style.module.scss'
 
-export const LoginInput: React.FC<ILoginInput> = ({ setValue }) => {
+export const LoginInput = forwardRef((_, ref) => {
     return (
         <TextField
-            onChange={(e: any) => setValue(e.target.value)}
+            inputRef={ref}
+            // onChange={(e: any) => setValue(e.target.value)}
             className={s.TextField}
             label="Логин"
             variant="outlined"
         />
     )
-}
+})

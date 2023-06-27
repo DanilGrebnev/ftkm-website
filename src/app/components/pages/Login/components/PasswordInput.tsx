@@ -1,17 +1,16 @@
-import { ILoginInput } from '@interfaces/Login'
 import { TextField } from '@mui/material'
+import { forwardRef } from 'react'
 
 import s from '../style.module.scss'
 
-export const PasswordInput: React.FC<ILoginInput> = ({ setValue }) => {
+export const PasswordInput = forwardRef((_, ref) => {
     return (
         <TextField
-            onChange={(e: any) => setValue(e.target.value)}
+            inputRef={ref}
             className={s.TextField}
             id="outlined-password-input"
             label="Пароль"
             type="password"
-            autoComplete="current-password"
         />
     )
-}
+})
