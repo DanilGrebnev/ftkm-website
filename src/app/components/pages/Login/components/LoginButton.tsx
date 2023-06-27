@@ -17,9 +17,6 @@ export const SubmitBtn: React.FC<ILoginButton> = ({ loginRef, passRef }) => {
     return (
         <>
             <LoadingButton
-                sx={{
-                    fontWeight: '500',
-                }}
                 onClick={() =>
                     fetchLogin({
                         login: loginRef?.current?.value as string,
@@ -36,7 +33,7 @@ export const SubmitBtn: React.FC<ILoginButton> = ({ loginRef, passRef }) => {
                         siverity="error"
                         isOpen={error}
                     />,
-                    document.getElementById('modal_block') as HTMLDivElement
+                    modal
                 )}
         </>
     )
