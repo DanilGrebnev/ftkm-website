@@ -5,7 +5,10 @@ import { EmployeeItem } from './EmployeeItem'
 import s from './s.module.scss'
 
 export const Employees = () => (
-    <Container maxWidth="lg">
+    <Container
+        component="section"
+        maxWidth="lg"
+    >
         <section className={s.employees}>
             {employeesData.map((props, i) => (
                 <EmployeeItem

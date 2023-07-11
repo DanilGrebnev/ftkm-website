@@ -9,7 +9,9 @@ import { History } from './History'
 import s from './s.module.scss'
 
 export const MoreInfo = () => {
-    useSetDocumentTitle('МиТЛП | Больше информации')
+    const title = 'МиТЛП | Больше информации'
+
+    useSetDocumentTitle({ title })
 
     return (
         <React.Fragment>

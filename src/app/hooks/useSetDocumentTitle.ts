@@ -1,10 +1,14 @@
 import React from 'react'
 
+interface IDocumentTitle {
+    title: string
+    // description?: string
+}
 /**
- * Хук устанавливает заголовок страницы
- * при её рендере
+ * Хук устанавливает заголовок
+ * страницы при рендере
  */
-export const useSetDocumentTitle = (title: string) => {
+export const useSetDocumentTitle = ({ title }: IDocumentTitle) => {
     React.useEffect(() => {
         document.title = title
     }, [])

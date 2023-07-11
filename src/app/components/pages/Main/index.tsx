@@ -6,7 +6,6 @@ import {
     CareerOpportunities,
     DepartmentSpecialists,
     DescriptionProfession,
-    EquipmentGallery,
     Footer,
     Hero,
     NewsBlock,
@@ -20,9 +19,12 @@ import {
 import style from './style.module.scss'
 
 export const Main = () => {
-    useSetDocumentTitle(
+    const title =
         'Кафедра «Машины и технология литейного производства» | ВолгГТУ'
-    )
+
+    useSetDocumentTitle({
+        title,
+    })
 
     return (
         <section className={`Main-page ${style.Main || ''}`}>
@@ -34,7 +36,6 @@ export const Main = () => {
             <CareerOpportunities />
             <Admission />
             <SwiperEquipment />
-            {/* <EquipmentGallery /> */}
             <Partners />
             <DepartmentSpecialists />
             <ScientificDirection />

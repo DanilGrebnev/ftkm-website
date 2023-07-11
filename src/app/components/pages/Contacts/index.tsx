@@ -17,7 +17,9 @@ const YandexMap = withSuspense(
 )
 
 const Contacts = () => {
-    useSetDocumentTitle('МиТЛП | Контакты')
+    const title = 'МиТЛП | Контакты'
+
+    useSetDocumentTitle({ title })
 
     return (
         <section

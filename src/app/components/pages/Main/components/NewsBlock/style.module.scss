@@ -16,12 +16,6 @@
     justify-content: center;
 }
 
-// @media screen and (max-width: 720px) {
-//     .newsBlock {
-//         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-//     }
-// }
-
 @media screen and (max-width: 499px) {
     .newsBlock {
         display: none;

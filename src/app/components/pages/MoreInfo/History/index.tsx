@@ -2,7 +2,7 @@ import s from './s.module.scss'
 
 export const History = () => {
     return (
-        <div className={s.History}>
+        <section className={s.History}>
             <h2>История</h2>
             <div>
                 <p>
@@ -45,6 +45,6 @@ export const History = () => {
                     зарубежные образцы.
                 </p>
             </div>
-        </div>
+        </section>
     )
 }

@@ -1,30 +1,29 @@
+import cn from 'classnames'
 import React from 'react'
 
+import { IButton } from '../interface'
 import s from './s.module.scss'
 
-interface IButton<T = string> {
-    tab: number
-    text: T
-    currentTab: number
-    onClick: any
-    style?: React.CSSProperties
-}
-
+/**
+ * @text текст кнопки
+ * @buttonIndex индекс кнопки
+ * @currentTab текущий индекс открытого таба
+ */
 export const Button: React.FC<IButton> = ({
-    tab,
+    buttonIndex,
     text,
     currentTab,
     onClick,
     style,
 }) => {
-    const className = +tab === +currentTab ? s.active : ''
-
     return (
         <button
             style={style}
             onClick={onClick}
-            className={s.button + ' ' + className}
-            value={tab}
+            className={cn(s.button, {
+                [s.active]: +buttonIndex === +currentTab,
+            })}
+            value={buttonIndex}
         >
             {text}
         </button>

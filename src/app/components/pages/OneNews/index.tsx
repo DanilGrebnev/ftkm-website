@@ -1,15 +1,14 @@
-import { Backdrop } from '@UI/BackDrop'
 import { NewsCardSkeleton } from '@UI/NewsCardSekelton'
 import { useFetchNews } from '@hooks/useFetchNews'
 import { onErrorLoadImage } from '@lib/onErrorLoadImage'
 import { Container } from '@mui/material'
+import { FC } from 'react'
 import { useEffect } from 'react'
-import React from 'react'
 import { useParams } from 'react-router-dom'
 
 import s from './style.module.scss'
 
-const OneNews: React.FC = () => {
+const OneNews: FC = () => {
     const { _id } = useParams()
 
     const { error, loading, news, fetchNews } = useFetchNews()
@@ -43,7 +42,6 @@ const OneNews: React.FC = () => {
             maxWidth="xl"
             id="One-News-block"
         >
-            {/* {loading ? <Backdrop open={true} /> : element} */}
             {loading ? <NewsCardSkeleton /> : element}
         </Container>
     )
