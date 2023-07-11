@@ -10,7 +10,8 @@ export const globalVariables = {
     get URL_DEVELOPMENT() {
         return `http://localhost:${this.API_PORT}/`
     },
-    
+
+    //URL обращения к API
     get URL() {
         return this.URL_PRODUCTION
     },

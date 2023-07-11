@@ -1,12 +1,12 @@
 import vstu from '@images/VSTU.png'
-import React from 'react'
+import { FC } from 'react'
 
 interface IVSTUIcon {
     style?: React.CSSProperties
     className?: string | undefined
 }
 
-export const VSTUIcon: React.FC<IVSTUIcon> = ({ style, className }) => {
+export const VSTUIcon: FC<IVSTUIcon> = ({ style, className }) => {
     return (
         <a
             className={className}

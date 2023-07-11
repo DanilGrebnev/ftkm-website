@@ -8,33 +8,34 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Запуск приложения в режиме разработки. \
+Откройте [http://localhost:8090](http://localhost:8090) чтобы увидеть приложение в браузере.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Создает приложение для продакшина в папке `build`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Сборка минимизирована, а имена файлов включают хэши.\
+Ваше приложение готово к развертыванию!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+СМотреть секцию [deployment](https://facebook.github.io/create-react-app/docs/deployment) для большей информации.
 
-### `npm run eject`
+## Структура файлов приложения
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+`src` - корневая папка приложения
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`app` - папка с основными файлами приложения
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+`assets` - содержит иконки, изображения и видео
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+`pages` - папка страниц приложения
+
+## Настройка приложения
+
+### `Настройка порта запуска приложения`
+
+В файле `package.json` в разделе `"scripts"` измените значение `PORT=8090` на нужный порт, тогда при запуске `npm start` приложение запустится на указанном порту.
+
+### `Настройка параметров обращения к API`
+
+В файле `src/globalVariables.ts` хранятся настройки `URL` обращения к `API`, а так же лимит получаемых за раз новостей. Чтобы изменить адрес для обращения к `API`, измените строку в параметре `URL_PRODUCTION`. Чтобы изменить количество получаемых за раз новостей, измените параметр `limit`.

@@ -1,20 +1,21 @@
-import { Container } from '@mui/material'
+import cn from 'classnames'
+import { FC } from 'react'
 
 import { LineContainerProps } from '../../../interface/LineContainer'
 import s from './style.module.scss'
 
-export const LineContainer = (props: LineContainerProps): JSX.Element => {
-    const style = {
-        ...props.style,
-    }
-
+export const LineContainer: FC<LineContainerProps> = ({
+    style,
+    className,
+    children,
+}): JSX.Element => {
     return (
         <section
-            className={props.className + ' ' + s.LineContainer}
+            className={cn(className, s.LineContainer)}
             style={style}
         >
             <span className={s.lineTop}></span>
-            {<>{props.children}</>}
+            {children}
             <span className={s.lineBot}></span>
         </section>
     )
